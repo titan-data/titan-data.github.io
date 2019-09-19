@@ -1,17 +1,11 @@
 - text: Github
-  url: https://github.com/envoyproxy/envoy
-
-- text: Docs
-  url: /docs
-
-- text: Blog
-  url: https://blog.envoyproxy.io
+  url: https://github.com/titan-data/titan
 
 - text: Learn
   url: /learn
 
-- text: Try
-  url: /try
+- text: Docs
+  url: /docs
 
 - text: Community
   url: /community
