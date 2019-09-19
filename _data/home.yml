@@ -3,30 +3,28 @@ hero:
     headline: Your code. Your environment. Your data.
 
 why-titan:
-  - "As on the ground microservice practitioners quickly realize, the majority of operational problems that arise when
-  moving to a distributed architecture are ultimately grounded in two areas: networking and observability. It is simply
-  an orders of magnitude larger problem to network and debug a set of intertwined distributed services versus a single
-  monolithic application."
+  - "The rise of git, docker, and DevOps has created a new world where developers can easily build, test, and deploy
+  right from their laptop. Despite these advances, developers still struggle to manage structured data with the same
+  speed and simplicity. Techniques like SQL scripts, database dumps, and plain text exports still leave a lot of work
+  for developers."
 
-  - "Originally built at <strong>Lyft</strong>, Envoy is a high performance C++ distributed proxy designed for single
-  services and applications, as well as a communication bus and “universal data plane” designed for large microservice
-  “service mesh” architectures. Built on the learnings of solutions such as NGINX, HAProxy, hardware load balancers,
-  and cloud load balancers, Envoy runs alongside every application and abstracts the network by providing common
-  features in a platform-agnostic manner. When all service traffic in an infrastructure flows via an Envoy mesh, it
-  becomes easy to visualize problem areas via consistent observability, tune overall performance, and add substrate features in a single place."
+  - "Titan is an open source project for developers to manage their data like code. Titan makes it easy to run your
+  favorite database in a docker container on your laptop, but with the power of versioning the underlying data.
+  Titan's git-like CLI enables developers to clone, commit, checkout, push, and pull data just like code, making
+  it easy to rollback to previous state, build a test data library, or share structured dataset with collaborators."
 
 features:
   - name: Data versioning
-    description: Version your data like code, bookmarking
+    description: Version your data like code, commiting and checking the data your need to get your work done.
 
   - name: Any data
-    description: Titan works with off-the-shelf docker containers, including your favorite SQL and NoSQL data store.
+    description: Titan works with off-the-shelf docker containers, including your favorite SQL and NoSQL data stores.
 
   - name: Developer CLI
-    description: Use a command line tool with familiar syntax for git (clone, commit, checkout) and docker (run, stop, start)
+    description: Use a command line tool with familiar syntax from git and docker.
 
   - name: Easy sharing
-    description: Envoy provides robust APIs for dynamically managing its configuration.
+    description: Push data to shared repositories like S3 so others can clone and pull the same dataset.
 
   - name: Local development
-    description: Titan works with docker on your laptop, fitting in
+    description: Titan works with docker on your laptop, fitting right into your current development workflow.
