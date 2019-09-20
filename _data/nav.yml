@@ -1,8 +1,8 @@
 - text: Github
   url: https://github.com/titan-data/titan
 
-- text: Learn
-  url: /learn
+- text: Getting Started
+  url: /getting-started
 
 - text: Download
   url: /download
