@@ -1,0 +1,24 @@
+---
+layout: page
+title: Documentation
+---
+
+<div class="action-btns">
+    <a href="version/latest" class="btn btn-primary">Latest</a>
+</div>
+
+<h2>Development Documentation</h2>
+<p>
+The technical documentation is updated as future versions of the product are
+being developed. You can find this in-progress documentation
+<a href="version/developer">here</a>, but be warned that it may not reflect
+the current features and capabilities of the latest release.
+</p>
+
+<h2>All Versions</h2>
+
+<ul>
+  {% for version in site.data.docs.versions %}
+    <li><a href="version/{{version}}">{{version}}</a></li>
+  {% endfor %}
+</ul>
