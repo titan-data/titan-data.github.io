@@ -18,5 +18,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - docs/
   - vendor
