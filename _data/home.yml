@@ -11,7 +11,8 @@ why-titan:
   - "Titan is an open source project for developers to manage their data like code. Titan makes it easy to run your
   favorite database in a docker container on your laptop, but with the power of versioning the underlying data.
   Titan's git-like CLI enables developers to clone, commit, checkout, push, and pull data just like code, making
-  it easy to rollback to previous state, build a test data library, or share structured dataset with collaborators."
+  it easy to rollback to a previous state, build a test data library, or share a structured dataset with
+  collaborators."
 
 features:
   - name: Data versioning
