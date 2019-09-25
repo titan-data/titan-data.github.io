@@ -1,6 +1,10 @@
-# About this Project
+# Titan Community Site
 
-Describe the project for users.
+This repository contains the content for the Titan community page at
+(http://titan-data.github.io). It is built on the GitHub Pages framework.
+
+For more information on how to run the site locally or contribute changes,
+see the [Development Guidelines](DEVELOPING.md).
 
 ## Contributing
 

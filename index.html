@@ -1,0 +1,67 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
+<div id="home">
+
+  <section id="hero" class="home-section bg-purple text-center">
+
+    <div class="container">
+      {% for hero in site.data.home.hero %}
+      <div class="hero-information">
+        <h1><img src="{{ hero.image }}" alt="Titan"></h1>
+        <p class="headline text-white text-uppercase font-xl font-light">
+          {{ hero.headline }}
+        </p>
+      </div>
+      {% endfor %}
+      <div class="action-btns text-center">
+        <a href="/getting-started" class="btn btn-primary">Get Started</a>
+        <a href="/download" class="btn btn-secondary">Download</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="why-titan" class="home-section bg-white">
+    <div class="container">
+      <h1 class="heading-big text-uppercase text-purple text-center">Why Titan?</h1>
+      <div class="row">
+        <div class="col-sm-12">
+          {% for reason in site.data.home.why-titan %}
+            <p class="font-big font-light no-margin-top">{{ reason }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="home-section bg-white">
+    <div class="container">
+      <h1 class="heading-big text-uppercase text-purple text-center">Features</h1>
+      <div class="row">
+        {% for feature in site.data.home.features %}
+          <div class="col-sm-6">
+            <div class="feature">
+              <strong class="heading-small text-uppercase text-purple">{{ feature.name }}</strong>
+              <p class="text-dark-gray">{{ feature.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="ready-to-roll" class="home-section padding-bottom-120 bg-white">
+    <div class="container">
+      <h1 class="heading-big text-uppercase text-purple text-center">Ready to manage data like code?</h1>
+      <div class="action-btns text-center">
+        <a href="/getting-started" class="btn btn-primary">Get Started</a>
+        <a href="/download" class="btn btn-secondary">Download</a>
+      </div>
+    </div>
+  </section>
+
+</div>

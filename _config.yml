@@ -1,2 +1,21 @@
+title: Titan
+
+description: >
+  Titan is an open source project for developers to manage their data like code.
+baseurl: ""
+url: "https://titan-data.io"
+
+sass:
+  style: compressed
+
 markdown: kramdown
-theme: minima
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

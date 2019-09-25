@@ -1,0 +1,3 @@
+macos: https://github.com/titan-data/titan/releases/download/0.3.0/titan-cli-0.3.0-darwin_amd64.zip
+windows: https://github.com/titan-data/titan/releases
+linux: https://github.com/titan-data/titan/releases/download/0.3.0/titan-cli-0.3.0-linux_amd64.zip

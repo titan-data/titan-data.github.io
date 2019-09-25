@@ -1,0 +1,31 @@
+hero:
+  - image: /img/titan-logo.svg
+    headline: Your code. Your environment. Your data.
+
+why-titan:
+  - "The rise of git, docker, and DevOps has created a new world where developers can easily build, test, and deploy
+  right from their laptop. Despite these advances, developers still struggle to manage structured data with the same
+  speed and simplicity. Techniques like SQL scripts, database dumps, and plain text exports still leave a lot of work
+  for developers."
+
+  - "Titan is an open source project for developers to manage their data like code. Titan makes it easy to run your
+  favorite database in a docker container on your laptop, but with the power of versioning the underlying data.
+  Titan's git-like CLI enables developers to clone, commit, checkout, push, and pull data just like code, making
+  it easy to rollback to a previous state, build a test data library, or share a structured dataset with
+  collaborators."
+
+features:
+  - name: Data versioning
+    description: Version your data like code, commiting and checking the data your need to get your work done.
+
+  - name: Any data
+    description: Titan works with off-the-shelf docker containers, including your favorite SQL and NoSQL data stores.
+
+  - name: Developer CLI
+    description: Use a command line tool with familiar syntax from git and docker.
+
+  - name: Easy sharing
+    description: Push data to shared repositories like S3 so others can clone and pull the same dataset.
+
+  - name: Local development
+    description: Titan works with docker on your laptop, fitting right into your current development workflow.

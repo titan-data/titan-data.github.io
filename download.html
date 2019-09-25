@@ -1,0 +1,64 @@
+---
+layout: default
+title: Download
+---
+
+<div id="home">
+
+  <section id="hero" class="home-section bg-purple text-center">
+    <div class="container">
+      <p class="headline text-white text-uppercase font-xl font-light">
+        Download Titan
+      </p>
+      <div class="action-btns text-center">
+        <a href="{{ site.data.download.macos }}" class="btn btn-primary">
+           <i class="fab fa-apple fa-lg"></i>
+           Mac OS
+        </a>
+        <a href="{{ site.data.download.windows }}" class="btn btn-secondary">
+            <i class="fab fa-windows fa-lg"></i>
+            Windows
+        </a>
+        <a href="{{ site.data.download.linux }}" class="btn btn-primary">
+            <i class="fab fa-linux fa-lg"></i>
+            Linux
+        </a>
+      </div>
+      <p class="text-white">
+          See <a href="https://github.com/titan-data/titan/releases">GitHub</a> for older releases
+      </p>
+    </div>
+  </section>
+
+  <section id="install" class="home-section padding-bottom-120 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="font-big font-light no-margin-top">
+               Before using titan, you will need to have
+               <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> installed,
+               with the ability to run Linux containers. If you are using a Linux System,
+               consult the <a href="/docs">Documentation</a> to determine if your distribution
+               is supported.
+          </p>
+          <p class="font-big font-light no-margin-top">
+              Once you have downloaded and extracted the distribution, simply run
+              <code>titan install</code>. This will download the titan docker container
+              that will then run in the background. That's all you need to get started
+              with titan!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ready-to-roll" class="home-section padding-bottom-120 bg-white">
+    <div class="container">
+      <h1 class="heading-big text-uppercase text-purple text-center">Want to learn More?</h1>
+      <div class="action-btns text-center">
+        <a href="/getting-started" class="btn btn-primary">Geting Started</a>
+        <a href="/docs" class="btn btn-secondary">Documentation</a>
+      </div>
+    </div>
+  </section>
+</div>
