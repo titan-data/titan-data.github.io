@@ -6,7 +6,7 @@ permalink: /
 
 <div id="home">
 
-  <section id="hero" class="home-section bg-purple text-center">
+  <section id="hero" class="home-section bg-highlight text-center">
 
     <div class="container">
       {% for hero in site.data.home.hero %}
@@ -27,7 +27,7 @@ permalink: /
 
   <section id="why-titan" class="home-section bg-white">
     <div class="container">
-      <h1 class="heading-big text-uppercase text-purple text-center">Why Titan?</h1>
+      <h1 class="heading-big text-uppercase text-highlight text-center">Why Titan?</h1>
       <div class="row">
         <div class="col-sm-12">
           {% for reason in site.data.home.why-titan %}
@@ -40,12 +40,12 @@ permalink: /
 
   <section id="features" class="home-section bg-white">
     <div class="container">
-      <h1 class="heading-big text-uppercase text-purple text-center">Features</h1>
+      <h1 class="heading-big text-uppercase text-highlight text-center">Features</h1>
       <div class="row">
         {% for feature in site.data.home.features %}
           <div class="col-sm-6">
             <div class="feature">
-              <strong class="heading-small text-uppercase text-purple">{{ feature.name }}</strong>
+              <strong class="heading-small text-uppercase text-highlight">{{ feature.name }}</strong>
               <p class="text-dark-gray">{{ feature.description }}</p>
             </div>
           </div>
@@ -56,7 +56,7 @@ permalink: /
 
   <section id="ready-to-roll" class="home-section padding-bottom-120 bg-white">
     <div class="container">
-      <h1 class="heading-big text-uppercase text-purple text-center">Ready to manage data like code?</h1>
+      <h1 class="heading-big text-uppercase text-highlight text-center">Ready to manage data like code?</h1>
       <div class="action-btns text-center">
         <a href="/getting-started" class="btn btn-primary">Get Started</a>
         <a href="/download" class="btn btn-secondary">Download</a>
