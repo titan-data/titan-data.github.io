@@ -1,13 +1,14 @@
-<header class="header bg-purple container-fluid">
+<header class="header bg-highlight container-fluid">
     <div class="row">
-      <div class="col-sm-3 logo">
+      <div class="col-sm-2 logo">
         {% if page.title != 'Home' %}
           <a href="/">
-            <img src="/img/titan-logo.svg" alt="Titan">
+            <img src="/img/titan-logo-small.svg" alt="Titan">
           </a>
+          <span class="text-white">Titan</span>
         {% endif %}
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         {% include nav.html %}
       </div>
     </div>

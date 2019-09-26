@@ -4,20 +4,24 @@ title: Documentation
 ---
 
 <div class="action-btns">
-    <a href="version/latest" class="btn btn-primary">Latest</a>
+    <a href="version/latest" class="btn btn-primary">Release</a>
+    <a href="version/development" class="btn btn-secondary">Development</a>
 </div>
 
-<h2>Development Documentation</h2>
+<h2>Documentation</h2>
+
 <p>
-The technical documentation is updated as future versions of the product are
-being developed. You can find this in-progress documentation
-<a href="version/development">here</a>, but be warned that it may not reflect
-the current features and capabilities of the latest release.
+The technical documentation provides detailed information about Titan, and is
+versioned alongside the tool. The <a href="version/latest">Release
+Documentation</a> above corresponds to the latest stable Titan release. You can
+also consult the in-progress <a href="version/development">Development
+Documentation</a>, but be warned that it may not reflect the current features
+and capabilities of the latest release.
 </p>
 
 <h2>All Versions</h2>
 
-<ul>
+<ul class="versions-list">
   {% for version in site.data.docs.versions %}
     <li><a href="version/{{version}}">{{version}}</a></li>
   {% endfor %}
