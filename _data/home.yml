@@ -1,5 +1,6 @@
 hero:
   - image: /img/titan-logo.svg
+    title: Titan
     headline: Your code. Your environment. Your data.
 
 why-titan:

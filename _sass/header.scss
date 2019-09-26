@@ -5,8 +5,13 @@ header.header {
     margin-top: 10px;
     text-align: center;
 
+    span {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
     img {
-      max-width: 100%;
+      max-width: 35px;
       max-height: 35px;
     }
   }
