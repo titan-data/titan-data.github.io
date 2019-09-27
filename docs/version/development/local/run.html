@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managing Local Storage &mdash; titan  documentation</title>
+  <title>Creating a new Repository &mdash; titan  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Remote Repositories" href="../remote/remote.html" />
-    <link rel="prev" title="Migrating Existing Containers" href="migrate.html" /> 
+    <link rel="next" title="Managing Docker Containers" href="docker.html" />
+    <link rel="prev" title="Local Repositories" href="local.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,12 +89,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="local.html">Local Repositories</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="run.html">Creating a new Repository</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating a new Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commit.html">Committing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copy.html">Copying Existing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate.html">Migrating Existing Containers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Local Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Managing Local Storage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
@@ -146,7 +146,7 @@
         
           <li><a href="local.html">Local Repositories</a> &raquo;</li>
         
-      <li>Managing Local Storage</li>
+      <li>Creating a new Repository</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -163,9 +163,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-local-storage">
-<span id="local-storage"></span><h1>Managing Local Storage<a class="headerlink" href="#managing-local-storage" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+  <div class="section" id="creating-a-new-repository">
+<span id="local-run"></span><h1>Creating a new Repository<a class="headerlink" href="#creating-a-new-repository" title="Permalink to this headline">¶</a></h1>
+<p>A titan repository combines a docker container and its configuration with data
+that backs the volumes within that container. So every repository should
+have a running docker container associated with it. For more information on
+how the docker configuration is used, see the <a class="reference internal" href="docker.html#local-docker"><span class="std std-ref">Managing Docker Containers</span></a> section.</p>
+<p>To run a repository, you simply take the arguments you’d normally supply to
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> and pass that to <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">run</span></code> instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan run -- --name mymongo -d mongo:latest
+Creating repository mongo
+Creating docker volume mongo/v0 with path /data/configdb
+Creating docker volume mongo/v1 with path /data/db
+Running controlled container mongo
+$ docker ps | grep mongo
+755f23d7bbc9        mongo               &quot;docker-entrypoint.s…&quot;   6 seconds ago       Up 5 seconds        27017/tcp                mongo
+$ docker exec -it mymongo mongo --quiet
+&gt; db.names.insert({ firstName: &quot;Dorothy&quot;, lastName: &quot;Vaughan&quot; })
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.names.find()
+{ &quot;_id&quot; : ObjectId(&quot;5d8d011a81973f4255f6bf25&quot;), &quot;firstName&quot; : &quot;Dorothy&quot;, &quot;lastName&quot; : &quot;Vaughan&quot; }
+</pre></div>
+</div>
+<p>There are a couple things to note here:</p>
+<ul class="simple">
+<li><p>Titan requires a <code class="docutils literal notranslate"><span class="pre">--name</span></code> parameter, which it uses to name the repo by
+the same value. It doesn’t currently support auto-generating names.</p></li>
+<li><p>Titan requires a <code class="docutils literal notranslate"><span class="pre">-d</span></code> parameter to run in the background as a daemon.
+We don’t currently see a workflow that would benefit from running
+titan-backed containers in the foreground, but if you have such a need
+please join the community to share your use case and help develop a
+solution.</p></li>
+<li><p>Titan will use any docker image published to a register. In this case,
+we pull down and run <code class="docutils literal notranslate"><span class="pre">mongo:latest</span></code>. The only requirement is that the
+containers must have one or more <code class="docutils literal notranslate"><span class="pre">VOLUME</span></code> declarations that indicate
+where persistent data is stored.</p></li>
+<li><p>In this example, we did not map any ports because we’re using the
+MongoDB shell from within the container. Chances are in normal operation
+you’d want to use something like <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">27017:27017</span></code> to map the mongo
+port to the expected port on your laptop.</p></li>
+</ul>
 </div>
 
 
@@ -176,10 +213,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../remote/remote.html" class="btn btn-neutral float-right" title="Remote Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="Managing Docker Containers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="migrate.html" class="btn btn-neutral float-left" title="Migrating Existing Containers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="local.html" class="btn btn-neutral float-left" title="Local Repositories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
