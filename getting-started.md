@@ -43,7 +43,7 @@ or `.aws` config files).
 
 Issues may arise if you have MFA configured for your AWS credentials, or if 
 you have `session_token` set for your profile in the `~/.aws/credentials` 
-file, a workaround is to use non-MFA credentials set. 
+file, a workaround is to use a non-MFA credential set. 
 
 We can launch a postgres database simply by cloning this demo repository:
 
