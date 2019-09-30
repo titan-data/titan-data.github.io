@@ -39,8 +39,13 @@ If you have any AWS credentials, you can access public titan demos hosted on
 S3 buckets. If you don't have AWS credentials, skip down to the
 [creating a new repository](#creating-a-new-repository) section. AWS
 credentials are configured through the standard means (environment variables
-or `.aws` config files). We can launch a postgres database simply by cloning
-this demo repository:
+or `.aws` config files).
+
+Issues may arise if you have MFA configured for your AWS credentials, or if 
+you have `session_token` set for your profile in the `~/.aws/credentials` 
+file, a workaround is to use a non-MFA credential set. 
+
+We can launch a postgres database simply by cloning this demo repository:
 
 ```
 $ titan clone s3://titan-data-demo/hello-world/postgres hello-world
