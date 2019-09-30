@@ -164,7 +164,23 @@
             
   <div class="section" id="uninstalling-titan">
 <span id="lifecycle-uninstall"></span><h1>Uninstalling Titan<a class="headerlink" href="#uninstalling-titan" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>The <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a> command will install supporting Titan infrastructure
+automatically, including installing ZFS on the host or Docker VM if necessary.
+The <a class="reference internal" href="../cli/cmd/uninstall.html#cli-cmd-uninstall"><span class="std std-ref">titan uninstall</span></a> command will uninstall titan, destroying any
+repositories in the process.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Uninstalling titan will remove all repositories. This operation cannot be
+undone.</p>
+</div>
+<p>If Titan was responsible for installing ZFS on the host VM, it will also
+uninstall ZFS. If ZFS was already present on the system when Titan was
+installed, then it will leave the ZFS installation as-is.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process only uninstalls the supporting infrastructure. You will have to
+manually remove the <code class="docutils literal notranslate"><span class="pre">titan</span></code> binary yourself.</p>
+</div>
 </div>
 
 

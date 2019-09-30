@@ -90,11 +90,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="local.html">Local Repositories</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="run.html">Creating a new Repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commit.html">Committing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copy.html">Copying Existing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate.html">Migrating Existing Containers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Local Storage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Local Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#managing-storage-usage">Managing Storage Usage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
@@ -165,7 +168,35 @@
             
   <div class="section" id="managing-local-storage">
 <span id="local-storage"></span><h1>Managing Local Storage<a class="headerlink" href="#managing-local-storage" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>All of the local titan storage, including the data stored on repositories,
+is kept in a single docker volume <code class="docutils literal notranslate"><span class="pre">titan-data</span></code>. This volume will persist
+even across restarts of the titan infrastructure, upgrades of docker, and
+other changes on the host.</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">titan-data</span></code> volume is created as a vanilla docker volume,
+which uses storage locally on the host system. If you want to use different
+storage for your titan work, you can manually create the <code class="docutils literal notranslate"><span class="pre">titan-data</span></code>
+volume yourself prior to running <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not manually change the contents of the <code class="docutils literal notranslate"><span class="pre">titan-data</span></code> volume, and do
+not change the volume on a running system; use <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">uninstall</span></code> first.
+Changing the contents of this volume can have unpredictable effects on
+Titan.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you do create your own <code class="docutils literal notranslate"><span class="pre">titan-data</span></code> volume, be aware that it will
+automatically destroyed when <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">uninstall</span></code> is run. There is not
+currently a way to uninstall titan while preserving the underlying
+volume.</p>
+</div>
+<div class="section" id="managing-storage-usage">
+<h2>Managing Storage Usage<a class="headerlink" href="#managing-storage-usage" title="Permalink to this headline">¶</a></h2>
+<p>Titan does not currently support showing the space used by repositories
+or by individual commits. And while removing repositories is supported,
+deleting commits is not. These capabilities will be added in a future
+release.</p>
+</div>
 </div>
 
 

@@ -90,9 +90,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="local.html">Local Repositories</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="run.html">Creating a new Repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commit.html">Committing Changes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Copying Existing Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Copying Existing Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#determining-database-files">Determining Database Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-data-into-a-repository">Copying Data Into a Repository</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="migrate.html">Migrating Existing Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Managing Local Storage</a></li>
 </ul>
@@ -165,7 +169,65 @@
             
   <div class="section" id="copying-existing-data">
 <span id="local-copy"></span><h1>Copying Existing Data<a class="headerlink" href="#copying-existing-data" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Titan provides lots of freedom for how you might populate data into a new
+repository. You might run some scripts to generate data, load data from
+a database dump, or replicate data into the container. Titan does not try to
+encode these database-specific mechanisms into the tool, but does provide some
+platform-agnostic capabilities for loading data. In this section, we show
+how you can copy data files from an existing database installation, either from
+a server or on your laptop.</p>
+<div class="section" id="determining-database-files">
+<h2>Determining Database Files<a class="headerlink" href="#determining-database-files" title="Permalink to this headline">¶</a></h2>
+<p>Every database has some type of persistent data beneath it. For Titan, we
+rely on the docker image to tell us what data needs to be persisted. You can
+find out exactly what an image expects by running <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">&lt;image&gt;</span></code>
+and look for the <code class="docutils literal notranslate"><span class="pre">Volumes</span></code> section. For example,
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">postgres:11</span></code> shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Volumes&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;/var/lib/postgresql/data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Most databases have a single directory for persistent data, but some may have
+more than one. For example, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">mongo:latest</span></code> shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Volumes&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;/data/configdb&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;/data/db&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>This tells you what data is expected when running the container and (if there
+are multiple volumes)</p>
+</div>
+<div class="section" id="copying-data-into-a-repository">
+<h2>Copying Data Into a Repository<a class="headerlink" href="#copying-data-into-a-repository" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../cli/cmd/cp.html#cli-cmd-cp"><span class="std std-ref">titan cp</span></a> command is designed to copy this data into a running
+repository. To do this, first start a container running. Then, use the
+the <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">cp</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">cp</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">postgres</span><span class="o">/</span><span class="n">data</span> <span class="n">mypostgres</span>
+</pre></div>
+</div>
+<p>This will take data located on your latop and copy into that repository.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command will stop and re-start any repository, which will interrupt
+any active connections.</p>
+</div>
+<p>:: warning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">source</span> <span class="n">data</span> <span class="n">must</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">changing</span> <span class="n">at</span> <span class="n">the</span> <span class="n">time</span> <span class="n">this</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">run</span><span class="p">,</span> <span class="ow">or</span>
+<span class="k">else</span> <span class="n">it</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">transactionally</span> <span class="n">consistent</span> <span class="n">snapshot</span><span class="o">.</span> <span class="n">Be</span> <span class="n">sure</span>
+<span class="n">to</span> <span class="n">quiesce</span> <span class="ow">or</span> <span class="n">shut</span> <span class="n">down</span> <span class="nb">any</span> <span class="n">database</span> <span class="n">that</span> <span class="n">may</span> <span class="n">be</span> <span class="n">writing</span> <span class="n">to</span> <span class="n">the</span> <span class="n">source</span>
+<span class="n">data</span> <span class="n">files</span> <span class="n">prior</span> <span class="n">to</span> <span class="n">running</span> <span class="n">the</span> <span class="n">command</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your repository has multiple persistent volumes, you will need to use
+the <code class="docutils literal notranslate"><span class="pre">-d</span></code> destination parameter to specify where the data should go,
+such as <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">cp</span> <span class="pre">-s</span> <span class="pre">/path/to/mongo/db</span> <span class="pre">-d</span> <span class="pre">/data/db</span> <span class="pre">mymongo</span></code>. You may
+need to run multiple such commands if you need to migrate</p>
+</div>
+</div>
 </div>
 
 

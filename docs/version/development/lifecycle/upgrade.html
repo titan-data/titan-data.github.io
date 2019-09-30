@@ -90,7 +90,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="supported.html">Supported Operating Systems</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrading Titan</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrading Titan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-upgrade">Manual Upgrade</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
 </ul>
@@ -164,7 +167,36 @@
             
   <div class="section" id="upgrading-titan">
 <span id="lifecycle-upgrade"></span><h1>Upgrading Titan<a class="headerlink" href="#upgrading-titan" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Titan can be automatically upgraded with the <a class="reference internal" href="../cli/cmd/upgrade.html#cli-cmd-upgrade"><span class="std std-ref">titan upgrade</span></a> command.
+This command works by:</p>
+<ol class="arabic simple">
+<li><p>Downloading a newest version of the titan binary</p></li>
+<li><p>Finding the location of the <code class="docutils literal notranslate"><span class="pre">titan</span></code> binary in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p></li>
+<li><p>Copying over the new titan binary</p></li>
+<li><p>Running post-installation phase of the new binary, which may stop
+all repositories and upgrade the titan docker container in the process.</p></li>
+</ol>
+<p>This will require access to download binaries from GitHub.
+If any parts of this fail, it should leave the original titan installation
+intact.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of version <code class="docutils literal notranslate"><span class="pre">0.3.1</span></code>, upgrade is not currently working. This will be
+addressed in a future release.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your titan binary is not found in the PATH, you can specify the
+<code class="docutils literal notranslate"><span class="pre">--path</span></code> option to point to where titan can be found.</p>
+</div>
+<div class="section" id="manual-upgrade">
+<h2>Manual Upgrade<a class="headerlink" href="#manual-upgrade" title="Permalink to this headline">¶</a></h2>
+<p>Titan does not currently support upgrading to a titan binary that has been
+manually downloaded, such as when corporate firewalls prevent titan from
+automatically downloading from GitHub. Until this is supported, you will have
+to uninstall and re-install titan, destroying any active repositories in the
+process.</p>
+</div>
 </div>
 
 

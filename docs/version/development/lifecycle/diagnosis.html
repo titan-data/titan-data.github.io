@@ -91,7 +91,13 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="supported.html">Supported Operating Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Diagnosing Issues</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Diagnosing Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-logs">Docker Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-state">Docker State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-issues">Installation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-client-errors">Local Client Errors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
 </ul>
 </li>
@@ -164,7 +170,61 @@
             
   <div class="section" id="diagnosing-issues">
 <span id="lifecycle-diagnosis"></span><h1>Diagnosing Issues<a class="headerlink" href="#diagnosing-issues" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Titan strives to present error messages in an easy-to-consume, readable
+fashion. But the reality is that we can’t anticipate everything, and as a
+relatively new community there are plenty of rough edges. If something
+goes wrong and the error message doesn’t help you, this section provides
+some additional tools for you to try and self-diagnose the issue prior to
+engaging with the <a class="reference external" href="https://titan-data.io/community">Community</a>.</p>
+<div class="section" id="docker-logs">
+<h2>Docker Logs<a class="headerlink" href="#docker-logs" title="Permalink to this headline">¶</a></h2>
+<p>The most important tool in the diagnosis tool belt is to look at the
+docker logs, specifically <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-server</span></code>. This will show the
+output of the server that is responding to requests from the CLI.
+Example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">27.223</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">ktor</span><span class="o">.</span><span class="n">application</span> <span class="o">-</span> <span class="mi">200</span> <span class="n">OK</span><span class="p">:</span> <span class="n">GET</span> <span class="o">-</span> <span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">/</span><span class="n">operations</span><span class="o">/</span><span class="mi">1</span><span class="n">dfadd4f</span><span class="o">-</span><span class="n">a376</span><span class="o">-</span><span class="mi">4</span><span class="n">ab7</span><span class="o">-</span><span class="mi">9</span><span class="n">f88</span><span class="o">-</span><span class="n">c7f4c1249634</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.530</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">DEBUG</span> <span class="n">io</span><span class="o">.</span><span class="n">titandata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">CommandExecutor</span> <span class="o">-</span> <span class="n">Success</span><span class="p">:</span> <span class="n">zfs</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="o">-</span><span class="n">Hpo</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">titan</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="n">active</span><span class="p">,</span> <span class="n">titan</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.535</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">DEBUG</span> <span class="n">io</span><span class="o">.</span><span class="n">titandata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">CommandExecutor</span> <span class="o">-</span> <span class="n">Success</span><span class="p">:</span> <span class="n">zfs</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="o">-</span><span class="n">Ho</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">titan</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="n">metadata</span><span class="p">,</span> <span class="n">titan</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">/</span><span class="mi">2</span><span class="n">db7b743</span><span class="o">-</span><span class="n">d643</span><span class="o">-</span><span class="mi">4861</span><span class="o">-</span><span class="mi">82</span><span class="n">db</span><span class="o">-</span><span class="mf">71682e2</span><span class="n">ada26</span><span class="o">/</span><span class="n">v0</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.537</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">ktor</span><span class="o">.</span><span class="n">application</span> <span class="o">-</span> <span class="mi">200</span> <span class="n">OK</span><span class="p">:</span> <span class="n">POST</span> <span class="o">-</span> <span class="o">/</span><span class="n">VolumeDriver</span><span class="o">.</span><span class="n">Get</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.548</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">i</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">zfs</span><span class="o">.</span><span class="n">ZfsStorageProvider</span> <span class="o">-</span> <span class="n">unmount</span> <span class="n">volume</span> <span class="n">v0</span> <span class="ow">in</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.561</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">DEBUG</span> <span class="n">io</span><span class="o">.</span><span class="n">titandata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">CommandExecutor</span> <span class="o">-</span> <span class="n">Success</span><span class="p">:</span> <span class="n">zfs</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="o">-</span><span class="n">Hpo</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">titan</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="n">active</span><span class="p">,</span> <span class="n">titan</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.640</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">DEBUG</span> <span class="n">io</span><span class="o">.</span><span class="n">titandata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">CommandExecutor</span> <span class="o">-</span> <span class="n">Success</span><span class="p">:</span> <span class="n">umount</span><span class="p">,</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">titan</span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">/</span><span class="n">v0</span>
+</pre></div>
+</div>
+<p>In particular, every REST call from the client is logged, along with
+every invocation of the zfs command. Understanding the semantics of the
+behavior is beyond the scope of this section, but an important thing to note
+is that any unexpected error should result in a stack trace that is quiet
+visible in the log. If you start at the end of the log and work your way
+backwards, if you find an exception that matches the behavior you’re seeing,
+then it may contain more information that helps diagnose the problem.</p>
+</div>
+<div class="section" id="docker-state">
+<h2>Docker State<a class="headerlink" href="#docker-state" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes the issue is not with titan, but with docker itself. For example,
+if you try to start a container that has a port mapping conflict with another
+container, it will fail to start. The CLI should display both the command
+and the output from docker, but if you’re still not sure what is going
+on, you can try to run the command yourself and tweak some of the options
+to see if you can get it to work.</p>
+</div>
+<div class="section" id="installation-issues">
+<h2>Installation Issues<a class="headerlink" href="#installation-issues" title="Permalink to this headline">¶</a></h2>
+<p>When you’re running <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a>, the server container may or may not
+be running successfully. In these cases, you can use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-launch</span></code>
+to see what may be going on within the process. The lines denoted <code class="docutils literal notranslate"><span class="pre">TITAN</span></code> are
+designed to be more user-readable, while the other error messages may be
+internal.</p>
+</div>
+<div class="section" id="local-client-errors">
+<h2>Local Client Errors<a class="headerlink" href="#local-client-errors" title="Permalink to this headline">¶</a></h2>
+<p>It’s possible that there are errors in the client that don’t manifest as calls
+to the container server. If this happens, and the problem is cannot be
+discerned from the error message, you’ll need to reach out to the community
+for help. Once we have a better understanding of the problems that can
+occur client-side, we will look into building local debugging facilities
+within the command.</p>
+</div>
 </div>
 
 
