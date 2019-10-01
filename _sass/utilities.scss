@@ -1,8 +1,8 @@
 .bg-white {
   background: $color-white;
 }
-.bg-purple {
-  background: $color-purple;
+.bg-highlight {
+  background: $color-primary;
 }
 .bg-gray {
   background: $color-light-gray;
@@ -24,8 +24,8 @@
   color: $color-dark-gray;
 }
 
-.text-purple {
-  color: $color-purple;
+.text-highlight {
+  color: $color-primary;
 }
 
 .text-center {

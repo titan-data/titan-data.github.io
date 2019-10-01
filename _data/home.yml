@@ -1,5 +1,6 @@
 hero:
   - image: /img/titan-logo.svg
+    title: Titan
     headline: Your code. Your environment. Your data.
 
 why-titan:
@@ -16,7 +17,7 @@ why-titan:
 
 features:
   - name: Data versioning
-    description: Version your data like code, commiting and checking the data your need to get your work done.
+    description: Version your data like code, committing and checking the data your need to get your work done.
 
   - name: Any data
     description: Titan works with off-the-shelf docker containers, including your favorite SQL and NoSQL data stores.

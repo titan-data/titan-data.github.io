@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managing Commits &mdash; titan  documentation</title>
+  <title>Committing Changes &mdash; titan  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Copying Existing Data" href="copy.html" />
-    <link rel="prev" title="Managing Docker Containers" href="docker.html" /> 
+    <link rel="prev" title="Managing Docker" href="docker.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,11 +86,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../start/start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="local.html">Local Repositories</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker Containers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Commits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Creating a new Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Managing Docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Committing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copy.html">Copying Existing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate.html">Migrating Existing Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Managing Local Storage</a></li>
@@ -145,14 +146,12 @@
         
           <li><a href="local.html">Local Repositories</a> &raquo;</li>
         
-      <li>Managing Commits</li>
+      <li>Committing Changes</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../sources/local/commit.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -164,9 +163,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-commits">
-<span id="local-commit"></span><h1>Managing Commits<a class="headerlink" href="#managing-commits" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+  <div class="section" id="committing-changes">
+<span id="local-commit"></span><h1>Committing Changes<a class="headerlink" href="#committing-changes" title="Permalink to this headline">¶</a></h1>
+<p>Once you have a repository running as outlined in the
+<a class="reference internal" href="run.html#local-run"><span class="std std-ref">Creating a new Repository</span></a> section, you can start to commit changes. Picking up where
+the previous example left off, we can create some data and then commit
+that state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker exec -it mymongo mongo --quiet
+&gt; db.names.insert({ firstName: &quot;Katherine&quot;, lastName: &quot;Goble&quot; })
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.names.insert({ firstName: &quot;Mary&quot;, lastName: &quot;Jackson&quot; })
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.names.find()
+{ &quot;_id&quot; : ObjectId(&quot;5d8d011a81973f4255f6bf25&quot;), &quot;firstName&quot; : &quot;Dorothy&quot;, &quot;lastName&quot; : &quot;Vaughan&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d035b4958f33cf90b4d83&quot;), &quot;firstName&quot; : &quot;Katherine&quot;, &quot;lastName&quot; : &quot;Goble&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d036e4958f33cf90b4d84&quot;), &quot;firstName&quot; : &quot;Mary&quot;, &quot;lastName&quot; : &quot;Jackson&quot; }
+&gt;
+$ titan commit -m &quot;hidden figures&quot; mymongo
+Commit 503d7863-14b7-4c39-b609-778fb976ba6a
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">commit</span></code> command took a snapshot of the on-disk state for the mongodb
+container <code class="docutils literal notranslate"><span class="pre">mymongo</span></code> and stored that in the repository. It should now be
+visible in the log:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan log mymongo
+commit 503d7863-14b7-4c39-b609-778fb976ba6a
+User: Anne Smith
+Email: anne.smith@gmail.com
+Date: 2019-09-26T18:34:48Z
+
+hidden figures
+</pre></div>
+</div>
+<p>From here, we can add additional state and create a second commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker exec -it mymongo mongo --quiet
+&gt; db.names.insert([{ firstName: &quot;Grace&quot;, lastName: &quot;Hopper&quot; }, { firstName: &quot;Ada&quot;, lastName: &quot;Lovelace&quot; }])
+BulkWriteResult({
+    &quot;writeErrors&quot; : [ ],
+    &quot;writeConcernErrors&quot; : [ ],
+    &quot;nInserted&quot; : 2,
+    &quot;nUpserted&quot; : 0,
+    &quot;nMatched&quot; : 0,
+    &quot;nModified&quot; : 0,
+    &quot;nRemoved&quot; : 0,
+    &quot;upserted&quot; : [ ]
+})
+&gt; db.names.find()
+{ &quot;_id&quot; : ObjectId(&quot;5d8d011a81973f4255f6bf25&quot;), &quot;firstName&quot; : &quot;Dorothy&quot;, &quot;lastName&quot; : &quot;Vaughan&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d035b4958f33cf90b4d83&quot;), &quot;firstName&quot; : &quot;Katherine&quot;, &quot;lastName&quot; : &quot;Goble&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d036e4958f33cf90b4d84&quot;), &quot;firstName&quot; : &quot;Mary&quot;, &quot;lastName&quot; : &quot;Jackson&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d05a643a059308e3dfae7&quot;), &quot;firstName&quot; : &quot;Grace&quot;, &quot;lastName&quot; : &quot;Hopper&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d05a643a059308e3dfae8&quot;), &quot;firstName&quot; : &quot;Ada&quot;, &quot;lastName&quot; : &quot;Lovelace&quot; }
+&gt;
+$ titan commit -m &quot;more great scientists&quot; mymongo
+Commit 15ce0a6e-f15e-47a4-a65a-305fcb9efa5c
+</pre></div>
+</div>
+<p>Once we have this committed state, we can easily go back to a previous state
+by running <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">checkout</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan checkout -c 503d7863-14b7-4c39-b609-778fb976ba6a mymongo
+Stopping container mymongo
+Checkout 503d7863-14b7-4c39-b609-778fb976ba6a
+Starting container mymongo
+503d7863-14b7-4c39-b609-778fb976ba6a checked out
+$ docker exec -it mymongo mongo --quiet
+&gt; db.names.find()
+{ &quot;_id&quot; : ObjectId(&quot;5d8d011a81973f4255f6bf25&quot;), &quot;firstName&quot; : &quot;Dorothy&quot;, &quot;lastName&quot; : &quot;Vaughan&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d035b4958f33cf90b4d83&quot;), &quot;firstName&quot; : &quot;Katherine&quot;, &quot;lastName&quot; : &quot;Goble&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5d8d036e4958f33cf90b4d84&quot;), &quot;firstName&quot; : &quot;Mary&quot;, &quot;lastName&quot; : &quot;Jackson&quot; }
+&gt;
+</pre></div>
+</div>
+<p>Here you can see that we stopped the container, swapped out the data, and
+started it again. And with that, we’re back to the original commit we created.</p>
+<p>For information on more additional local workflows, see the
+<a class="reference internal" href="local.html#local"><span class="std std-ref">Local Repositories</span></a> section.</p>
 </div>
 
 
@@ -180,7 +251,7 @@
         <a href="copy.html" class="btn btn-neutral float-right" title="Copying Existing Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="docker.html" class="btn btn-neutral float-left" title="Managing Docker Containers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-left" title="Managing Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

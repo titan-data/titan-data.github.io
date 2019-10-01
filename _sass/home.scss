@@ -6,7 +6,13 @@
     padding: 30px 0 25px;
 
     img {
-      max-width: 25%;
+      max-width: 150px;
+      padding-right: 20px;
+    }
+
+    h1 {
+      letter-spacing: 2px;
+      font-size: 96px;
     }
 
     .headline {
@@ -24,7 +30,7 @@
   min-width: 72px;
   border-radius: .5rem;
   background-color: $color-white;
-  color: $color-purple;
+  color: $color-primary;
   font-size: 36px;
   font-weight: 300;
   margin: 5rem 0 3rem 0;

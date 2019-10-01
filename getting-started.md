@@ -39,8 +39,13 @@ If you have any AWS credentials, you can access public titan demos hosted on
 S3 buckets. If you don't have AWS credentials, skip down to the
 [creating a new repository](#creating-a-new-repository) section. AWS
 credentials are configured through the standard means (environment variables
-or `.aws` config files). We can launch a postgres database simply by cloning
-this demo repository:
+or `.aws` config files).
+
+Issues may arise if you have MFA configured for your AWS credentials, or if 
+you have `session_token` set for your profile in the `~/.aws/credentials` 
+file, a workaround is to use a non-MFA credential set. 
+
+We can launch a postgres database simply by cloning this demo repository:
 
 ```
 $ titan clone s3://titan-data-demo/hello-world/postgres hello-world
@@ -55,9 +60,11 @@ hello-world           running
 ```
 
 If the container fails to start, it may be because you already have PosgreSQL
-running on port `5432`, in which case you will need to stop the database, `titan
-rm hello-world`, and try cloning again. If you have the PosgreSQL tools
-installed, you can verify the contents:
+running on port `5432`, in which case you will need to stop the database  and
+try cloning again. We can also verify the contents using `psql`. If you don't
+have the postgres tools installed on your laptop, you can run `alias
+psql='docker exec hello-world psql'` to use the version shipped in the
+container.
 
 ```
 $ psql postgres://postgres:postgres@localhost/postgres -t -c 'SELECT * FROM messages;'
@@ -68,8 +75,8 @@ If you don't have PostgreSQL tools, you can also run the DynamoDB example:
 
 ```
 $ titan clone s3://titan-data-demo/hello-world/dynamodb hello-world
-$ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | jq -r '.Items[0].message.S'
-Hello, World!
+$ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | grep '"S"'
+                "S": "Hello, World!"
 ```
 
 # Creating a New Repository
@@ -80,12 +87,15 @@ arguments after `--` are standard docker arguments, and must include `-d` and
 `--name`.
 
 ```
-$ titan run -- --name mongo -p 27017:27017 -d mongo:latest
+$ titan run -- --name mongo-test -p 27017:27017 -d mongo:latest
 ```
 
 # Committing and Checking out State
 
-Using the mongo repository we created in the last step, let's add some data:
+Using the mongo repository we created in the last step, let's add some data.
+If you don't have mongo installed on your laptop, you can run
+`alias mongo="docker exec mongo-test mongo"` to use the version shipped in
+the container.
 
 ```
 $ mongo --quiet --eval 'db.employees.insert({firstName:"Ada",lastName:"Lovelace"})'
@@ -94,7 +104,7 @@ $ mongo --quiet --eval 'db.employees.insert({firstName:"Ada",lastName:"Lovelace"
 And commit that state:
 
 ```
-$ titan commit -m "First Employee" mongo
+$ titan commit -m "First Employee" mongo-test
 Commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c
 ```
 
@@ -111,14 +121,14 @@ $ mongo --quiet --eval 'db.employees.find()'
 We can checkout or previous state:
 
 ```
-$ titan checkout --commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c mongo
+$ titan checkout --commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c mongo-test
 $ mongo --quiet --eval 'db.employees.find()'
 { "_id" : ObjectId("5d88d264302cca22a91cfb9a"), "firstName" : "Ada", "lastName" : "Lovelace" }
 ```
 
 # Additional Workflows
 
-With just these simple tools, you can start create and manage data state to
+With just these simple tools, you can start to create and manage data state to
 match your workflow. Want to keep a blank database with your schema pre-applied?
 Want to keep some sample data available for you to do destructive testing?
 Have a failing test and want to keep the data state around to debug later? Titan
@@ -131,5 +141,5 @@ and a complete breakdown of command line features, see the
 [documentation](/docs).
 
 Titan is still a young community, and there are plenty of rough edges and future
-ideas in store. Head over the [future](/future) section to learn more about
+ideas in store. Head over to the [future](/future) section to learn more about
 what's in store.

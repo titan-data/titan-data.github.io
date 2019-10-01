@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Managing Docker Containers &mdash; titan  documentation</title>
+  <title>Managing Docker &mdash; titan  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Managing Commits" href="commit.html" />
-    <link rel="prev" title="Local Repositories" href="local.html" /> 
+    <link rel="next" title="Committing Changes" href="commit.html" />
+    <link rel="prev" title="Creating a new Repository" href="run.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,11 +86,18 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../start/start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="local.html">Local Repositories</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Docker Containers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commit.html">Managing Commits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Creating a new Repository</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-images">Docker Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-containers">Docker Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-configuration">Docker Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-container-technology">Other Container Technology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="commit.html">Committing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copy.html">Copying Existing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate.html">Migrating Existing Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Managing Local Storage</a></li>
@@ -145,14 +152,12 @@
         
           <li><a href="local.html">Local Repositories</a> &raquo;</li>
         
-      <li>Managing Docker Containers</li>
+      <li>Managing Docker</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../sources/local/docker.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -164,9 +169,120 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-docker-containers">
-<span id="local-docker"></span><h1>Managing Docker Containers<a class="headerlink" href="#managing-docker-containers" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+  <div class="section" id="managing-docker">
+<span id="local-docker"></span><h1>Managing Docker<a class="headerlink" href="#managing-docker" title="Permalink to this headline">¶</a></h1>
+<p>Titan relies heavily on docker to provide database capabilities. Titan will
+inspect docker images to determine what data needs to be persisted, and
+uses docker to run the resulting containers. There are several important
+implications of this approach, and current limitations that users should
+be aware of.</p>
+<div class="section" id="docker-images">
+<h2>Docker Images<a class="headerlink" href="#docker-images" title="Permalink to this headline">¶</a></h2>
+<p>Docker images form the basis of the repository configuration. They provide
+the software used to serve up the data, along with the configuration around
+what data needs to be persisted. This latter piece is critical - every image
+must have at least one declared volume. For example, the <code class="docutils literal notranslate"><span class="pre">postgres:11</span></code>
+image has the following in its Dockerfile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VOLUME</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Which is then visible in the output of <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">postgres:11</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Volumes&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;/var/lib/postgresql/data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>If you’re unsure if a docker image can be used under titan, look for one or
+more volume declarations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Titan doesn’t currently support running images that have been built but
+not pushed to a registry. For now, if you are building your own images you
+will need to push them to a registry somewhere, either on dockerhub or
+a private registry, before using them in titan. This will be fixed in a
+future release.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Titan requires that all volumes be declared within the image metadata.
+Manual overrides to create new points for persistent data are not supported.
+If you have a use case for this, head over to the
+<cite>community &lt;https://titan-data.io/community&gt;</cite> and file a feature request
+for us to better understand the need.</p>
+</div>
+</div>
+<div class="section" id="docker-containers">
+<h2>Docker Containers<a class="headerlink" href="#docker-containers" title="Permalink to this headline">¶</a></h2>
+<p>Every titan repository corresponds to exactly one docker container. The
+configuration of this container is defined when the <a class="reference internal" href="../cli/cmd/run.html#cli-cmd-run"><span class="std std-ref">titan run</span></a>
+command is executed. The name of the repository must match the name of
+the container.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All Titan repositories must be run with the <code class="docutils literal notranslate"><span class="pre">-d</span></code> (daemonize) flag
+so that the container runs in the background. Synchronous execution of
+containers is not supported. If you have a use case for this, head
+over the <a class="reference external" href="https://titan-data.io/community">community</a> to submit a
+feature request.</p>
+</div>
+<p>The docker container must adhere to some general container principles to
+be used by titan:</p>
+<ul class="simple">
+<li><p>The container must not maintain state outside of the persistent volumes
+that needs to be preserved. Running a new container on the same data should
+behave exactly as if an existing container was started.</p></li>
+<li><p>The container must handle recovering from abnormal shutdown (think pulling
+out the metaphorical power cord) without human intervention. If you need to
+quiesce the container prior to snapshotting data state, you will need to
+automate these extra steps yourself.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are running <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> to change configuration after the container
+has started, this configuration likely won’t be preserved, and you should look
+into building your own custom image instead.</p>
+</div>
+<p>Docker containers can be managed by <code class="docutils literal notranslate"><span class="pre">docker</span></code> outside of titan, such as
+starting and stopping the container. If you <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span></code> the container,
+it will show up as <code class="docutils literal notranslate"><span class="pre">detached</span></code> in titan, though it can be restarted by
+running <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">start</span></code> even in the detached state.</p>
+</div>
+<div class="section" id="docker-configuration">
+<h2>Docker Configuration<a class="headerlink" href="#docker-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Each time a commit is created, we store both the docker configuration and
+the image digest of the image used at the time the commit was created. So
+even if you’re using a tag like <code class="docutils literal notranslate"><span class="pre">postgres:latest</span></code>, titan will record the
+exact image used and make sure to use that image when that commit is later
+pulled down. This has the benefit that other people don’t need to know
+exactly how to run the container, and what image was used to create the
+data.</p>
+<p>The downside is that this configuration is set in stone at the time the
+repository is created. If you need a slightly different configuration,
+such as mapping to a different host port or running on a different network,
+there is no way to change that. Nor is there a way to run a newer image
+on top of the same data. We understand that this limitation is particularly
+restrictive, and will be adding support to override or change the docker
+configuration as part of future work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Titan does not currently support changing the docker configuration of a
+repository, so all consumers of a particular commit must use the exact
+same configuration. This will be relaxed in a future release.</p>
+</div>
+</div>
+<div class="section" id="other-container-technology">
+<h2>Other Container Technology<a class="headerlink" href="#other-container-technology" title="Permalink to this headline">¶</a></h2>
+<p>Titan began its life focused on the tool most commonly used by individual
+developers on their laptops: Docker. But containers can be used in many
+other different places and configurations, such as running multiple containers
+through docker compose, running in a Kubernetes cluster, or on a hosted
+container platform such as AWS Fargate. We believe that Titan can and will
+grow to be able to control data in these types of environments, though the
+approach may look very different than the mechanism today.</p>
+<p>Keep up to date with our <a class="reference external" href="https://titan-data.io/future">future roadmap</a>, and
+join the <a class="reference external" href="https://titan-data.io/community">community</a> to help us evolve
+in the future.</p>
+</div>
 </div>
 
 
@@ -177,10 +293,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="commit.html" class="btn btn-neutral float-right" title="Managing Commits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="commit.html" class="btn btn-neutral float-right" title="Committing Changes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="local.html" class="btn btn-neutral float-left" title="Local Repositories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="run.html" class="btn btn-neutral float-left" title="Creating a new Repository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

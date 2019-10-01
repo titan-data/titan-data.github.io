@@ -86,33 +86,43 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../start/start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../remote/remote.html">Remote Repositories</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Command Line Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="abort.html">titan abort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="checkout.html">titan checkout</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">titan clone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commit.html">titan commit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp.html">titan cp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html">titan install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="log.html">titan log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ls.html">titan ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate.html">titan migrate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pull.html">titan pull</a></li>
-<li class="toctree-l2"><a class="reference internal" href="push.html">titan push</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rm.html">titan rm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="run.html">titan run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html">titan start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="status.html">titan status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stop.html">titan stop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#options">Options</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#subcommands">Subcommands</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="abort.html">titan abort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -168,8 +178,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../sources/cli/cmd/clone.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -183,7 +191,47 @@
             
   <div class="section" id="titan-clone">
 <span id="cli-cmd-clone"></span><h1>titan clone<a class="headerlink" href="#titan-clone" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Clones a new repository based on the latest commit from a remote repository.
+The docker image, configuration, and data is all derived from that commit,
+so it’s not currently possible to specify a different docker configuration
+than what was used when creating the commit. For more information on managing
+the docker configuration, see the <a class="reference internal" href="../../local/docker.html#local-docker"><span class="std std-ref">Managing Docker</span></a> section.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">repository</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>uri</dt><dd><p><em>Required</em>. The URI of the remote to clone from. For more information on
+remotes, the URI format, and different remote providers, see the
+<a class="reference internal" href="../../remote/remote.html#remote"><span class="std std-ref">Remote Repositories</span></a> section.</p>
+</dd>
+<dt>repository</dt><dd><p>Optional. Name of the new repository to create. If not specified, then
+the name of the original repository is used (which may or may not match
+the name used in the remote URI).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3://titan-data-demo/hello-world/postgres myrepo
+Creating repository myrepo
+Creating docker volume myrepo/v0 with path /var/lib/postgresql/data
+Running controlled container myrepo
+PULL 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from origin RUNNING
+Pulling 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from &#39;origin&#39;
+Downloading archive for /var/lib/postgresql/data
+PULL 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from origin COMPLETE
+Stopping container myrepo
+Checkout 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f
+Starting container myrepo
+0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f checked out
+</pre></div>
+</div>
+</div>
 </div>
 
 
