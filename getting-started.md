@@ -20,9 +20,7 @@ Once you have docker configured and running, you will need to head to the
 you will have a single `titan` binary that you should place in your path
 (such as `/usr/local/bin`). From there, you can run:
 
-```
-$ titan install
-```
+{% include code_block.html code='titan install' %}
 
 This will download and configure the titan server container that provides the
 storage capabilities required for Titan. This requires connectivity to docker
@@ -47,17 +45,16 @@ file, a workaround is to use a non-MFA credential set.
 
 We can launch a postgres database simply by cloning this demo repository:
 
-```
-$ titan clone s3://titan-data-demo/hello-world/postgres hello-world
-```
+{% include code_block.html code='titan clone s3://titan-data-demo/hello-world/postgres hello-world' %}
 
 You should now be able to see a repository running:
 
-```
+{%- capture display -%}
 $ titan ls
 CONTAINER             STATUS
 hello-world           running
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='titan ls' %}
 
 If the container fails to start, it may be because you already have PosgreSQL
 running on port `5432`, in which case you will need to stop the database  and
@@ -66,18 +63,20 @@ have the postgres tools installed on your laptop, you can run `alias
 psql='docker exec hello-world psql'` to use the version shipped in the
 container.
 
-```
+{%- capture display -%}
 $ psql postgres://postgres:postgres@localhost/postgres -t -c 'SELECT * FROM messages;'
  Hello, World!
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='psql postgres://postgres:postgres@localhost/postgres -t -c \'SELECT * FROM messages;\'' %}
 
 If you don't have PostgreSQL tools, you can also run the DynamoDB example:
 
-```
+{%- capture display -%}
 $ titan clone s3://titan-data-demo/hello-world/dynamodb hello-world
 $ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | grep '"S"'
                 "S": "Hello, World!"
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='titan clone s3://titan-data-demo/hello-world/dynamodb hello-world' %}
 
 # Creating a New Repository
 
@@ -86,9 +85,7 @@ run any stateful docker image with a `VOLUME` declaration, such as MongoDB. The
 arguments after `--` are standard docker arguments, and must include `-d` and
 `--name`.
 
-```
-$ titan run -- --name mongo-test -p 27017:27017 -d mongo:latest
-```
+{% include code_block.html code='titan run -- --name mongo-test -p 27017:27017 -d mongo:latest' %}
 
 # Committing and Checking out State
 
@@ -97,34 +94,41 @@ If you don't have mongo installed on your laptop, you can run
 `alias mongo="docker exec mongo-test mongo"` to use the version shipped in
 the container.
 
-```
-$ mongo --quiet --eval 'db.employees.insert({firstName:"Ada",lastName:"Lovelace"})'
-```
+{%- capture code -%}
+mongo --quiet --eval 'db.employees.insert({firstName:"Ada",lastName:"Lovelace"})'
+{%- endcapture -%}
+{% include code_block.html code=code %}
 
 And commit that state:
 
-```
+{%- capture display -%}
 $ titan commit -m "First Employee" mongo-test
 Commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='titan commit -m "First Employee" mongo-test' %}
 
 Now, even if we add more data:
 
-```
+{%- capture display -%}
 $ mongo --quiet --eval 'db.employees.insert({firstName:"Grace",lastName:"Hopper"})'
 WriteResult({ "nInserted" : 1 })
+{%- endcapture -%}
+{% include code_block.html display=display code='mongo --quiet --eval \'db.employees.insert({firstName:"Grace",lastName:"Hopper"})\'' %}
+{%- capture display -%}
 $ mongo --quiet --eval 'db.employees.find()'
 { "_id" : ObjectId("5d88d264302cca22a91cfb9a"), "firstName" : "Ada", "lastName" : "Lovelace" }
 { "_id" : ObjectId("5d88d2f897a6f34e91e46f0d"), "firstName" : "Grace", "lastName" : "Hopper" }
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='mongo --quiet --eval \'db.employees.find()\'' %}
 
 We can checkout or previous state:
 
-```
-$ titan checkout --commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c mongo-test
+{% include code_block.html code='titan checkout --commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c mongo-test' %}
+{%- capture display -%}
 $ mongo --quiet --eval 'db.employees.find()'
 { "_id" : ObjectId("5d88d264302cca22a91cfb9a"), "firstName" : "Ada", "lastName" : "Lovelace" }
-```
+{%- endcapture -%}
+{% include code_block.html display=display code='mongo --quiet --eval \'db.employees.find()\'' %}
 
 # Additional Workflows
 
