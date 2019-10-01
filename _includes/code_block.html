@@ -1,0 +1,8 @@
+{% assign display = include.display %}
+{% assign code = include.code %}
+<div class="highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code>{% if display == "" or display == nil %}$ {{ code | escape }}{% else %}{{ display | escape }}{% endif %}</code></pre>
+        <button class="copyBtn" data-clipboard-text="{{ code | escape }}"><i class="far fa-clipboard"></i></button>
+    </div>
+</div>
