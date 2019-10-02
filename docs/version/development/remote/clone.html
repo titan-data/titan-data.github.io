@@ -164,7 +164,26 @@
             
   <div class="section" id="cloning-repositories">
 <span id="remote-clone"></span><h1>Cloning Repositories<a class="headerlink" href="#cloning-repositories" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>The <a class="reference internal" href="../cli/cmd/clone.html#cli-cmd-clone"><span class="std std-ref">titan clone</span></a> command will create a new repository using the
+configuration from a remote. It is equivalent to creating a new repository with
+an identical configuration, adding the remote, and pulling down the latest
+commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3://titan-data-demo/hello-world/postgres hello-world
+</pre></div>
+</div>
+<p>The docker configuration is persisted with each commit, so the local repository
+uses whatever the configuration was as of the last commit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is not currently any way to override the docker configuration, such
+as wanting to use a different port or network configuration. This
+capability will be added in a future release.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The clone command currently always uses the latest commit. The ability to
+select a specific commit to use will be added in a future release.</p>
+</div>
 </div>
 
 

@@ -164,7 +164,33 @@
             
   <div class="section" id="s3-provider">
 <span id="remote-provider-s3"></span><h1>S3 Provider<a class="headerlink" href="#s3-provider" title="Permalink to this headline">¶</a></h1>
-<p>Coming Soon!</p>
+<p>The S3 provider uses S3 to store commits remotely in a S3 bucket. Each commit
+is stored as an tar archive, with the commit metadata attached as object
+metadata. The URI format is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">bucket</span><span class="o">&gt;/&lt;</span><span class="n">key</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Commits will be created at <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;/&lt;commitid&gt;/&lt;archive&gt;.tar.gz</span></code>. The commit
+metadata will be stored at the <code class="docutils literal notranslate"><span class="pre">&lt;commitid&gt;</span></code> level.</p>
+<p>The AWS credentials are pulled using the default AWS credential chain at
+the time you do the push or pull operation. So you must have the
+<code class="docutils literal notranslate"><span class="pre">AWS_*</span></code> environment variables set, or use your <code class="docutils literal notranslate"><span class="pre">~/.aws</span></code> configuration.
+Because the S3 provider uses the standard AWS SDK, all variations of credentials
+should be supported, including specifying a profile with <code class="docutils literal notranslate"><span class="pre">AWS_PROFILE</span></code>.
+To pull a commit, you will need <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permissions. To push a commit,
+you will need <code class="docutils literal notranslate"><span class="pre">s3:PutObject</span></code> permissions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The S3 provider doesn’t currently support MFA (multi factor authentication).
+If you have a <code class="docutils literal notranslate"><span class="pre">session_token</span></code> in your AWS config, then operations will
+fail with an error message indicating the access key could not be found.</p>
+</div>
+<p>The S3 provider relies on basic AWS APIs to implement its functionality, and
+as such has limited scalability. For example, finding the latest commit requires
+listing all objects, getting metadata iteratively for each one, and comparing
+the result. It should only be used for storing relatively small numbers of
+commits. Improving this will require a new provider that includes a robust
+metadata layer on top of the base S3 functionality.</p>
 </div>
 
 
