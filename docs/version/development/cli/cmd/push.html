@@ -104,7 +104,13 @@
 <li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan push</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan push</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
@@ -186,7 +192,44 @@
             
   <div class="section" id="titan-push">
 <span id="cli-cmd-push"></span><h1>titan push<a class="headerlink" href="#titan-push" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Push a commit to a remote repository. For more information on pushing
+commits, see the <a class="reference internal" href="../../remote/pushpull.html#remote-pushpull"><span class="std std-ref">Pushing and Pulling</span></a> section.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">push</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">commit</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>commit</var></span></kbd></dt>
+<dd><p>Commit to push. If not specified, then the latest
+commit is used.</p>
+</dd>
+<dt><kbd><span class="option">-r</span>, <span class="option">--remote <var>remote</var></span></kbd></dt>
+<dd><p>Name of remote to push to. If not specified, defaults
+to “origin”.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan push hello-world
+PUSH 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to ssh RUNNING
+Pushing 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to &#39;origin&#39;
+Syncing /var/lib/postgresql/data
+21.10MB (17.07MB/s)PUSH 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to ssh COMPLETE
+</pre></div>
+</div>
+</div>
 </div>
 
 

@@ -102,7 +102,13 @@
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan migrate</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan migrate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
@@ -186,7 +192,49 @@
             
   <div class="section" id="titan-migrate">
 <span id="cli-cmd-migrate"></span><h1>titan migrate<a class="headerlink" href="#titan-migrate" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Migrate data from a running container into new Titan repository. Given a
+stopped container with volumes mounted from the host system, this command
+will create a new container with an identical configuration, and then
+copy over the data into the new repository. For more information, see the
+<a class="reference internal" href="../../local/migrate.html#local-migrate"><span class="std std-ref">Migrating Existing Containers</span></a> section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The migrate command will only work if the volumes have been mounted from
+host system. Migrating local to the container, or from a different volume
+driver, is not supported.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">migrate</span> <span class="o">&lt;-</span><span class="n">s</span> <span class="n">source</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the repository to create.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-s</span>, <span class="option">--source <var>container</var></span></kbd></dt>
+<dd><p>Name of source container.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan migrate -s postgres_source hello-world
+Creating repository hello-world
+Creating docker volume hello-world/v0 with path /var/lib/postgresql/data
+Copying data to hello-world/v0
+Commit 9560ffb0-6bbc-4b1c-acb5-1142f86c0354
+postgres_source migrated to controlled environment hello-world
+</pre></div>
+</div>
+</div>
 </div>
 
 

@@ -107,7 +107,12 @@
 <li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan remote ls</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan remote ls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
@@ -186,7 +191,29 @@
             
   <div class="section" id="titan-remote-ls">
 <span id="cli-cmd-remote-ls"></span><h1>titan remote ls<a class="headerlink" href="#titan-remote-ls" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>List remotes for the given repository. For more information on managing remotes,
+see the <a class="reference internal" href="../../remote/addremove.html#remote-addremove"><span class="std std-ref">Adding and Removing Remotes</span></a> section.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">ls</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote ls hello-world
+REMOTE                PROVIDER
+origin                s3
+</pre></div>
+</div>
+</div>
 </div>
 
 
