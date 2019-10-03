@@ -181,8 +181,11 @@ capability will be added in a future release.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The clone command currently always uses the latest commit. The ability to
-select a specific commit to use will be added in a future release.</p>
+<p>The clone command currently always uses the latest commit by default. To clone a specific
+commit, add the commit GUID to the URI with a <cite>#</cite> tag. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3://titan-data-demo/hello-world/postgres#0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f hello-world
+</pre></div>
+</div>
 </div>
 </div>
 

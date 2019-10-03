@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>titan push &mdash; titan  documentation</title>
+  <title>titan delete &mdash; titan  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="titan remote add" href="remote_add.html" />
-    <link rel="prev" title="titan pull" href="pull.html" /> 
+    <link rel="next" title="titan cp" href="cp.html" />
+    <link rel="prev" title="titan commit" href="commit.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,20 +98,20 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan push</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan delete</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
@@ -174,7 +174,7 @@
         
           <li><a href="../cli.html">Command Line Reference</a> &raquo;</li>
         
-      <li>titan push</li>
+      <li>titan delete</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -191,13 +191,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-push">
-<span id="cli-cmd-push"></span><h1>titan push<a class="headerlink" href="#titan-push" title="Permalink to this headline">¶</a></h1>
-<p>Push a commit to a remote repository. For more information on pushing
-commits, see the <a class="reference internal" href="../../remote/pushpull.html#remote-pushpull"><span class="std std-ref">Pushing and Pulling</span></a> section.</p>
+  <div class="section" id="titan-delete">
+<span id="cli-cmd-delete"></span><h1>titan delete<a class="headerlink" href="#titan-delete" title="Permalink to this headline">¶</a></h1>
+<p>Delete a previous commit from the current container. The commit must be
+present in <cite>titan log</cite>. For more general information on managing local
+commits, see the <a class="reference internal" href="../../local/commit.html#local-commit"><span class="std std-ref">Committing Changes</span></a> section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will stop and start the associated docker container if it is already
+running. This will interrupt any active connections, and may require
+client-specific actions to reconnect.</p>
+</div>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">push</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">commit</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">delete</span> <span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -211,23 +218,16 @@ commits, see the <a class="reference internal" href="../../remote/pushpull.html#
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
-<dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>commit</var></span></kbd></dt>
-<dd><p>Commit to push. If not specified, then the latest
-commit is used.</p>
-</dd>
-<dt><kbd><span class="option">-r</span>, <span class="option">--remote <var>remote</var></span></kbd></dt>
-<dd><p>Name of remote to push to. If not specified, defaults
-to “origin”.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>id</var></span></kbd></dt>
+<dd><p><em>Required</em>. Specify the commit ID to delete. Must be a known
+commit in <cite>titan log</cite> for the given repository.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan push hello-world
-PUSH 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to ssh RUNNING
-Pushing 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to &#39;origin&#39;
-Syncing /var/lib/postgresql/data
-21.10MB (17.07MB/s)PUSH 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f to ssh COMPLETE
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan delete -c 7715327e-9535-4263-870f-f5c92c18cb23 myrepo
+7715327e-9535-4263-870f-f5c92c18cb23 deleted
 </pre></div>
 </div>
 </div>
@@ -241,10 +241,10 @@ Syncing /var/lib/postgresql/data
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="remote_add.html" class="btn btn-neutral float-right" title="titan remote add" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cp.html" class="btn btn-neutral float-right" title="titan cp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pull.html" class="btn btn-neutral float-left" title="titan pull" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="commit.html" class="btn btn-neutral float-left" title="titan commit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
