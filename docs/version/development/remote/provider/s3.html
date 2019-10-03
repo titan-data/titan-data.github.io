@@ -176,15 +176,10 @@ metadata will be stored at the <code class="docutils literal notranslate"><span 
 the time you do the push or pull operation. So you must have the
 <code class="docutils literal notranslate"><span class="pre">AWS_*</span></code> environment variables set, or use your <code class="docutils literal notranslate"><span class="pre">~/.aws</span></code> configuration.
 Because the S3 provider uses the standard AWS SDK, all variations of credentials
-should be supported, including specifying a profile with <code class="docutils literal notranslate"><span class="pre">AWS_PROFILE</span></code>.
-To pull a commit, you will need <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permissions. To push a commit,
-you will need <code class="docutils literal notranslate"><span class="pre">s3:PutObject</span></code> permissions.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The S3 provider doesn’t currently support MFA (multi factor authentication).
-If you have a <code class="docutils literal notranslate"><span class="pre">session_token</span></code> in your AWS config, then operations will
-fail with an error message indicating the access key could not be found.</p>
-</div>
+should be supported, including specifying a profile with <code class="docutils literal notranslate"><span class="pre">AWS_PROFILE</span></code> or
+using MFA (multi factor authentication) session tokens.  To pull a commit, you
+will need <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permissions. To push a commit, you will need
+<code class="docutils literal notranslate"><span class="pre">s3:PutObject</span></code> permissions.</p>
 <p>The S3 provider relies on basic AWS APIs to implement its functionality, and
 as such has limited scalability. For example, finding the latest commit requires
 listing all objects, getting metadata iteratively for each one, and comparing
