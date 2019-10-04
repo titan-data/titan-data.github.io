@@ -98,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
@@ -109,7 +110,12 @@
 <li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan rm</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan rm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
@@ -186,7 +192,30 @@
             
   <div class="section" id="titan-rm">
 <span id="cli-cmd-rm"></span><h1>titan rm<a class="headerlink" href="#titan-rm" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Removes a repository. This will stop the container and destroy any local data.
+This operation cannot be undone.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">rm</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan rm -f hello-world
+Removing container hello-world
+Deleting volume hello-world/v0
+hello-world removed
+</pre></div>
+</div>
+</div>
 </div>
 
 

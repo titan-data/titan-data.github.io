@@ -164,7 +164,22 @@
             
   <div class="section" id="adding-and-removing-remotes">
 <span id="remote-addremove"></span><h1>Adding and Removing Remotes<a class="headerlink" href="#adding-and-removing-remotes" title="Permalink to this headline">¶</a></h1>
-<p>Coming Soon!</p>
+<p>Each repository can have zero or more remotes configured. To add a remote,
+use <a class="reference internal" href="../cli/cmd/remote_add.html#cli-cmd-remote-add"><span class="std std-ref">titan remote add</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote add s3://bucket/path myrepo
+</pre></div>
+</div>
+<p>Remotes are specified as URIs, with the first portion defining the provider
+(s3 in the above case), and the rest being specific to that provider. By
+default, the remote is named <cite>origin</cite>, but you can also assign remotes
+names (required when you have more than one remote).</p>
+<p>To get a list of remotes, use <a class="reference internal" href="../cli/cmd/remote_ls.html#cli-cmd-remote-ls"><span class="std std-ref">titan remote ls</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote ls hello-world
+REMOTE                PROVIDER
+origin                s3
+</pre></div>
+</div>
+<p>Remotes can be removed with the <a class="reference internal" href="../cli/cmd/remote_rm.html#cli-cmd-remote-rm"><span class="std std-ref">titan remote rm</span></a> command.</p>
 </div>
 
 

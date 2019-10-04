@@ -97,6 +97,7 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
@@ -114,7 +115,11 @@
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan upgrade</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan upgrade</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -185,7 +190,35 @@
             
   <div class="section" id="titan-upgrade">
 <span id="cli-cmd-upgrade"></span><h1>titan upgrade<a class="headerlink" href="#titan-upgrade" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Upgrade the titan software on the host system. This will automatically fetch
+the latest version of Titan, replace the current titan binary, and then
+update the titan supporting infrastructure. For more information on upgrade,
+see the <a class="reference internal" href="../../lifecycle/upgrade.html#lifecycle-upgrade"><span class="std std-ref">Upgrading Titan</span></a> section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Upgrade requires all containers to be stopped, or the ‘-f’ option to
+forcefully stop all containers.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">upgrade</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">path</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-f</span>, <span class="option">--force</span></kbd></dt>
+<dd><p>Stop all containers.</p>
+</dd>
+<dt><kbd><span class="option">-p</span>, <span class="option">--path</span></kbd></dt>
+<dd><p>Specify path to titan binary. By default, will attempt to find
+the binary in the path. If you are executing titan as an
+alias, or in a wrapper script, you will need to specify the
+path to the actual titan binary.</p>
+</dd>
+</dl>
+</div>
 </div>
 
 

@@ -98,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
@@ -111,7 +112,12 @@
 <li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan start</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan start</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
@@ -186,7 +192,28 @@
             
   <div class="section" id="titan-start">
 <span id="cli-cmd-start"></span><h1>titan start<a class="headerlink" href="#titan-start" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Starts the container associated with the repository. Equivalent to
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">start</span></code>.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">start</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan start hello-world
+hello-world started
+</pre></div>
+</div>
+</div>
 </div>
 
 

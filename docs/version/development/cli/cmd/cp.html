@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="titan install" href="install.html" />
-    <link rel="prev" title="titan commit" href="commit.html" /> 
+    <link rel="prev" title="titan delete" href="delete.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,7 +98,14 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan cp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
@@ -186,7 +193,54 @@
             
   <div class="section" id="titan-cp">
 <span id="cli-cmd-cp"></span><h1>titan cp<a class="headerlink" href="#titan-cp" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Copies data from an existing directory on the host into a titan repository.
+Each container has data at a known place, such as <code class="docutils literal notranslate"><span class="pre">/var/lib/data/postgresql</span></code>
+for PostgreSQL. This command allows users to copy data created by another
+instance of the database into the titan repository.</p>
+<p>If there is only one volume then the destination is not required. If there
+is more than one volume, then you must specify the destination within the
+repository container. For more information on copying data into repositories,
+including how to determine what destinations are available, see the
+<a class="reference internal" href="../../local/copy.html#local-copy"><span class="std std-ref">Copying Existing Data</span></a> section.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">cp</span> <span class="o">&lt;-</span><span class="n">s</span> <span class="n">source</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">destination</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-s</span>, <span class="option">--source <var>dir</var></span></kbd></dt>
+<dd><p><em>Required</em>. Source directory on the host system. This
+must match the layout and contents expected by the
+container.</p>
+</dd>
+<dt><kbd><span class="option">-d</span>, <span class="option">--destination <var>dir</var></span></kbd></dt>
+<dd><p>Required if there is more than volume associated with
+the repository. Specifies the path where data should
+be copied to within the repository. Must correspond
+to a volume path in the repository container.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan cp -s /var/postgres-data/ hello-world
+hello-world stopped
+Copying data to hello-world/v0
+hello-world started
+hello-world running with data from /var/postgres-data
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -200,7 +254,7 @@
         <a href="install.html" class="btn btn-neutral float-right" title="titan install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="commit.html" class="btn btn-neutral float-left" title="titan commit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="delete.html" class="btn btn-neutral float-left" title="titan delete" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

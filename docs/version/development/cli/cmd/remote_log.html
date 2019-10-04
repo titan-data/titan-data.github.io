@@ -98,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
@@ -106,7 +107,13 @@
 <li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
 <li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan remote log</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan remote log</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
@@ -186,7 +193,43 @@
             
   <div class="section" id="titan-remote-log">
 <span id="cli-cmd-remote-log"></span><h1>titan remote log<a class="headerlink" href="#titan-remote-log" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>List commits in a remote. For more information on managing remotes, see
+the <a class="reference internal" href="../../remote/remote.html#remote"><span class="std std-ref">Remote Repositories</span></a> section.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">log</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-r</span>, <span class="option">--remote <var>remote</var></span></kbd></dt>
+<dd><p>Optional remote name. If not provided, then the name
+‘origin’ is assumed.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote log hello-world
+Remote: origin
+Commit 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f
+User: Eric Schrock
+Email: Eric.Schrock@delphix.com
+Date:   2019-09-20T13:45:38Z
+
+demo data
+</pre></div>
+</div>
+</div>
 </div>
 
 

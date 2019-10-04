@@ -94,10 +94,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../cli.html#syntax">Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli.html#options">Options</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../cli.html#subcommands">Subcommands</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan abort</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan abort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
@@ -186,7 +192,30 @@
             
   <div class="section" id="titan-abort">
 <span id="cli-cmd-abort"></span><h1>titan abort<a class="headerlink" href="#titan-abort" title="Permalink to this headline">¶</a></h1>
-<p>Coming soon!</p>
+<p>Aborts any in-progress push or pull operation for a repository. Most push and
+pull operations finish in the context of when they were invoked, but in rare
+cases (such as the CLI exiting unexpectedly), they can continue to run in the
+background. This command provides a way to abort such operations.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">abort</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan abort hello-world
+aborting operation 13ac9b7a-15f2-41ea-9b61-bc271234d123
+</pre></div>
+</div>
+</div>
 </div>
 
 
