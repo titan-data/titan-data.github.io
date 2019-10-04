@@ -1,3 +1,3 @@
-macos: https://github.com/titan-data/titan/releases/download/0.3.1/titan-cli-0.3.1-darwin_amd64.zip
-windows: "#"
-linux: https://github.com/titan-data/titan/releases/download/0.3.1/titan-cli-0.3.1-linux_amd64.zip
+macos: https://github.com/titan-data/titan/releases/download/0.3.2/titan-cli-0.3.2-darwin_amd64.zip
+windows: https://github.com/titan-data/titan/releases/download/0.3.2/titan-cli-0.3.2-windows_amd64.zip
+linux: https://github.com/titan-data/titan/releases/download/0.3.2/titan-cli-0.3.2-linux_amd64.tar

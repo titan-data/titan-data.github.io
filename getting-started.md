@@ -39,10 +39,6 @@ S3 buckets. If you don't have AWS credentials, skip down to the
 credentials are configured through the standard means (environment variables
 or `.aws` config files).
 
-Issues may arise if you have MFA configured for your AWS credentials, or if 
-you have `session_token` set for your profile in the `~/.aws/credentials` 
-file, a workaround is to use a non-MFA credential set. 
-
 We can launch a postgres database simply by cloning this demo repository:
 
 {% include code_block.html code='titan clone s3://titan-data-demo/hello-world/postgres hello-world' %}
