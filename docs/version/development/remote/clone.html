@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pushpull.html">Pushing and Pulling</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cloning Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="provider/s3.html">S3 Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="provider/s3web.html">S3 Web Provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="provider/ssh.html">SSH Provider</a></li>
 </ul>
 </li>
@@ -168,7 +169,7 @@
 configuration from a remote. It is equivalent to creating a new repository with
 an identical configuration, adding the remote, and pulling down the latest
 commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3://titan-data-demo/hello-world/postgres hello-world
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3web://demo.titan-data.io/hello-world/postgres hello-world
 </pre></div>
 </div>
 <p>The docker configuration is persisted with each commit, so the local repository
@@ -183,7 +184,7 @@ capability will be added in a future release.</p>
 <p class="admonition-title">Note</p>
 <p>The clone command currently always uses the latest commit by default. To clone a specific
 commit, add the commit GUID to the URI with a <cite>#</cite> tag. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3://titan-data-demo/hello-world/postgres#0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f hello-world
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3web://demo.titan-data.io/hello-world/postgres#0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f hello-world
 </pre></div>
 </div>
 </div>
