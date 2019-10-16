@@ -32,16 +32,9 @@ a custom distribution and may fail outright. Reach out to the
 [community](/community) for assistance.
 
 # Cloning Your First Repo
-
-If you have any AWS credentials, you can access public titan demos hosted on
-S3 buckets. If you don't have AWS credentials, skip down to the
-[creating a new repository](#creating-a-new-repository) section. AWS
-credentials are configured through the standard means (environment variables
-or `.aws` config files).
-
 We can launch a postgres database simply by cloning this demo repository:
 
-{% include code_block.html code='titan clone s3://titan-data-demo/hello-world/postgres hello-world' %}
+{% include code_block.html code='titan clone s3web://titan-data-demo/hello-world/postgres hello-world' %}
 
 You should now be able to see a repository running:
 
@@ -68,11 +61,11 @@ $ psql postgres://postgres:postgres@localhost/postgres -t -c 'SELECT * FROM mess
 If you don't have PostgreSQL tools, you can also run the DynamoDB example:
 
 {%- capture display -%}
-$ titan clone s3://titan-data-demo/hello-world/dynamodb hello-world
+$ titan clone s3web://titan-data-demo/hello-world/dynamodb hello-world
 $ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | grep '"S"'
                 "S": "Hello, World!"
 {%- endcapture -%}
-{% include code_block.html display=display code='titan clone s3://titan-data-demo/hello-world/dynamodb hello-world' %}
+{% include code_block.html display=display code='titan clone s3web://titan-data-demo/hello-world/dynamodb hello-world' %}
 
 # Creating a New Repository
 
