@@ -113,7 +113,12 @@
 <li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan status</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan status</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
@@ -187,10 +192,45 @@
             
   <div class="section" id="titan-status">
 <span id="cli-cmd-status"></span><h1>titan status<a class="headerlink" href="#titan-status" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The status command is currently a stub and does not report real information.
-This will be addressed in an upcoming release.</p>
+<p>Display the current status for a repository.</p>
+<ul class="simple">
+<li><p>Status - The current status of a repository (detached, running, stopped, etc…).</p></li>
+<li><p>Uncompressed Size - The Uncompressed Size of the repository on disk.</p></li>
+<li><p>Compressed Size - The Compressed Size of the repository on disk.</p></li>
+<li><p>Last Commit - The GUID (globally unique identifier) for the last commit.</p></li>
+</ul>
+<p>For each volume, the following information is displayed:</p>
+<ul class="simple">
+<li><p>Volume - The path of the volume on the disk</p></li>
+<li><p>Uncompressed Size - The Uncompressed Size of the volume on disk.</p></li>
+<li><p>Compressed Size - The Compressed Size of the volume on disk.</p></li>
+</ul>
+<p>All sizes reflect the size of the currently active volume state. As data is added, or if a different commit is checked out, these values will change.</p>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">status</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan status hello-world
+            Status:  running
+ Uncompressed Size:  526.5 KiB
+   Compressed Size:  254 KiB
+       Last Commit:  12c6da4d57004d3497afca4fb914ed58
+
+Volume                          Uncompressed  Compressed
+/var/lib/postgresql/data        31.7 MiB      6.9 MiB
+</pre></div>
+</div>
 </div>
 </div>
 

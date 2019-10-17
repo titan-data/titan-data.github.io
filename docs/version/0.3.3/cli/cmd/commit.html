@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>titan commit &mdash; titan  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <script type="text/javascript" src="../../static/doctools.js"></script>
+        <script type="text/javascript" src="../../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../static/css/titan.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="titan delete" href="delete.html" />
+    <link rel="prev" title="titan clone" href="clone.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> titan
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../remote/remote.html">Remote Repositories</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Command Line Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#syntax">Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#options">Options</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#subcommands">Subcommands</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="abort.html">titan abort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan commit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html">titan pull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">titan push</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_add.html">titan remote add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_log.html">titan remote log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_ls.html">titan remote ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote_rm.html">titan remote rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rm.html">titan rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="run.html">titan run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">titan</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../cli.html">Command Line Reference</a> &raquo;</li>
+        
+      <li>titan commit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="titan-commit">
+<span id="cli-cmd-commit"></span><h1>titan commit<a class="headerlink" href="#titan-commit" title="Permalink to this headline">¶</a></h1>
+<p>Commits the current data state of the container. When creating commits, titan
+will use your git configuration to determine the name and email address to use
+by running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">user.name</span></code> and <code class="docutils literal notranslate"><span class="pre">`git</span> <span class="pre">config</span> <span class="pre">user.email</span></code>. If
+you have not configured git before, you can run
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.name</span> <span class="pre">&lt;name&gt;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.email</span> <span class="pre">&lt;email&gt;</span></code> to set these values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not a git user and don’t want to have to install it to use Titan,
+join the <a class="reference external" href="https://titan-data.io/community">Community</a> to help
+design and implement an alternative.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Titan assumes that it is safe to snapshot the current state of the data
+while the container is running, and that starting the container with
+data in such a state will automatically recover. This would necessarily be
+true for any data store that can survive an unexpected outage. If you
+are working with a container that first must be manually quiesced, you
+should <cite>titan stop</cite> the container prior to committing state, and
+<cite>titan start</cite> it afterwards.</p>
+</div>
+<div class="section" id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">commit</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">message</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-m</span>, <span class="option">--message <var>message</var></span></kbd></dt>
+<dd><p>Specify a human-readable message associated with the
+commit. This message, along with author information,
+will be visible in <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">log</span></code> output and propagate
+with the commit when pushed to, or pulled from, remote
+repositories. If not provided, then an empty string is
+used.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan commit -m &quot;my first commit&quot; myrepo
+Commit 470ceb06-ebd3-486a-a4de-7f755df84309
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="delete.html" class="btn btn-neutral float-right" title="titan delete" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clone.html" class="btn btn-neutral float-left" title="titan clone" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Titan Project Contributors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

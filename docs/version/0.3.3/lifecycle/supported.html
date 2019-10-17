@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Supported Operating Systems &mdash; titan  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/titan.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrading Titan" href="upgrade.html" />
+    <link rel="prev" title="Installation and Configuration" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> titan
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Supported Operating Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#macos-and-windows">MacOS and Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">titan</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="lifecycle.html">Software Lifecycle</a> &raquo;</li>
+        
+      <li>Supported Operating Systems</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="supported-operating-systems">
+<span id="lifecycle-supported"></span><h1>Supported Operating Systems<a class="headerlink" href="#supported-operating-systems" title="Permalink to this headline">¶</a></h1>
+<p>Titan is designed to run on any system that supported docker, but there are
+some dependencies that limit the set of supported operation systems,
+especially on Linux.</p>
+<p>To help understand why this is necessary, it helps to understand a bit about
+the architecture of Titan. To make titan possible, there is a container
+(<code class="docutils literal notranslate"><span class="pre">titan-server</span></code>) running in the background that provides data versioning
+capabilities on top of <a class="reference external" href="http://openzfs.org">ZFS</a>. This requires that ZFS
+be installed on the host operating system, but because of how out-of-tree
+kernel modules work, this needs to be done by the titan software (a
+container named <code class="docutils literal notranslate"><span class="pre">titan-launch</span></code> in particular). Titan attempts to provide
+pre-built versions for common OSes, as well as a means to build them on the
+fly for new versions, but there are limits to this system. If you are not
+on a supported operating system, you may find <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">install</span></code> taking
+a long time to build binaries, or failing outright.</p>
+<div class="section" id="macos-and-windows">
+<h2>MacOS and Windows<a class="headerlink" href="#macos-and-windows" title="Permalink to this headline">¶</a></h2>
+<p>MacOS and Windows operate in a similar fashion, with an embedded
+<a class="reference external" href="https://github.com/moby/hyperkit">HyperKit</a> VM running Linux behind the
+scenes. This VM runs <a class="reference external" href="https://github.com/linuxkit/linuxkit">LinuxKit</a>.
+Titan supports the latest Docker Desktop releases. If you are running a very
+old distribution (for example, using the old <code class="docutils literal notranslate"><span class="pre">boot2docker</span></code> framework on
+Windows), you mileage may vary. You should update to the latest version of
+Docker Desktop prior to using Titan.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a brand new Docker Desktop release comes out that ships with a new
+LinuxKit kernel, it may take some time for the community to update the
+pre-built packages for the newest versions. If you encounter titan
+trying to build packags for a new ZFS kernel, head over to the
+<a class="reference external" href="https://github.com/titan-data/zfs-releases">zfs-releases</a> repository
+and open an issue (or PR) with the new version and <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code> output.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Titan has not been tested and may or may not work with the new
+<a class="reference external" href="https://docs.docker.com/docker-for-windows/wsl-tech-preview/">Docker for WSL</a>.
+This will be addressed shortly, but in the meantime only traditional
+Docker Desktop is supported.</p>
+</div>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p>The situation with Linux is quite different. With Linux, there’s no standard
+Docker VM being provided by Docker Desktop. Instead, we’re running on whatever
+host VM you have. Because each distribution requires distro-specific mechanisms
+to download and install the right kernel files required to build ZFS, we have
+a much more limited support matrix. In addition, distros will often build
+specialized versions for different clouds (e.g. AWS, Azure, GCP), requiring
+specific builds for each of them. You’re much more likely to encounter an
+unsupported platform when running Titan on Linux, but the community tries to
+provide pre-built binaries for:</p>
+<ul class="simple">
+<li><p>Ubuntu Bionic (18.04) and later</p></li>
+<li><p>CentOS 7 and later</p></li>
+<li><p>LinuxKit as used by Docker Desktop</p></li>
+</ul>
+<p>If you are running one of these flavors and not finding pre-buit binaries
+available, it’s likely just a matter of updating the
+<a class="reference external" href="https://github.com/titan-data/zfs-releases">zfs-releases</a> repository with
+the latest build information. If you are trying to use a different distribution
+alltogether, or are trying a new major version for the first time in the
+community, you may need to update the
+<a class="reference external" href="https://github.com/titan-data/zfs-builder">zfs-builder</a> repository such that
+it knows how to build the new variant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using an unsupported Linux version, you can always
+<a class="reference external" href="https://github.com/zfsonlinux/zfs/wiki/Building-ZFS">install ZFS</a>
+yourself. Titan will use any installed ZFS, version 0.8.1 or later, and
+won’t attempt to install its own modules.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="upgrade.html" class="btn btn-neutral float-right" title="Upgrading Titan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation and Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Titan Project Contributors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
