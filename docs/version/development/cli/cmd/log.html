@@ -104,6 +104,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">titan log</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -120,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -205,7 +207,7 @@ information is displayed:</p>
 <a class="reference internal" href="commit.html#cli-cmd-commit"><span class="std std-ref">titan commit</span></a> command.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">log</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">log</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -213,6 +215,19 @@ information is displayed:</p>
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Filter commits by the specified tag(s).
+More than one of this option can be specified. If
+present, then only tags that match the given tags will
+be displayed. Tags are matched according to the
+filtering rules described in the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a>
+section.</p>
 </dd>
 </dl>
 </div>

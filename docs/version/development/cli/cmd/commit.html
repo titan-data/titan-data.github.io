@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -217,7 +218,7 @@ should <cite>titan stop</cite> the container prior to committing state, and
 </div>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">commit</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">message</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">commit</span> <span class="p">[</span><span class="o">-</span><span class="n">m</span> <span class="n">message</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -239,11 +240,17 @@ with the commit when pushed to, or pulled from, remote
 repositories. If not provided, then an empty string is
 used.</p>
 </dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Specify a tag to set for the commit. This option can
+appear multiple times. If the value is omitted, then the
+empty string is assumed. For more information on tags,
+see the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a> section.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan commit -m &quot;my first commit&quot; myrepo
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan commit -m &quot;my first commit&quot; -t nightly -t source=qa myrepo
 Commit 470ceb06-ebd3-486a-a4de-7f755df84309
 </pre></div>
 </div>

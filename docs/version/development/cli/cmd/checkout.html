@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -205,7 +206,7 @@ client-specific actions to reconnect.</p>
 </div>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">checkout</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="nb">id</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -220,8 +221,22 @@ client-specific actions to reconnect.</p>
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>id</var></span></kbd></dt>
-<dd><p><em>Required</em>. Specify the commit ID to checkout. Must be a known
-commit in <cite>titan log</cite> for the given repository.</p>
+<dd><p>Specify the commit ID to checkout. Must be a
+known commit in <cite>titan log</cite> for the given repository.
+If this is not specified, then the source commit
+is used, unless tags are specified in which case the
+latest matching commit is used instead. See the
+<a class="reference internal" href="status.html#cli-cmd-status"><span class="std std-ref">titan status</span></a> command for more info on the
+source commit.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Filter commits by the specified tag(s).
+More than one of this option can be specified.
+Tags cannot be used if the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option is
+specified. When tags are specified, then the latest
+commit matching those tags is checked out.
+Tags are matched according to the filtering rules
+described in the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a> section.</p>
 </dd>
 </dl>
 </div>

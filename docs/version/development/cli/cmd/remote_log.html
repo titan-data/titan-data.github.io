@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -197,7 +198,7 @@
 the <a class="reference internal" href="../../remote/remote.html#remote"><span class="std std-ref">Remote Repositories</span></a> section.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">log</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">log</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -214,6 +215,14 @@ the <a class="reference internal" href="../../remote/remote.html#remote"><span c
 <dt><kbd><span class="option">-r</span>, <span class="option">--remote <var>remote</var></span></kbd></dt>
 <dd><p>Optional remote name. If not provided, then the name
 ‘origin’ is assumed.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Filter commits by the specified tag(s).
+More than one of this option can be specified. If
+present, then only tags that match the given tags will
+be displayed. Tags are matched according to the
+filtering rules described in the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a>
+section.</p>
 </dd>
 </dl>
 </div>

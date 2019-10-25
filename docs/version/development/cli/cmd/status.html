@@ -120,6 +120,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -198,6 +199,10 @@
 <li><p>Uncompressed Size - The Uncompressed Size of the repository on disk.</p></li>
 <li><p>Compressed Size - The Compressed Size of the repository on disk.</p></li>
 <li><p>Last Commit - The GUID (globally unique identifier) for the last commit.</p></li>
+<li><p>Source Commit - The GUID of the commit from which the current state is derived.
+This could be the last commit (if a commit has been created since the last
+checkout), or the commit from which the current state was checked out
+from.</p></li>
 </ul>
 <p>For each volume, the following information is displayed:</p>
 <ul class="simple">
@@ -226,6 +231,7 @@
  Uncompressed Size:  526.5 KiB
    Compressed Size:  254 KiB
        Last Commit:  12c6da4d57004d3497afca4fb914ed58
+     Source Commit:
 
 Volume                          Uncompressed  Compressed
 /var/lib/postgresql/data        31.7 MiB      6.9 MiB

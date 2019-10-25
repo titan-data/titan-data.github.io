@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -193,18 +194,12 @@
             
   <div class="section" id="titan-delete">
 <span id="cli-cmd-delete"></span><h1>titan delete<a class="headerlink" href="#titan-delete" title="Permalink to this headline">¶</a></h1>
-<p>Delete a previous commit from the current container. The commit must be
-present in <cite>titan log</cite>. For more general information on managing local
-commits, see the <a class="reference internal" href="../../local/commit.html#local-commit"><span class="std std-ref">Committing Changes</span></a> section.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This will stop and start the associated docker container if it is already
-running. This will interrupt any active connections, and may require
-client-specific actions to reconnect.</p>
-</div>
+<p>Delete a previous commit from the current container, or tags within a previous
+commit. The commit must be present in <cite>titan log</cite>. For more general information
+on managing local commits, see the <a class="reference internal" href="../../local/commit.html#local-commit"><span class="std std-ref">Committing Changes</span></a> section.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">delete</span> <span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">delete</span> <span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -219,15 +214,25 @@ client-specific actions to reconnect.</p>
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>id</var></span></kbd></dt>
-<dd><p><em>Required</em>. Specify the commit ID to delete. Must be a known
+<dd><p><em>Required</em>. Specify the commit ID to delete, or commit
+from which tags should be deleted. Must be a known
 commit in <cite>titan log</cite> for the given repository.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Specify the tag(s) to be deleted. More than one of this
+option can be specified. If present, then only tags
+are deleted and the commit itself remains intact. Tags
+are matched according to the filtering rules described
+in the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a> section.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan delete -c 7715327e-9535-4263-870f-f5c92c18cb23 myrepo
-7715327e-9535-4263-870f-f5c92c18cb23 deleted
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan delete -c 7715327e95354263870ff5c92c18cb23 myrepo
+7715327e95354263870ff5c92c18cb23 deleted
+
+$ titan delete -c 428f81caf63d4314b8f41a31aad2e8b1 -t mytag myrepo
 </pre></div>
 </div>
 </div>

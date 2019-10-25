@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>titan install &mdash; titan  documentation</title>
+  <title>titan tag &mdash; titan  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="titan log" href="log.html" />
-    <link rel="prev" title="titan cp" href="cp.html" /> 
+    <link rel="next" title="titan uninstall" href="uninstall.html" />
+    <link rel="prev" title="titan stop" href="stop.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,12 +100,7 @@
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">titan install</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="log.html">titan log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ls.html">titan ls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="migrate.html">titan migrate</a></li>
@@ -120,7 +115,13 @@
 <li class="toctree-l3"><a class="reference internal" href="start.html">titan start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="status.html">titan status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stop.html">titan stop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tag.html">titan tag</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">titan tag</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="uninstall.html">titan uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">titan upgrade</a></li>
 </ul>
@@ -174,7 +175,7 @@
         
           <li><a href="../cli.html">Command Line Reference</a> &raquo;</li>
         
-      <li>titan install</li>
+      <li>titan tag</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -191,30 +192,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-install">
-<span id="cli-cmd-install"></span><h1>titan install<a class="headerlink" href="#titan-install" title="Permalink to this headline">¶</a></h1>
-<p>Installs required titan infrastructure. Must be run prior to any other titan
-commands. For more information on how to install titan and what’s required, see
-the <a class="reference internal" href="../../lifecycle/install.html#lifecycle-install"><span class="std std-ref">Installation and Configuration</span></a> section. This command will not do anything if titan
-is already installed on the system.</p>
+  <div class="section" id="titan-tag">
+<span id="cli-cmd-tag"></span><h1>titan tag<a class="headerlink" href="#titan-tag" title="Permalink to this headline">¶</a></h1>
+<p>Add or modify tags for a local commit. While tags can be specified when a
+commit is created, this command can be used to update those tags after the
+fact.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">install</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
-<dt><kbd><span class="option">-r</span>, <span class="option">--registry</span></kbd></dt>
-<dd><p>registry    Docker Registry URL for private repositories.
-Defaults to titandata from docker hub.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>id</var></span></kbd></dt>
+<dd><p><em>Required</em>. Specify the commit ID to update. Must be a
+known commit in <cite>titan log</cite> for the given repository.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag <var>tag</var></span></kbd></dt>
+<dd><p>Specify the tag(s) to be added or modified. More than
+one of this option can be specified. If present, then
+the tag is replaced (if the key exists) or added (if
+the key does not exist). For more information, see the
+<a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a> section.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan install -r your.registry.address:port
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan tag -c 7715327e95354263870ff5c92c18cb23 -t foo -t bar=baz myrepo
+7715327e95354263870ff5c92c18cb23 deleted
 </pre></div>
 </div>
 </div>
@@ -228,10 +243,10 @@ Defaults to titandata from docker hub.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="log.html" class="btn btn-neutral float-right" title="titan log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="uninstall.html" class="btn btn-neutral float-right" title="titan uninstall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cp.html" class="btn btn-neutral float-left" title="titan cp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="stop.html" class="btn btn-neutral float-left" title="titan stop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
