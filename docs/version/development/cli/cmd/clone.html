@@ -201,7 +201,7 @@ than what was used when creating the commit. For more information on managing
 the docker configuration, see the <a class="reference internal" href="../../local/docker.html#local-docker"><span class="std std-ref">Managing Docker</span></a> section.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="o">-</span><span class="n">c</span> <span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">repository</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="nb">id</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">repository</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -221,8 +221,11 @@ the name used in the remote URI).</p>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
-<dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>id</var></span></kbd></dt>
-<dd><p>Specify the commit ID to checkout.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--commit</span></kbd></dt>
+<dd><p>id      Specify the commit ID to checkout.</p>
+</dd>
+<dt><kbd><span class="option">-p</span>, <span class="option">--parameters <var>string</var></span></kbd></dt>
+<dd><p>Key=Value pair for provider specific options.</p>
 </dd>
 </dl>
 </div>

@@ -198,7 +198,7 @@
 the <a class="reference internal" href="../../remote/addremove.html#remote-addremove"><span class="std std-ref">Adding and Removing Remotes</span></a> section.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">add</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">remote</span> <span class="n">add</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -215,15 +215,19 @@ see the provider sections under the <a class="reference internal" href="../../re
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
-<dt><kbd><span class="option">-r</span>, <span class="option">--remote <var>remote</var></span></kbd></dt>
-<dd><p>Optional remote name. If not provided, then the name
+<dt><kbd><span class="option">-r</span>, <span class="option">--remote</span></kbd></dt>
+<dd><p>remote  Optional remote name. If not provided, then the name
 ‘origin’ is assumed.</p>
+</dd>
+<dt><kbd><span class="option">-p</span>, <span class="option">--parameters <var>string</var></span></kbd></dt>
+<dd><p>Key=Value pair for provider specific options.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote add -r upstream s3://titan-data-demo/hello-world/postgres hello-world
+$ titan remote add -r ssh -p keyFle=id_rsa ssh://user@host/hello-world hello-world
 </pre></div>
 </div>
 </div>

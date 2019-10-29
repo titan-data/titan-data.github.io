@@ -173,7 +173,9 @@ use <a class="reference internal" href="../cli/cmd/remote_add.html#cli-cmd-remot
 <p>Remotes are specified as URIs, with the first portion defining the provider
 (s3 in the above case), and the rest being specific to that provider. By
 default, the remote is named <cite>origin</cite>, but you can also assign remotes
-names (required when you have more than one remote).</p>
+names (required when you have more than one remote). Individual parameters
+for each provider can be supplied with the <cite>-p</cite> option, i.e. the ssh provider
+can optionally use an <cite>sshKey</cite> parameter instead of the password in the URI.</p>
 <p>To get a list of remotes, use <a class="reference internal" href="../cli/cmd/remote_ls.html#cli-cmd-remote-ls"><span class="std std-ref">titan remote ls</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan remote ls hello-world
 REMOTE                PROVIDER
