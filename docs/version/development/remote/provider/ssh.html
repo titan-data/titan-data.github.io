@@ -95,7 +95,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../clone.html">Cloning Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="s3.html">S3 Provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="s3web.html">S3 Web Provider</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SSH Provider</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SSH Provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-specific-parameters">SSH Specific Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli/cli.html">Command Line Reference</a></li>
@@ -180,14 +183,22 @@ state exists locally.</p>
 privileges for running rsync. This enables file ownership and permissions to be
 set properly.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">password</span></code> is not specified, then the user will be prompted for a password
-at the time they do the push or pull operation. Future enhancements will
-include the ability to specify a SSH key file instead of using passwords.</p>
+at the time they do the push or pull operation. Users are also able to use a
+<code class="docutils literal notranslate"><span class="pre">keyFile</span></code> instead of a password:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="p">:</span><span class="o">//</span><span class="n">user</span><span class="nd">@host</span><span class="p">[:</span><span class="n">port</span><span class="p">]</span><span class="o">/</span><span class="n">path</span> <span class="o">-</span><span class="n">p</span> <span class="n">keyfile</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">keyFile</span>
+</pre></div>
+</div>
 <p>Like the S3 provider, the SSH provider has inherent scalability limitations. For
 example, finding the latest commit requires listing all commits in the path,
 reading the metadata file for each, and comparing the result.  It should only be
 used for storing relatively small numbers of commits. Improving this will
 require a new provider that includes a robust metadata layer on top of the base
 SSH functionality.</p>
+<div class="section" id="ssh-specific-parameters">
+<h2>SSH Specific Parameters<a class="headerlink" href="#ssh-specific-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keyFile</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">keyFile</span>    <span class="n">Location</span> <span class="n">of</span> <span class="n">private</span> <span class="n">SSH</span> <span class="n">key</span> <span class="n">file</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The SSH connection is made from within the Titan server container, so the host
@@ -198,6 +209,7 @@ If you’re trying to diagnose a connectivity problem that works from
 the host system but not within titan, you can run
 <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">titan-server</span> <span class="pre">/bin/bash</span></code> and run standard Linux commands
 (such as ssh and ping) to debug the issue.</p>
+</div>
 </div>
 </div>
 

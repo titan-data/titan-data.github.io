@@ -93,7 +93,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../addremove.html">Adding and Removing Remotes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pushpull.html">Pushing and Pulling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../clone.html">Cloning Repositories</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">S3 Provider</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">S3 Provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-specific-parameters">SSH Specific Parameters</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="s3web.html">S3 Web Provider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ssh.html">SSH Provider</a></li>
 </ul>
@@ -184,12 +187,25 @@ should be supported, including specifying a profile with <code class="docutils l
 using MFA (multi factor authentication) session tokens.  To pull a commit, you
 will need <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permissions. To push a commit, you will need
 <code class="docutils literal notranslate"><span class="pre">s3:PutObject</span></code> permissions.</p>
+<p>Although not recommended, it is possible to pass <code class="docutils literal notranslate"><span class="pre">accessKey</span></code>, <code class="docutils literal notranslate"><span class="pre">secretKey</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">region</span></code> to the S3 Provider during runtime through CLI parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">bucket</span><span class="o">&gt;/&lt;</span><span class="n">key</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">p</span> <span class="n">accessKey</span><span class="o">=</span><span class="n">value</span> <span class="o">-</span><span class="n">p</span> <span class="n">secretKey</span><span class="o">=</span><span class="n">value</span> <span class="o">-</span><span class="n">p</span> <span class="n">region</span><span class="o">=</span><span class="n">value</span>
+</pre></div>
+</div>
 <p>The S3 provider relies on basic AWS APIs to implement its functionality, and as
 such has limited scalability.  For example, all commits are stored in a single
 metadata file, and there are no provisions for keeping that metadata consistent
 in the face of simultaneous pushes. It should only be used for storing
 relatively small numbers of commits. Improving this will require a new provider
 that includes a robust metadata layer on top of the base S3 functionality.</p>
+<div class="section" id="ssh-specific-parameters">
+<h2>SSH Specific Parameters<a class="headerlink" href="#ssh-specific-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accessKey</span><span class="o">=</span><span class="n">aws_access_key_id</span>         <span class="n">AWS</span> <span class="n">Access</span> <span class="n">Key</span> <span class="n">ID</span>
+<span class="n">secretKey</span><span class="o">=</span><span class="n">aws_secret_access_key</span>     <span class="n">AWS</span> <span class="n">Secret</span> <span class="n">Access</span> <span class="n">Key</span>
+<span class="n">region</span><span class="o">=</span><span class="n">region</span>                       <span class="n">AWS</span> <span class="n">Region</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
