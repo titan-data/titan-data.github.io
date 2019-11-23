@@ -169,22 +169,17 @@
 configuration from a remote. It is equivalent to creating a new repository with
 an identical configuration, adding the remote, and pulling down the latest
 commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3web://demo.titan-data.io/hello-world/postgres hello-world
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone -n hello-world s3web://demo.titan-data.io/hello-world/postgres
 </pre></div>
 </div>
-<p>The docker configuration is persisted with each commit, so the local repository
-uses whatever the configuration was as of the last commit.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is not currently any way to override the docker configuration, such
-as wanting to use a different port or network configuration. This
-capability will be added in a future release.</p>
-</div>
+<p>The docker environment is persisted with each commit, but runtime parameters are
+not and can be specified with the <code class="docutils literal notranslate"><span class="pre">--`</span></code> argument flag. See <a class="reference internal" href="../cli/cmd/clone.html#cli-cmd-clone"><span class="std std-ref">titan clone</span></a>
+for more details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The clone command currently always uses the latest commit by default. To clone a specific
 commit, add the commit GUID to the URI with a <cite>#</cite> tag. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone s3web://demo.titan-data.io/hello-world/postgres#0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f hello-world
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone -n hello-world s3web://demo.titan-data.io/hello-world/postgres#0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f
 </pre></div>
 </div>
 </div>
