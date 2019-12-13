@@ -88,7 +88,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Docker Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../remote/remote.html">Remote Repositories</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Command Line Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../cli.html#syntax">Syntax</a></li>
@@ -98,6 +98,10 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_default.html">titan context default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_install.html">titan context install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_ls.html">titan context ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_uninstall.html">titan context uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html">titan install</a></li>
@@ -192,11 +196,12 @@
             
   <div class="section" id="titan-uninstall">
 <span id="cli-cmd-uninstall"></span><h1>titan uninstall<a class="headerlink" href="#titan-uninstall" title="Permalink to this headline">¶</a></h1>
-<p>Uninstall all supporting titan infrastructure. This will remove the titan
-containers and clean up any resources on the docker or host VM, leaving
-the titan CLI binary in place. For more information on what exactly is
-cleaned up, see the <a class="reference internal" href="../../lifecycle/uninstall.html#lifecycle-uninstall"><span class="std std-ref">Uninstalling Titan</span></a> section. This command will fail
-if any active repositories exist, unless the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is supplied.</p>
+<p>Uninstall all titan infrastructure. This will uninstall all contexts,
+equivalent to <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">uninstall</span></code>. It will then remove any titan images
+pulled locally, as well as the <code class="docutils literal notranslate"><span class="pre">~/.titan</span></code> directory. For more information on
+what exactly is cleaned up, see the <a class="reference internal" href="../../lifecycle/uninstall.html#lifecycle-uninstall"><span class="std std-ref">Uninstalling Titan</span></a> section. This
+command will fail if any active repositories exist, unless the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is
+supplied.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you specify the <code class="docutils literal notranslate"><span class="pre">-f</span></code> force option, <em>all</em> titan repositories will be

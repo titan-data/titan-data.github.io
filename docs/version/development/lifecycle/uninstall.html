@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Local Repositories" href="../local/local.html" />
+    <link rel="next" title="Local Docker Repositories" href="../local/local.html" />
     <link rel="prev" title="Diagnosing Issues" href="diagnosis.html" /> 
 </head>
 
@@ -89,13 +89,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supported.html">Supported Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Repository Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Managing Titan Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Titan with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Titan with Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Uninstalling Titan</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Docker Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
 </ul>
@@ -166,8 +169,13 @@
 <span id="lifecycle-uninstall"></span><h1>Uninstalling Titan<a class="headerlink" href="#uninstalling-titan" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a> command will install supporting Titan infrastructure
 automatically, including installing ZFS on the host or Docker VM if necessary.
-The <a class="reference internal" href="../cli/cmd/uninstall.html#cli-cmd-uninstall"><span class="std std-ref">titan uninstall</span></a> command will uninstall titan, destroying any
+The <a class="reference internal" href="../cli/cmd/uninstall.html#cli-cmd-uninstall"><span class="std std-ref">titan uninstall</span></a> command will uninstall Titan, destroying any
 repositories in the process.</p>
+<p>The uninstall process first will uninstall all configured contexts. Once that
+is complete, it will remove the underlying titan container images, as well as
+the <code class="docutils literal notranslate"><span class="pre">.titan</span></code> directory in your home directory. If you just want to uninstall a
+single context while leaving the Titan images and configuration intact, use
+the <a class="reference internal" href="../cli/cmd/context_uninstall.html#cli-cmd-context-uninstall"><span class="std std-ref">titan context uninstall</span></a> command.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Uninstalling titan will remove all repositories. This operation cannot be
@@ -191,7 +199,7 @@ manually remove the <code class="docutils literal notranslate"><span class="pre"
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../local/local.html" class="btn btn-neutral float-right" title="Local Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../local/local.html" class="btn btn-neutral float-right" title="Local Docker Repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="diagnosis.html" class="btn btn-neutral float-left" title="Diagnosing Issues" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

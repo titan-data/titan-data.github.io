@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Titan with Kubernetes &mdash; titan  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/titan.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrading Titan" href="upgrade.html" />
+    <link rel="prev" title="Titan with Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> titan
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                development
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Repository Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Managing Titan Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Titan with Docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Titan with Kubernetes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kubernetes-requirements">Kubernetes Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kubernetes-architecture">Kubernetes Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Docker Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">titan</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="lifecycle.html">Software Lifecycle</a> &raquo;</li>
+        
+      <li>Titan with Kubernetes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="titan-with-kubernetes">
+<span id="lifecycle-kubernetes"></span><h1>Titan with Kubernetes<a class="headerlink" href="#titan-with-kubernetes" title="Permalink to this headline">¶</a></h1>
+<p>Titan provides a way to run repositories in different container environments,
+known as “contexts” (see <a class="reference internal" href="context.html#lifecycle-context"><span class="std std-ref">Managing Titan Contexts</span></a> for more information). A
+Kubernetes context represents a set of repositories running in a cluster,
+accessed via the Kubernetes API. This cluster could be local to the machine,
+hosted centrally, or delivered as a cloud service. Through Titan, not only can
+these repositories be run in a simple fashion with powerful data controls, data
+can be shared between them (such as pushing a dataset from a CI/CD Kubernetes
+cluster and later cloning for local debugging).</p>
+<div class="section" id="kubernetes-requirements">
+<h2>Kubernetes Requirements<a class="headerlink" href="#kubernetes-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Titan requires a Kubernetes cluster with the following configuration options:</p>
+<ul class="simple">
+<li><p>The there must be a CSI (Container Storage Interface) driver installed that
+supports the <cite>alpha snapshot &lt;https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html&gt;</cite>
+capabilities. Titan does not yet work with the
+<cite>beta snapshots apis &lt;https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-cis-volume-snapshot-beta/&gt;</cite>.</p></li>
+<li><p>The <cite>VolumeSnapshotDataSource &lt;https://v1-13.docs.kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/&gt;</cite>
+feature gate must be enabled.</p></li>
+<li><p>The <cite>VolumeSnapshot &lt;https://kubernetes.io/docs/concepts/storage/volume-snapshots/&gt;</cite>
+API must be enabled.</p></li>
+<li><p>The default storage class and snapshot class must use a CSI driver with
+snapshot capabilities.</p></li>
+</ul>
+<p>Titan currently uses the default Kubernetes config file, cluster and namespace
+as defined the <cite>.kube/config</cite> file in your home directory. Future versions will make these
+configurable.</p>
+<p>The titan server still runs as a container on the local workstation. A local
+Docker installation is required, though no special privileges or operating
+system support is necessary. This also means that all the metadata is local to the
+user, so two users cannot share titan repositories in a shared Kubernetes
+cluster. The pods themselves will be accessible to any kubernetes user, but
+there is no way to manage them as Titan repositories on a different system.</p>
+<p>Each push or pull operation is run as a separate Job, requiring that the
+<cite>titandata/titan</cite> image be avaialble to the cluster.</p>
+</div>
+<div class="section" id="kubernetes-architecture">
+<h2>Kubernetes Architecture<a class="headerlink" href="#kubernetes-architecture" title="Permalink to this headline">¶</a></h2>
+<p>A Kubernetes repository consists of:</p>
+<ul class="simple">
+<li><p>A PersistentVolumeClaim for each volume identified in the image metadata.
+These are currently always hardcoded to be 1GiB, and always use the default
+StorageClass. Each is given a unique GUID and name.</p></li>
+<li><p>A StatefulSet with the same name as the repository.</p></li>
+<li><p>Within that StatefulSet, all PersistentVolumeClaims mapped to the directories
+identified in the image metadata. The pod name is the same as the repository
+name.</p></li>
+<li><p>A service that maps all exposed ports to the ports of the Pods within the
+StatefulSet.</p></li>
+</ul>
+<p>Each commit corresponds to a VolumeSnapshot.</p>
+<p>By default, Titan will make all ports available on the local system. This
+is accomplished by running <cite>kubectl port-forward</cite> for each known port. This
+is a fairly fragile process, since that process can die or the system
+restarted at any time. This will be replaced with a more reliable mechanism
+in the future.</p>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Kubernetes support is currently in an _beta_ state. Many elements of
+configurability and reliability have not yet been fully fleshed out,
+and it may not work in all environments.</p>
+</div>
+<p>In addition to the general immaturity of Kubernetes support, there are some
+specific known limitations with beta:</p>
+<ul class="simple">
+<li><p>There is no method to specify volume sizes. While the amount of data pushed
+and pulled will remain the logical size of the dataset, volumes must be
+statically sized in Kubernetes. Currently, these are always 1GiB.</p></li>
+<li><p>Titan currently always uses the default ~/.kube configuration, and there isn’t
+a way to control the namespace and cluster used. If the default configuration
+is changed after the context is installed, it can result in inconsistent
+state.</p></li>
+<li><p>Titan will always use the default storage class and snapshot class. These
+are not currently configurable.</p></li>
+<li><p>There are various failure modes, such as failing to pull an image, that
+aren’t handled well by Titan. These can result in hangs or hard to diagnose
+errors.</p></li>
+<li><p>Port forwarding is very simplistic. Titan simply spawns <cite>kubectl port-forward</cite>
+in the background, and tries to kill it when stopping port forwarding. If
+the system is restarted, or that process dies, it will need to be manually
+restarted, either by running the <cite>kubectl</cite> directly, or stopping and
+starting the repository.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="upgrade.html" class="btn btn-neutral float-right" title="Upgrading Titan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral float-left" title="Titan with Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Titan Project Contributors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

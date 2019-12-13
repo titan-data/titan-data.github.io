@@ -89,7 +89,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supported.html">Supported Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Repository Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Managing Titan Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Titan with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Titan with Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Diagnosing Issues</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#docker-logs">Docker Logs</a></li>
@@ -101,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Docker Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
 </ul>
@@ -179,7 +182,7 @@ engaging with the <a class="reference external" href="https://titan-data.io/comm
 <div class="section" id="docker-logs">
 <h2>Docker Logs<a class="headerlink" href="#docker-logs" title="Permalink to this headline">¶</a></h2>
 <p>The most important tool in the diagnosis tool belt is to look at the
-docker logs, specifically <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-server</span></code>. This will show the
+docker logs, specifically <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-&lt;context&gt;-server</span></code>. This will show the
 output of the server that is responding to requests from the CLI.
 Example output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">27.223</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">ktor</span><span class="o">.</span><span class="n">application</span> <span class="o">-</span> <span class="mi">200</span> <span class="n">OK</span><span class="p">:</span> <span class="n">GET</span> <span class="o">-</span> <span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">/</span><span class="n">operations</span><span class="o">/</span><span class="mi">1</span><span class="n">dfadd4f</span><span class="o">-</span><span class="n">a376</span><span class="o">-</span><span class="mi">4</span><span class="n">ab7</span><span class="o">-</span><span class="mi">9</span><span class="n">f88</span><span class="o">-</span><span class="n">c7f4c1249634</span>
@@ -191,12 +194,11 @@ Example output:</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">16</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">28.640</span> <span class="p">[</span><span class="n">DefaultDispatcher</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="n">DEBUG</span> <span class="n">io</span><span class="o">.</span><span class="n">titandata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">CommandExecutor</span> <span class="o">-</span> <span class="n">Success</span><span class="p">:</span> <span class="n">umount</span><span class="p">,</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">titan</span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">/</span><span class="n">v0</span>
 </pre></div>
 </div>
-<p>In particular, every REST call from the client is logged, along with
-every invocation of the zfs command. Understanding the semantics of the
-behavior is beyond the scope of this section, but an important thing to note
-is that any unexpected error should result in a stack trace that is quiet
-visible in the log. If you start at the end of the log and work your way
-backwards, if you find an exception that matches the behavior you’re seeing,
+<p>In particular, every REST call from the client is logged. Understanding the
+semantics of the behavior is beyond the scope of this section, but an important
+thing to note is that any unexpected error should result in a stack trace that
+is quite visible in the log. If you start at the end of the log and work your
+way backwards, if you find an exception that matches the behavior you’re seeing,
 then it may contain more information that helps diagnose the problem.</p>
 </div>
 <div class="section" id="docker-state">
@@ -220,10 +222,8 @@ internal.</p>
 <h2>Local Client Errors<a class="headerlink" href="#local-client-errors" title="Permalink to this headline">¶</a></h2>
 <p>It’s possible that there are errors in the client that don’t manifest as calls
 to the container server. If this happens, and the problem is cannot be
-discerned from the error message, you’ll need to reach out to the community
-for help. Once we have a better understanding of the problems that can
-occur client-side, we will look into building local debugging facilities
-within the command.</p>
+discerned from the error message, try running with <code class="docutils literal notranslate"><span class="pre">TITAN_DEBUG=true</span> <span class="pre">titan</span> <span class="pre">&lt;cmd&gt;</span></code>
+to get more detailed debugging output.</p>
 </div>
 </div>
 

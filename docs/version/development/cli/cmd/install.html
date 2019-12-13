@@ -88,7 +88,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../local/local.html">Local Docker Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../remote/remote.html">Remote Repositories</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Command Line Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../cli.html#syntax">Syntax</a></li>
@@ -98,6 +98,10 @@
 <li class="toctree-l3"><a class="reference internal" href="checkout.html">titan checkout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone.html">titan clone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="commit.html">titan commit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_default.html">titan context default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_install.html">titan context install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_ls.html">titan context ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="context_uninstall.html">titan context uninstall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="delete.html">titan delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cp.html">titan cp</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">titan install</a><ul>
@@ -193,10 +197,13 @@
             
   <div class="section" id="titan-install">
 <span id="cli-cmd-install"></span><h1>titan install<a class="headerlink" href="#titan-install" title="Permalink to this headline">¶</a></h1>
-<p>Installs required titan infrastructure. Must be run prior to any other titan
-commands. For more information on how to install titan and what’s required, see
-the <a class="reference internal" href="../../lifecycle/install.html#lifecycle-install"><span class="std std-ref">Installation and Configuration</span></a> section. This command will not do anything if titan
-is already installed on the system.</p>
+<p>Installs the default Titan context if not currently configured,
+equivalent to <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">install</span> <span class="pre">-t</span> <span class="pre">docker</span></code>. Must be run prior to any
+other titan commands. For more information on how to install titan and what’s
+required, see the <a class="reference internal" href="../../lifecycle/install.html#lifecycle-install"><span class="std std-ref">Installation and Configuration</span></a> section. For more information on
+managing contexts, see the <a class="reference internal" href="../../lifecycle/context.html#lifecycle-context"><span class="std std-ref">Managing Titan Contexts</span></a> section. If you want to
+install Titan for kubernetes, see the <a class="reference internal" href="../../lifecycle/kubernetes.html#lifecycle-kubernetes"><span class="std std-ref">Titan with Kubernetes</span></a> section.
+Running this command will do nothing if the “docker” context already exists.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">install</span>
@@ -208,10 +215,10 @@ is already installed on the system.</p>
 <dl class="option-list">
 <dt><kbd><span class="option">-r</span>, <span class="option">--registry</span></kbd></dt>
 <dd><p>registry    Docker Registry URL for private repositories.
-Defaults to titandata from docker hub.</p>
+Defaults to <code class="docutils literal notranslate"><span class="pre">titandata</span></code> from docker hub.</p>
 </dd>
 <dt><kbd><span class="option">-V</span>, <span class="option">--verbose</span></kbd></dt>
-<dd><p>Optionally output titan-server install details.</p>
+<dd><p>Optionally output install details.</p>
 </dd>
 </dl>
 </div>
