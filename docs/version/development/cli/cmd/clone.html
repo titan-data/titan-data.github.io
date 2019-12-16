@@ -206,7 +206,7 @@ docker configuration than what was used when creating the commit pass arguments 
 the docker configuration, see the <a class="reference internal" href="../../local/docker.html#local-docker"><span class="std std-ref">Managing Docker</span></a> section.</p>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="nb">id</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">repository</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="o">--</span> <span class="p">[</span><span class="n">additional</span> <span class="n">context</span> <span class="n">specific</span> <span class="n">arguments</span><span class="p">]</span><span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="nb">id</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">repository</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="o">--</span> <span class="p">[</span><span class="n">additional</span> <span class="n">context</span> <span class="n">specific</span> <span class="n">arguments</span><span class="p">]</span><span class="o">...</span>
 </pre></div>
 </div>
 </div>
@@ -215,7 +215,9 @@ the docker configuration, see the <a class="reference internal" href="../../loca
 <dl class="simple">
 <dt>uri</dt><dd><p><em>Required</em>. The URI of the remote to clone from. For more information on
 remotes, the URI format, and different remote providers, see the
-<a class="reference internal" href="../../remote/remote.html#remote"><span class="std std-ref">Remote Repositories</span></a> section.</p>
+<a class="reference internal" href="../../remote/remote.html#remote"><span class="std std-ref">Remote Repositories</span></a> section. Note that due to current limitations, when using a URL
+with query parameters (for tags), it must be passed after the “–” delimeter,
+otherwise you will get an error of “no such option”.</p>
 </dd>
 </dl>
 </div>
@@ -232,6 +234,12 @@ remotes, the URI format, and different remote providers, see the
 <dd><p>Default: false. Disable the automatic specific
 port mapping of exposed ports from the container
 to localhost.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--tag</span></kbd></dt>
+<dd><p>key=value       Optional tags to filter commits when finding the
+latest commit. Generates an error if no matching
+commit is found, or if an explicit commit ID
+is specified.</p>
 </dd>
 <dt><kbd><span class="option">-n</span>, <span class="option">--name</span></kbd></dt>
 <dd><p>TEXT            Optional. Name of the new repository to create.
