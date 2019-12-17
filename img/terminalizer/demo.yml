@@ -1,4 +1,6 @@
-# The configurations that used for the recording, feel free to edit them
+#
+# Titan demo script for terminalizer (http://terminalizer.com)
+#
 config:
 
   # Specify a command to be executed
@@ -6,56 +8,56 @@ config:
   # the default is bash for Linux
   # or powershell.exe for Windows
   command: bash -l
-  
+
   # Specify the current working directory path
   # the default is the current working directory path
-  cwd: /Users/eric.schrock/dev/titan-data.github.io/img/terminalizer
-  
+  cwd: null
+
   # Export additional ENV variables
   env:
     recording: true
-  
+
   # Explicitly set the number of columns
   # or use `auto` to take the current
   # number of columns of your shell
-  cols: 91
-  
+  cols: 100
+
   # Explicitly set the number of rows
   # or use `auto` to take the current
   # number of rows of your shell
-  rows: 23
-  
+  rows: 25
+
   # Amount of times to repeat GIF
   # If value is -1, play once
   # If value is 0, loop indefinitely
   # If value is a positive number, loop n times
   repeat: 0
-  
+
   # Quality
   # 1 - 100
   quality: 100
-  
+
   # Delay between frames in ms
   # If the value is `auto` use the actual recording delays
   frameDelay: auto
-  
+
   # Maximum delay between frames in ms
   # Ignored if the `frameDelay` isn't set to `auto`
   # Set to `auto` to prevent limiting the max idle time
   maxIdleTime: 2000
-  
+
   # The surrounding frame box
   # The `type` can be null, window, floating, or solid`
   # To hide the title use the value null
   # Don't forget to add a backgroundColor style with a null as type
   frameBox:
     type: floating
-    title: Terminalizer
+    title: Titan
     style:
       border: 0px black solid
       # boxShadow: none
       # margin: 0px
-  
+
   # Add a watermark image to the rendered gif
   # You need to specify an absolute path for
   # the image on your machine or a URL, and you can also
@@ -68,25 +70,25 @@ config:
       bottom: 15px
       width: 100px
       opacity: 0.9
-  
+
   # Cursor style can be one of
   # `block`, `underline`, or `bar`
   cursorStyle: block
-  
+
   # Font family
   # You can use any font that is installed on your machine
   # in CSS-like syntax
   fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
-  
+
   # The size of the font
   fontSize: 12
-  
+
   # The height of lines
   lineHeight: 1
-  
+
   # The spacing between letters
   letterSpacing: 0
-  
+
   # Theme
   theme:
     background: "transparent"
@@ -108,44 +110,42 @@ config:
     brightMagenta: "#ae89fe"
     brightCyan: "#b1c6ca"
     brightWhite: "#f9f9f4"
-  
-# Records, feel free to edit them
+
 records:
-  - delay: 296
-    content: "Restored session: Mon Dec 16 15:15:03 EST 2019\r\n"
-  - delay: 13
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a\e[?1034h$ "
-  - delay: 1296
+  # titan run mongo
+  - delay: 0
+    content: "$ "
+  - delay: 546
     content: t
   - delay: 72
     content: i
-  - delay: 80
+  - delay: 37
     content: t
   - delay: 65
     content: a
   - delay: 47
     content: 'n'
-  - delay: 88
+  - delay: 81
     content: ' '
   - delay: 31
     content: r
   - delay: 81
     content: u
-  - delay: 176
+  - delay: 41
     content: 'n'
   - delay: 79
     content: ' '
-  - delay: 87
+  - delay: 52
     content: m
-  - delay: 105
+  - delay: 62
     content: o
-  - delay: 88
+  - delay: 80
     content: 'n'
-  - delay: 103
+  - delay: 38
     content: g
-  - delay: 89
+  - delay: 57
     content: o
-  - delay: 151
+  - delay: 43
     content: "\r\n"
   - delay: 590
     content: "Creating repository mongo\r\n"
@@ -155,79 +155,83 @@ records:
     content: "Creating titan volume v1 with path /data/db\r\n"
   - delay: 65
     content: "Waiting for volumes to be ready\r\n"
-  - delay: 934
+  - delay: 231
     content: "Creating mongo deployment\r\n"
-  - delay: 411
+  - delay: 80
     content: "Waiting for deployment to be ready\r\n"
-  - delay: 84
+  - delay: 213
     content: "Forwarding local ports\r\n"
-  - delay: 555
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 1447
+
+  # kubectl get svc mongo
+  - delay: 87
+    content: "$ "
+  - delay: 980
     content: k
-  - delay: 160
+  - delay: 52
     content: u
   - delay: 39
     content: b
-  - delay: 113
+  - delay: 43
     content: e
-  - delay: 191
+  - delay: 61
     content: c
-  - delay: 88
+  - delay: 42
     content: t
   - delay: 24
     content: l
-  - delay: 88
+  - delay: 37
     content: ' '
   - delay: 64
     content: g
-  - delay: 111
+  - delay: 58
     content: e
   - delay: 48
     content: t
-  - delay: 88
+  - delay: 72
     content: ' '
-  - delay: 193
+  - delay: 81
     content: s
-  - delay: 112
+  - delay: 59
     content: v
-  - delay: 88
+  - delay: 42
     content: c
-  - delay: 480
+  - delay: 52
     content: ' '
-  - delay: 107
+  - delay: 61
     content: m
   - delay: 87
     content: o
-  - delay: 94
+  - delay: 58
     content: 'n'
-  - delay: 96
+  - delay: 42
     content: g
-  - delay: 81
+  - delay: 60
     content: o
   - delay: 86
     content: "\r\n"
-  - delay: 324
+  - delay: 213
     content: "NAME    TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)     AGE\r\nmongo   ClusterIP   None         <none>        27017/TCP   5s\r\n"
+
+  # mongo --quiet --eval 'db.people.insert({name: "Grace Hopper"})'
   - delay: 5
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 2240
+    content: "$ "
+  - delay: 918
     content: m
   - delay: 79
     content: o
-  - delay: 91
+  - delay: 46
     content: 'n'
-  - delay: 94
+  - delay: 59
     content: g
   - delay: 40
     content: o
   - delay: 96
     content: ' '
-  - delay: 104
+  - delay: 61
     content: '-'
-  - delay: 128
+  - delay: 32
     content: '-'
-  - delay: 104
+  - delay: 48
     content: q
   - delay: 81
     content: u
@@ -237,15 +241,15 @@ records:
     content: e
   - delay: 56
     content: t
-  - delay: 208
+  - delay: 60
     content: ' '
-  - delay: 172
+  - delay: 70
     content: '-'
-  - delay: 132
+  - delay: 52
     content: '-'
-  - delay: 409
+  - delay: 79
     content: e
-  - delay: 127
+  - delay: 72
     content: v
   - delay: 56
     content: a
@@ -253,29 +257,29 @@ records:
     content: l
   - delay: 88
     content: ' '
-  - delay: 208
+  - delay: 67
     content: ''''
-  - delay: 489
+  - delay: 53
     content: d
-  - delay: 128
+  - delay: 42
     content: b
   - delay: 88
     content: .
-  - delay: 200
+  - delay: 49
     content: p
-  - delay: 111
+  - delay: 56
     content: e
   - delay: 32
     content: o
-  - delay: 152
+  - delay: 62
     content: p
   - delay: 73
     content: l
-  - delay: 110
+  - delay: 80
     content: e
-  - delay: 105
+  - delay: 54
     content: .
-  - delay: 192
+  - delay: 49
     content: i
   - delay: 40
     content: 'n'
@@ -285,21 +289,13 @@ records:
     content: e
   - delay: 47
     content: r
-  - delay: 112
+  - delay: 79
     content: t
-  - delay: 152
+  - delay: 81
     content: (
-  - delay: 714
-    content: 'P{'
-  - delay: 461
-    content: "\b\e[K"
-  - delay: 112
-    content: "\b\e[K"
-  - delay: 193
+  - delay: 58
     content: '{'
-  - delay: 217
-    content: ' '
-  - delay: 118
+  - delay: 62
     content: 'n'
   - delay: 65
     content: a
@@ -307,17 +303,17 @@ records:
     content: m
   - delay: 72
     content: e
-  - delay: 168
+  - delay: 80
     content: ':'
-  - delay: 104
+  - delay: 71
     content: ' '
-  - delay: 152
+  - delay: 62
     content: '"'
-  - delay: 280
+  - delay: 49
     content: G
-  - delay: 176
+  - delay: 76
     content: r
-  - delay: 119
+  - delay: 69
     content: a
   - delay: 89
     content: c
@@ -325,209 +321,35 @@ records:
     content: e
   - delay: 72
     content: ' '
-  - delay: 120
+  - delay: 48
     content: H
-  - delay: 160
+  - delay: 60
     content: o
-  - delay: 184
+  - delay: 71
     content: p
-  - delay: 152
+  - delay: 82
     content: p
-  - delay: 120
+  - delay: 51
     content: e
   - delay: 50
     content: r
-  - delay: 206
+  - delay: 63
     content: '"'
-  - delay: 129
-    content: ' '
-  - delay: 695
+  - delay: 56
     content: '}'
-  - delay: 215
-    content: _
-  - delay: 584
-    content: "\b\e[K"
-  - delay: 225
-    content: _
-  - delay: 8
+  - delay: 60
     content: )
-  - delay: 831
-    content: "\b\e[K"
-  - delay: 120
-    content: "\b\e[K"
-  - delay: 225
-    content: _
-  - delay: 472
-    content: "\b\e[K"
-  - delay: 480
-    content: )
-  - delay: 192
-    content: ;
-  - delay: 664
-    content: "\b\e[K"
-  - delay: 240
+  - delay: 70
     content: ''''
-  - delay: 440
+  - delay: 82
     content: "\r\n"
-  - delay: 225
-    content: "2019-12-16T15:17:12.401-0500 I  NETWORK  [js] DBClientConnection failed to receive message from 127.0.0.1:27017 - HostUnreachable: Connection closed by peer\r\n2019-12-16T15:17:12.402-0500 E  QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :\r\nconnect@src/mongo/shell/mongo.js:341:17\r\n@(connect):3:6\r\n2019-12-16T15:17:12.404-0500 F  -        [main] exception: connect failed\r\n2019-12-16T15:17:12.404-0500 E  -        [main] exiting with code 1\r\n\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 7690
-    content: t
-  - delay: 72
-    content: i
-  - delay: 72
-    content: t
-  - delay: 56
-    content: a
-  - delay: 88
-    content: 'n'
-  - delay: 47
-    content: ' '
-  - delay: 89
-    content: m
-  - delay: 120
-    content: o
-  - delay: 112
-    content: 'n'
-  - delay: 80
-    content: g
-  - delay: 160
-    content: o
-  - delay: 168
-    content: ' '
-  - delay: 120
-    content: s
-  - delay: 64
-    content: t
-  - delay: 32
-    content: o
-  - delay: 64
-    content: p
-  - delay: 192
-    content: "\r\n"
-  - delay: 271
-    content: "Usage: titan [OPTIONS] COMMAND [ARGS]...\r\n\r\nError: Got unexpected extra argument (mongo)\r\n"
-  - delay: 5
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 1285
-    content: t
-  - delay: 86
-    content: i
-  - delay: 56
-    content: t
-  - delay: 40
-    content: a
-  - delay: 88
-    content: 'n'
-  - delay: 48
-    content: ' '
-  - delay: 80
-    content: s
-  - delay: 57
-    content: t
-  - delay: 40
-    content: o
-  - delay: 56
-    content: p
-  - delay: 48
-    content: ' '
-  - delay: 120
-    content: m
-  - delay: 87
-    content: o
-  - delay: 105
-    content: 'n'
-  - delay: 72
-    content: g
-  - delay: 95
-    content: o
-  - delay: 56
-    content: "\r\n"
-  - delay: 635
-    content: "Stopping port forwarding\r\n"
-  - delay: 370
-    content: "Updating deployment\r\n"
-  - delay: 274
-    content: "Waiting for deployment to stop\r\n"
-  - delay: 38
-    content: "Stopped mongo\r\n"
-  - delay: 22
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 629
-    content: t
-  - delay: 72
-    content: i
-  - delay: 80
-    content: t
-  - delay: 64
-    content: a
-  - delay: 64
-    content: 'n'
-  - delay: 72
-    content: ' '
-  - delay: 80
-    content: s
-  - delay: 72
-    content: t
-  - delay: 88
-    content: a
-  - delay: 80
-    content: r
-  - delay: 32
-    content: t
-  - delay: 64
-    content: ' '
-  - delay: 80
-    content: m
-  - delay: 120
-    content: o
-  - delay: 144
-    content: g
-  - delay: 407
-    content: "\b\e[K"
-  - delay: 145
-    content: 'n'
-  - delay: 72
-    content: g
-  - delay: 80
-    content: o
-  - delay: 159
-    content: "\r\n"
-  - delay: 632
-    content: "Updating deployment\r\n"
-  - delay: 349
-    content: "Waiting for deployment to be ready\r\n"
-  - delay: 4562
-    content: "Starting port forwarding\r\n"
-  - delay: 1214
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 564
-    content: titan start mongo
-  - delay: 280
-    content: "\b\b\b\b\b\b\b\b\b\e[1Pop\e[C\e[C\e[C\e[C\e[C\e[C"
-  - delay: 392
-    content: "\r\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[Cmongo stop"
-  - delay: 368
-    content: "\r\e[C\e[Cmongo --quiet --eval 'db.people.insert({ name: \"Grace Hopper\" })'"
-  - delay: 1624
-    content: "\r\n"
-  - delay: 532
+  - delay: 417
     content: "WriteResult({ \"nInserted\" : 1 })\r\n"
+
+  # titan commit -m "first commit" mongo
   - delay: 36
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 945
-    content: m
-  - delay: 112
-    content: o
-  - delay: 145
-    content: 'n'
-  - delay: 1238
-    content: "\b\e[K"
-  - delay: 154
-    content: "\b\e[K"
-  - delay: 104
-    content: "\b\e[K"
-  - delay: 695
+    content: "$ "
+  - delay: 482
     content: t
   - delay: 79
     content: i
@@ -545,23 +367,23 @@ records:
     content: o
   - delay: 56
     content: m
-  - delay: 144
+  - delay: 48
     content: m
   - delay: 72
     content: i
   - delay: 72
     content: t
-  - delay: 167
+  - delay: 81
     content: ' '
-  - delay: 225
+  - delay: 68
     content: '-'
-  - delay: 2473
+  - delay: 43
     content: m
-  - delay: 703
+  - delay: 70
     content: ' '
-  - delay: 217
+  - delay: 81
     content: '"'
-  - delay: 1567
+  - delay: 87
     content: f
   - delay: 72
     content: i
@@ -579,50 +401,34 @@ records:
     content: o
   - delay: 80
     content: m
-  - delay: 152
+  - delay: 52
     content: m
   - delay: 89
     content: i
   - delay: 55
     content: t
-  - delay: 161
+  - delay: 61
     content: '"'
-  - delay: 104
+  - delay: 64
     content: ' '
-  - delay: 176
-    content: '-'
-  - delay: 280
-    content: t
-  - delay: 1656
-    content: ' '
-  - delay: 47
-    content: f
-  - delay: 89
-    content: i
-  - delay: 48
-    content: r
-  - delay: 65
-    content: s
-  - delay: 87
-    content: t
-  - delay: 288
-    content: ' '
-  - delay: 903
+  - delay: 90
     content: m
-  - delay: 129
+  - delay: 29
     content: o
   - delay: 80
     content: 'n'
   - delay: 64
     content: g
-  - delay: 137
+  - delay: 37
     content: o
-  - delay: 591
+  - delay: 47
     content: "\r\n"
-  - delay: 1642
+  - delay: 518
     content: "Commit 14d6496526224b4ba58113585ecb5aed\r\n"
+
+  # mongo --quiet --eval 'db.people.insert({name: "Ada Lovelace"})'
   - delay: 23
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 5824
     content: m
   - delay: 81
@@ -758,7 +564,7 @@ records:
   - delay: 346
     content: "WriteResult({ \"nInserted\" : 1 })\r\n"
   - delay: 34
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 470
     content: m
   - delay: 97
@@ -785,10 +591,6 @@ records:
     content: e
   - delay: 72
     content: t
-  - delay: 161
-    content: ' '
-  - delay: 335
-    content: "\b\e[K"
   - delay: 504
     content: ' '
   - delay: 88
@@ -843,10 +645,6 @@ records:
     content: '}'
   - delay: 235
     content: ','
-  - delay: 102
-    content: ' '
-  - delay: 374
-    content: "\b\e[K"
   - delay: 569
     content: '{'
   - delay: 384
@@ -857,10 +655,6 @@ records:
     content: d
   - delay: 105
     content: ':'
-  - delay: 104
-    content: ' '
-  - delay: 528
-    content: "\b\e[K"
   - delay: 209
     content: '0'
   - delay: 407
@@ -874,7 +668,7 @@ records:
   - delay: 334
     content: "{ \"name\" : \"Grace Hopper\" }\r\n{ \"name\" : \"Ada Lovelace\" }\r\n"
   - delay: 34
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 3517
     content: t
   - delay: 48
@@ -928,7 +722,7 @@ records:
   - delay: 22974
     content: "Starting port forwarding\r\n"
   - delay: 570
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 2739
     content: 'mongo --quiet --eval ''db.people.find({},{_id:0})'''
   - delay: 543
@@ -936,17 +730,13 @@ records:
   - delay: 427
     content: "{ \"name\" : \"Grace Hopper\" }\r\n"
   - delay: 38
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 2304
     content: t
   - delay: 71
     content: i
   - delay: 89
     content: t
-  - delay: 80
-    content: 'n'
-  - delay: 590
-    content: "\b\e[K"
   - delay: 153
     content: a
   - delay: 56
@@ -1019,14 +809,6 @@ records:
     content: t
   - delay: 96
     content: i
-  - delay: 65
-    content: t
-  - delay: 55
-    content: a
-  - delay: 1864
-    content: "\b\e[K"
-  - delay: 136
-    content: "\b\e[K"
   - delay: 929
     content: t
   - delay: 64
@@ -1048,7 +830,7 @@ records:
   - delay: 271
     content: "\r\n"
   - delay: 729
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 681
     content: t
   - delay: 78
@@ -1097,48 +879,8 @@ records:
     content: "Pushing archive for /data/db\r\n"
   - delay: 6029
     content: "Push completed successfully\r\n"
-  - delay: 20
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 851
-    content: "\e[H\e[2J$ "
-  - delay: 907
-    content: t
-  - delay: 71
-    content: i
-  - delay: 87
-    content: t
-  - delay: 73
-    content: a
-  - delay: 609
-    content: 'n'
-  - delay: 95
-    content: ' '
-  - delay: 71
-    content: c
-  - delay: 49
-    content: o
-  - delay: 64
-    content: 'n'
-  - delay: 56
-    content: t
-  - delay: 56
-    content: e
-  - delay: 391
-    content: x
-  - delay: 72
-    content: t
-  - delay: 32
-    content: ' '
-  - delay: 121
-    content: l
-  - delay: 87
-    content: s
-  - delay: 168
-    content: "\r\n"
-  - delay: 585
-    content: "NAME                  TYPE        \r\nkubernetes (*)        kubernetes  \r\ndocker                docker      \r\n"
   - delay: 8
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 455
     content: t
   - delay: 88
@@ -1181,8 +923,46 @@ records:
     content: "Waiting for deployment to stop\r\n"
   - delay: 42
     content: "Stopped mongo\r\n"
+  - delay: 20
+    content: "$ "
+  - delay: 907
+    content: t
+  - delay: 71
+    content: i
+  - delay: 87
+    content: t
+  - delay: 73
+    content: a
+  - delay: 609
+    content: 'n'
+  - delay: 95
+    content: ' '
+  - delay: 71
+    content: c
+  - delay: 49
+    content: o
+  - delay: 64
+    content: 'n'
+  - delay: 56
+    content: t
+  - delay: 56
+    content: e
+  - delay: 391
+    content: x
+  - delay: 72
+    content: t
+  - delay: 32
+    content: ' '
+  - delay: 121
+    content: l
+  - delay: 87
+    content: s
+  - delay: 168
+    content: "\r\n"
+  - delay: 585
+    content: "NAME                  TYPE        \r\nkubernetes (*)        kubernetes  \r\ndocker                docker      \r\n"
   - delay: 13
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 2217
     content: t
   - delay: 84
@@ -1242,7 +1022,7 @@ records:
   - delay: 286
     content: "\r\n"
   - delay: 560
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 1049
     content: t
   - delay: 112
@@ -1319,50 +1099,6 @@ records:
     content: 'n'
   - delay: 624
     content: ' '
-  - delay: 513
-    content: m
-  - delay: 110
-    content: o
-  - delay: 104
-    content: 'n'
-  - delay: 112
-    content: g
-  - delay: 128
-    content: o
-  - delay: 546
-    content: '-'
-  - delay: 207
-    content: l
-  - delay: 152
-    content: o
-  - delay: 112
-    content: c
-  - delay: 147
-    content: a
-  - delay: 156
-    content: l
-  - delay: 1216
-    content: "\b\e[K"
-  - delay: 152
-    content: "\b\e[K"
-  - delay: 144
-    content: "\b\e[K"
-  - delay: 136
-    content: "\b\e[K"
-  - delay: 136
-    content: "\b\e[K"
-  - delay: 136
-    content: "\b\e[K"
-  - delay: 137
-    content: "\b\e[K"
-  - delay: 119
-    content: "\b\e[K"
-  - delay: 128
-    content: "\b\e[K"
-  - delay: 120
-    content: "\b\e[K"
-  - delay: 104
-    content: "\b\e[K"
   - delay: 185
     content: '-'
   - delay: 216
@@ -1412,7 +1148,7 @@ records:
   - delay: 778
     content: "14d6496526224b4ba58113585ecb5aed checked out\r\n"
   - delay: 15
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "$ "
   - delay: 7484
     content: d
   - delay: 63
@@ -1433,14 +1169,6 @@ records:
     content: s
   - delay: 801
     content: ' '
-  - delay: 158
-    content: '|'
-  - delay: 65
-    content: ' '
-  - delay: 887
-    content: "\b\e[K"
-  - delay: 122
-    content: "\b\e[K"
   - delay: 175
     content: '-'
   - delay: 113
@@ -1470,7 +1198,7 @@ records:
   - delay: 191
     content: "\r\n"
   - delay: 63
-    content: "CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES\r\nc8cb4c703142        mongo               \"docker-entrypoint.s…\"   22 seconds ago      Up 11 seconds       0.0.0.0:27017->27017/tcp   mongo-local\r\n\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
+    content: "CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES\r\nc8cb4c703142        mongo               \"docker-entrypoint.s…\"   22 seconds ago      Up 11 seconds       0.0.0.0:27017->27017/tcp   mongo-local\r\n$ "
   - delay: 3007
     content: 'mongo --quiet --eval ''db.people.find({},{_id:0})'''
   - delay: 911
@@ -1478,12 +1206,4 @@ records:
   - delay: 298
     content: "{ \"name\" : \"Grace Hopper\" }\r\n"
   - delay: 9
-    content: "\e]7;file://Eric-Schrock-10528-MacBook-Pro.local/Users/eric.schrock/dev/titan-data.github.io/img/terminalizer\a$ "
-  - delay: 2805
-    content: "logout\r\nSaving session..."
-  - delay: 12
-    content: "\r\n...saving history..."
-  - delay: 11
-    content: truncating history files...
-  - delay: 6
-    content: "\r\n...completed.\r\n"
+    content: "$ "
