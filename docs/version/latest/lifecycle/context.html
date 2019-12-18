@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing Titan Contexts &mdash; titan  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/titan.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Titan with Docker" href="docker.html" />
+    <link rel="prev" title="Repository Configuration" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> titan
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Repository Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing Titan Contexts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#context-configuration">Context Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-contexts">Selecting Contexts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Titan with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Titan with Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Docker Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">titan</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="lifecycle.html">Software Lifecycle</a> &raquo;</li>
+        
+      <li>Managing Titan Contexts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-titan-contexts">
+<span id="lifecycle-context"></span><h1>Managing Titan Contexts<a class="headerlink" href="#managing-titan-contexts" title="Permalink to this headline">¶</a></h1>
+<p>All titan repositories are associated with a single context. Each context
+has a type, either Docker or Kubernetes, that defines how it manages
+repositories within it.</p>
+<ul class="simple">
+<li><p>Docker contexts manage containers locally on the current workstation.</p></li>
+<li><p>Kubernetes contexts manage containers within a Kubernetes cluster.</p></li>
+</ul>
+<p>In both cases, there is a local container that stores the metadata associated
+with the repositories and orchestrates their lifecycle. These containers are
+named <code class="docutils literal notranslate"><span class="pre">titan-(context)-server</span></code> and, for local docker contexts,
+<code class="docutils literal notranslate"><span class="pre">titan-(context)-launch</span></code>.</p>
+<div class="section" id="context-configuration">
+<h2>Context Configuration<a class="headerlink" href="#context-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Contexts are installed through the <a class="reference internal" href="../cli/cmd/context_install.html#cli-cmd-context-install"><span class="std std-ref">titan context install</span></a> command.
+Each context has:</p>
+<ul class="simple">
+<li><p>A type (“docker” or “kubernetes”)</p></li>
+<li><p>A name (defaults to the type of not specified)</p></li>
+<li><p>Optional context-specific parameters</p></li>
+</ul>
+<p>The <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a> command is an alias for
+<code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">install</span> <span class="pre">-t</span> <span class="pre">docker</span></code>, and will create a default docker context
+for managing local containers.</p>
+<p>The context configuration is stored in the <code class="docutils literal notranslate"><span class="pre">.titan/config</span></code> file in your
+home directory. This is a YAML file that contains a <code class="docutils literal notranslate"><span class="pre">contexts</span></code> object that
+is a map of context configurations, with the key being the name of the context
+and the fields the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span></code> - Host to connect to. Currently always “localhost”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> - Type of the context. One of “docker” or “kubernetes”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> - Port that the context container is listening on. Selected at
+random when the context is installed.</p></li>
+</ul>
+<p>While this file can be edited by hand, it is recommend to use the Titan context
+commands. To list available contexts, use the <a class="reference internal" href="../cli/cmd/context_ls.html#cli-cmd-context-ls"><span class="std std-ref">titan context ls</span></a>
+command. To uninstall a context, use the <a class="reference internal" href="../cli/cmd/context_uninstall.html#cli-cmd-context-uninstall"><span class="std std-ref">titan context uninstall</span></a></p>
+</div>
+<div class="section" id="selecting-contexts">
+<h2>Selecting Contexts<a class="headerlink" href="#selecting-contexts" title="Permalink to this headline">¶</a></h2>
+<p>In most situations, a single Titan context is sufficient. When a single
+context is in place, repositories can simply be referenced by their name,
+and any new repository is created within that context.</p>
+<p>Repositories can also be referenced by their fully qualified name,
+<code class="docutils literal notranslate"><span class="pre">&lt;context&gt;/&lt;repository&gt;</span></code>. This can be used to uniquely identify any repository,
+even when there are multiple contexts are configured. This can also be used to
+select which context to use when creating a new repository, such as
+<code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">run</span> <span class="pre">mongo</span> <span class="pre">-n</span> <span class="pre">contextone/mongo</span></code>.</p>
+<p>If the context is not specified, but there is more than one context configured,
+Titan will attempt to determine the appropriate context in one of two ways:</p>
+<ul class="simple">
+<li><p>If referencing an existing repository, as opposed to creating a new
+repository, then Titan will try to find a repository with the matching
+name, but will generate an error if repositories with multiple names
+exist.</p></li>
+<li><p>If creating a new repository, then the default context (as noted in the
+context configuration file) is used.</p></li>
+</ul>
+<p>The default context is identified in <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">ls</span></code> output via a
+” (*)” indicator. You can also get the default context with the
+<a class="reference internal" href="../cli/cmd/context_default.html#cli-cmd-context-default"><span class="std std-ref">titan context default</span></a> command. To set the default context, run
+<code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">default</span> <span class="pre">&lt;name&gt;</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="Titan with Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="config.html" class="btn btn-neutral float-left" title="Repository Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Titan Project Contributors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
