@@ -51,10 +51,11 @@ config:
   # To hide the title use the value null
   # Don't forget to add a backgroundColor style with a null as type
   frameBox:
-    type: solid
+    type: null
     title: null
     style:
-      border: 0px black solid
+      backgroundColor: black
+      # border: 0px black solid
       # boxShadow: none
       # margin: 0px
 

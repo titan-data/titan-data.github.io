@@ -19,11 +19,11 @@ features:
   - name: Iterative Testing
     description: Run destructive tests and qukcly reset to known good state to try again.
 
-  - name: Preserve Data for Failing Test
+  - name: Test Data Preservation
     description: When tests fail in your CI/CD Kubernetes environment, push data state and clone it later for local debugging.
 
-  - name: Build a Test Data Library
+  - name: Test Data Library
     description: Move beyond a collction of dump files and data generation scripts to build a library of complex datasets.
 
-  - name: Share Between Teams
+  - name: Data Sharing
     description: When you run into an issue, quickly commit and push the state for a team member to examine later.
