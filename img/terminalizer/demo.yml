@@ -1,0 +1,859 @@
+#
+# Titan demo script for terminalizer (http://terminalizer.com)
+#
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: null
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 65
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 10
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      # border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 16
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#3bfc34"
+    #foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+records:
+  # titan run mongo
+  - delay: 0
+    content: "$ "
+  - delay: 1046
+    content: ti
+  - delay: 37
+    content: ta
+  - delay: 47
+    content: 'n '
+  - delay: 31
+    content: ru
+  - delay: 41
+    content: 'n '
+  - delay: 52
+    content: mo
+  - delay: 50
+    content: ngo
+  - delay: 43
+    content: "\r\n"
+  - delay: 590
+    content: "Creating repository mongo\r\n"
+  - delay: 31
+    content: "Creating titan volume v0 with path /data/configdb\r\n"
+  - delay: 68
+    content: "Creating titan volume v1 with path /data/db\r\n"
+  - delay: 65
+    content: "Waiting for volumes to be ready\r\n"
+  - delay: 231
+    content: "Creating mongo deployment\r\n"
+  - delay: 80
+    content: "Waiting for deployment to be ready\r\n"
+  - delay: 213
+    content: "Forwarding local ports\r\n"
+
+  # kubectl get svc mongo
+  - delay: 27
+    content: "$ "
+  - delay: 1180
+    content: ku
+  - delay: 39
+    content: be
+  - delay: 61
+    content: ct
+  - delay: 24
+    content: 'l '
+  - delay: 64
+    content: ge
+  - delay: 48
+    content: 't '
+  - delay: 31
+    content: sv
+  - delay: 42
+    content: 'c '
+  - delay: 61
+    content: mo
+  - delay: 58
+    content: ngo
+  - delay: 26
+    content: "\r\n"
+  - delay: 213
+    content: "NAME    TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)     AGE\r\nmongo   ClusterIP   None         <none>        27017/TCP   5s\r\n"
+
+  # mongo --quiet --eval 'db.people.insert({name: "Grace Hopper"})'
+  - delay: 5
+    content: "$ "
+  - delay: 1018
+    content: mo
+  - delay: 46
+    content: ng
+  - delay: 40
+    content: 'o '
+  - delay: 61
+    content: '--'
+  - delay: 48
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 56
+    content: 't '
+  - delay: 70
+    content: '--'
+  - delay: 79
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 28
+    content: ' '''
+  - delay: 53
+    content: db
+  - delay: 38
+    content: .p
+  - delay: 56
+    content: eo
+  - delay: 62
+    content: pl
+  - delay: 20
+    content: e.
+  - delay: 49
+    content: in
+  - delay: 49
+    content: se
+  - delay: 47
+    content: rt
+  - delay: 31
+    content: '({'
+  - delay: 62
+    content: na
+  - delay: 72
+    content: me
+  - delay: 30
+    content: ': '
+  - delay: 62
+    content: '"G'
+  - delay: 76
+    content: ra
+  - delay: 29
+    content: ce
+  - delay: 72
+    content: ' H'
+  - delay: 60
+    content: op
+  - delay: 32
+    content: pe
+  - delay: 50
+    content: 'r"'
+  - delay: 56
+    content: '})'''
+  - delay: 32
+    content: "\r\n"
+  - delay: 417
+    content: "WriteResult({ \"nInserted\" : 1 })\r\n"
+
+  # titan commit -m "first commit" mongo
+  - delay: 36
+    content: "$ "
+  - delay: 982
+    content: ti
+  - delay: 20
+    content: ta
+  - delay: 72
+    content: 'n '
+  - delay: 73
+    content: co
+  - delay: 56
+    content: mm
+  - delay: 72
+    content: it
+  - delay: 31
+    content: ' -'
+  - delay: 70
+    content: 'm '
+  - delay: 31
+    content: '"f'
+  - delay: 72
+    content: ir
+  - delay: 71
+    content: st
+  - delay: 64
+    content: ' c'
+  - delay: 39
+    content: om
+  - delay: 52
+    content: mi
+  - delay: 61
+    content: 't"'
+  - delay: 64
+    content: ' m'
+  - delay: 29
+    content: on
+  - delay: 64
+    content: go
+  - delay: 47
+    content: "\r\n"
+  - delay: 518
+    content: "Commit 14d6496526224b4ba58113585ecb5aed\r\n"
+
+  # mongo --quiet --eval 'db.people.insert({name: "Ada Lovelace"})'
+  - delay: 23
+    content: "$ "
+  - delay: 824
+    content: mo
+  - delay: 30
+    content: ng
+  - delay: 44
+    content: 'o '
+  - delay: 31
+    content: '--'
+  - delay: 33
+    content: qu
+  - delay: 56
+    content: ie
+  - delay: 32
+    content: 't '
+  - delay: 26
+    content: '--'
+  - delay: 56
+    content: ev
+  - delay: 47
+    content: al
+  - delay: 69
+    content: ' '''
+  - delay: 49
+    content: db
+  - delay: 38
+    content: .p
+  - delay: 28
+    content: eo
+  - delay: 76
+    content: pl
+  - delay: 34
+    content: e.
+  - delay: 60
+    content: in
+  - delay: 17
+    content: se
+  - delay: 63
+    content: rt
+  - delay: 42
+    content: '({'
+  - delay: 76
+    content: 'na'
+  - delay: 72
+    content: me
+  - delay: 79
+    content: ': '
+  - delay: 44
+    content: '"A'
+  - delay: 43
+    content: da
+  - delay: 29
+    content: ' L'
+  - delay: 36
+    content: ov
+  - delay: 47
+    content: el
+  - delay: 66
+    content: ac
+  - delay: 20
+    content: 'e"'
+  - delay: 96
+    content: '})'''
+  - delay: 43
+    content: "\r\n"
+  - delay: 346
+    content: "WriteResult({ \"nInserted\" : 1 })\r\n"
+
+  # mongo --quiet --eval 'db.people.find({},{_id:0})'
+  - delay: 34
+    content: "$ "
+  - delay: 1070
+    content: mo
+  - delay: 20
+    content: ng
+  - delay: 20
+    content: 'o '
+  - delay: 54
+    content: '--'
+  - delay: 38
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 50
+    content: 't '
+  - delay: 48
+    content: '--'
+  - delay: 72
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 48
+    content: ' '''
+  - delay: 41
+    content: db
+  - delay: 56
+    content: .p
+  - delay: 25
+    content: eo
+  - delay: 20
+    content: pl
+  - delay: 72
+    content: e.
+  - delay: 28
+    content: fi
+  - delay: 64
+    content: nd
+  - delay: 35
+    content: '({'
+  - delay: 44
+    content: '},'
+  - delay: 69
+    content: '{_'
+  - delay: 52
+    content: id
+  - delay: 45
+    content: ':0'
+  - delay: 47
+    content: '})'''
+  - delay: 67
+    content: "\r\n"
+  - delay: 334
+    content: "{ \"name\" : \"Grace Hopper\" }\r\n{ \"name\" : \"Ada Lovelace\" }\r\n"
+
+  # titan checkout mongo
+  - delay: 34
+    content: "$ "
+  - delay: 1117
+    content: ti
+  - delay: 64
+    content: ta
+  - delay: 57
+    content: 'n '
+  - delay: 72
+    content: ch
+  - delay: 54
+    content: ec
+  - delay: 65
+    content: ko
+  - delay: 56
+    content: ut
+  - delay: 65
+    content: ' m'
+  - delay: 14
+    content: on
+  - delay: 26
+    content: go
+  - delay: 56
+    content: "\r\n"
+  - delay: 489
+    content: "Checkout 14d6496526224b4ba58113585ecb5aed\r\n"
+  - delay: 312
+    content: "Stopping port forwarding\r\n"
+  - delay: 215
+    content: "Updating deployment\r\n"
+  - delay: 341
+    content: "Waiting for deployment to be ready\r\n"
+  - delay: 474
+    content: "Starting port forwarding\r\n"
+
+  # mongo --quiet --eval 'db.people.find({},{_id:0})'
+  - delay: 34
+    content: "$ "
+  - delay: 1070
+    content: mo
+  - delay: 20
+    content: ng
+  - delay: 20
+    content: 'o '
+  - delay: 54
+    content: '--'
+  - delay: 38
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 50
+    content: 't '
+  - delay: 48
+    content: '--'
+  - delay: 72
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 48
+    content: ' '''
+  - delay: 41
+    content: db
+  - delay: 56
+    content: .p
+  - delay: 25
+    content: eo
+  - delay: 20
+    content: pl
+  - delay: 72
+    content: e.
+  - delay: 28
+    content: fi
+  - delay: 64
+    content: nd
+  - delay: 35
+    content: '({'
+  - delay: 44
+    content: '},'
+  - delay: 69
+    content: '{_'
+  - delay: 52
+    content: id
+  - delay: 45
+    content: ':0'
+  - delay: 47
+    content: '})'''
+  - delay: 67
+    content: "\r\n"
+  - delay: 427
+    content: "{ \"name\" : \"Grace Hopper\" }\r\n"
+
+  # titan remote add s3://my-bucket/titan mongo
+  - delay: 38
+    content: "$ "
+  - delay: 1004
+    content: ti
+  - delay: 39
+    content: ta
+  - delay: 56
+    content: 'n '
+  - delay: 72
+    content: re
+  - delay: 24
+    content: mo
+  - delay: 30
+    content: te
+  - delay: 39
+    content: ' a'
+  - delay: 34
+    content: dd
+  - delay: 96
+    content: ' s'
+  - delay: 45
+    content: '3:'
+  - delay: 28
+    content: //
+  - delay: 47
+    content: my
+  - delay: 64
+    content: '-b'
+  - delay: 63
+    content: uc
+  - delay: 47
+    content: ke
+  - delay: 71
+    content: t/
+  - delay: 24
+    content: ti
+  - delay: 29
+    content: ta
+  - delay: 96
+    content: 'n '
+  - delay: 90
+    content: mo
+  - delay: 29
+    content: 'ngo'
+  - delay: 71
+    content: "\r\n"
+
+  # titan push mongo
+  - delay: 229
+    content: "$ "
+  - delay: 1181
+    content: ti
+  - delay: 63
+    content: ta
+  - delay: 47
+    content: 'n '
+  - delay: 55
+    content: pu
+  - delay: 48
+    content: sh
+  - delay: 57
+    content: ' m'
+  - delay: 49
+    content: on
+  - delay: 40
+    content: go
+  - delay: 49
+    content: "\r\n"
+  - delay: 793
+    content: "Pushing 14d6496526224b4ba58113585ecb5aed to 'origin'\r\n"
+  - delay: 313
+    content: "Waiting for volumes to be ready\r\n"
+  - delay: 216
+    content: "Starting job\r\n"
+  - delay: 474
+    content: "Creating archive for /data/configdb\r\nPushing archive for /data/configdb\r\n"
+  - delay: 510
+    content: "Creating archive for /data/db\r\n"
+  - delay: 619
+    content: "Pushing archive for /data/db\r\n"
+  - delay: 329
+    content: "Push completed successfully\r\n"
+
+  # titan stop mongo
+  - delay: 8
+    content: "$ "
+  - delay: 955
+    content: ti
+  - delay: 73
+    content: ta
+  - delay: 48
+    content: 'n '
+  - delay: 25
+    content: st
+  - delay: 31
+    content: op
+  - delay: 74
+    content: ' m'
+  - delay: 14
+    content: on
+  - delay: 72
+    content: go
+  - delay: 33
+    content: "\r\n"
+  - delay: 629
+    content: "Stopping port forwarding\r\n"
+  - delay: 374
+    content: "Updating deployment\r\n"
+  - delay: 281
+    content: "Waiting for deployment to stop\r\n"
+  - delay: 42
+    content: "Stopped mongo\r\n"
+
+  # titan context ls
+  - delay: 20
+    content: "$ "
+  - delay: 887
+    content: ti
+  - delay: 37
+    content: ta
+  - delay: 69
+    content: 'n '
+  - delay: 71
+    content: co
+  - delay: 64
+    content: nt
+  - delay: 56
+    content: ex
+  - delay: 32
+    content: 't '
+  - delay: 21
+    content: ls
+  - delay: 68
+    content: "\r\n"
+  - delay: 285
+    content: "NAME                  TYPE        \r\nkubernetes (*)        kubernetes  \r\ndocker                docker      \r\n"
+
+  # titan context default docker
+  - delay: 13
+    content: "$ "
+  - delay: 917
+    content: ti
+  - delay: 64
+    content: ta
+  - delay: 49
+    content: 'n '
+  - delay: 19
+    content: co
+  - delay: 56
+    content: nt
+  - delay: 48
+    content: ex
+  - delay: 41
+    content: 't '
+  - delay: 28
+    content: de
+  - delay: 15
+    content: fa
+  - delay: 72
+    content: ul
+  - delay: 73
+    content: 't '
+  - delay: 40
+    content: do
+  - delay: 55
+    content: ck
+  - delay: 60
+    content: er
+  - delay: 46
+    content: "\r\n"
+
+  # titan clone s3://my-bucket/titan -n mongo-local
+  - delay: 160
+    content: "$ "
+  - delay: 1049
+    content: ti
+  - delay: 42
+    content: ta
+  - delay: 69
+    content: 'n '
+  - delay: 52
+    content: cl
+  - delay: 20
+    content: on
+  - delay: 56
+    content: 'e '
+  - delay: 49
+    content: s3
+  - delay: 43
+    content: ':/'
+  - delay: 45
+    content: /m
+  - delay: 32
+    content: 'y-'
+  - delay: 72
+    content: bu
+  - delay: 52
+    content: ck
+  - delay: 72
+    content: et
+  - delay: 71
+    content: /t
+  - delay: 46
+    content: it
+  - delay: 31
+    content: an
+  - delay: 64
+    content: ' -'
+  - delay: 26
+    content: 'n '
+  - delay: 72
+    content: mo
+  - delay: 64
+    content: ng
+  - delay: 67
+    content: 'o-'
+  - delay: 76
+    content: lo
+  - delay: 63
+    content: cal
+  - delay: 31
+    content: "\r\n"
+  - delay: 383
+    content: "Creating repository mongo-local\r\nCreating docker volume mongo-local/v0 with path /data/configdb\r\n"
+  - delay: 157
+    content: "Creating docker volume mongo-local/v1 with path /data/db\r\n"
+  - delay: 311
+    content: "Running controlled container mongo-local\r\n"
+  - delay: 335
+    content: "Pulling 14d6496526224b4ba58113585ecb5aed from 'origin'\r\n"
+  - delay: 202
+    content: "Pulling archive for /data/configdb\r\nExtracting archive for /data/configdb\r\nPulling archive for /data/db\r\nExtracting archive for /data/db\r\n"
+  - delay: 402
+    content: "Pull completed successfully\r\nStopping container mongo-local\r\n"
+  - delay: 325
+    content: "Checkout 14d6496526224b4ba58113585ecb5aed\r\n"
+  - delay: 152
+    content: "Starting container mongo-local\r\n"
+  - delay: 278
+    content: "14d6496526224b4ba58113585ecb5aed checked out\r\n"
+
+  # docker ps -f name=mongo --format {{.Names}}
+  - delay: 15
+    content: "$ "
+  - delay: 1084
+    content: do
+  - delay: 97
+    content: ck
+  - delay: 96
+    content: er
+  - delay: 69
+    content: ' p'
+  - delay: 54
+    content: 's '
+  - delay: 75
+    content: '-f'
+  - delay: 72
+    content: ' n'
+  - delay: 57
+    content: am
+  - delay: 45
+    content: e=
+  - delay: 28
+    content: mo
+  - delay: 34
+    content: ng
+  - delay: 75
+    content: 'o '
+  - delay: 45
+    content: '--'
+  - delay: 62
+    content: fo
+  - delay: 35
+    content: rm
+  - delay: 72
+    content: at
+  - delay: 51
+    content: ' {'
+  - delay: 32
+    content: '{.'
+  - delay: 29
+    content: Na
+  - delay: 61
+    content: me
+  - delay: 39
+    content: 's}}'
+  - delay: 78
+    content: "\r\n"
+  - delay: 63
+    content: "mongo-local\r\n$ "
+
+  # mongo --quiet --eval 'db.people.find({},{_id:0})'
+  - delay: 1070
+    content: mo
+  - delay: 20
+    content: ng
+  - delay: 20
+    content: 'o '
+  - delay: 54
+    content: '--'
+  - delay: 38
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 50
+    content: 't '
+  - delay: 48
+    content: '--'
+  - delay: 72
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 48
+    content: ' '''
+  - delay: 41
+    content: db
+  - delay: 56
+    content: .p
+  - delay: 25
+    content: eo
+  - delay: 20
+    content: pl
+  - delay: 72
+    content: e.
+  - delay: 28
+    content: fi
+  - delay: 64
+    content: nd
+  - delay: 35
+    content: '({'
+  - delay: 44
+    content: '},'
+  - delay: 69
+    content: '{_'
+  - delay: 52
+    content: id
+  - delay: 45
+    content: ':0'
+  - delay: 47
+    content: '})'''
+  - delay: 67
+    content: "\r\n"
+  - delay: 427
+    content: "{ \"name\" : \"Grace Hopper\" }\r\n"
+  - delay: 9
+    content: '$ '
+  - delay: 5149
+    content: ' '

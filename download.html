@@ -11,15 +11,15 @@ title: Download
         Download Titan
       </p>
       <div class="action-btns text-center">
-        <a href="{{ site.data.download.macos }}" class="btn btn-primary">
+        <a href="{{ site.data.download.releases }}/{{ site.data.download.version }}/titan-cli-{{ site.data.download.version }}-{{ site.data.download.macos }}" class="btn btn-primary">
            <i class="fab fa-apple fa-lg"></i>
            Mac OS
         </a>
-        <a href="{{ site.data.download.windows }}" class="btn btn-primary">
+        <a href="#" class="btn btn-secondary">
             <i class="fab fa-windows fa-lg"></i>
             Windows
         </a>
-        <a href="{{ site.data.download.linux }}" class="btn btn-primary">
+        <a href="{{ site.data.download.releases }}/{{ site.data.download.version }}/titan-cli-{{ site.data.download.version }}-{{ site.data.download.linux }}" class="btn btn-primary">
             <i class="fab fa-linux fa-lg"></i>
             Linux
         </a>
@@ -37,17 +37,23 @@ title: Download
           <p class="font-big font-light no-margin-top">
                Before using titan, you will need to have
                <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> installed,
-               with the ability to run Linux containers. If you are using a Linux System,
-               consult the <a href="/docs">Documentation</a> to determine if your distribution
-               is supported. If you are using a Windows System, you will also need to have 
-               the <a href="https://microsoft.com/en-us/download/confirmation.aspx?id=13523">
-               Microsoft Visual C++ 2010 SP1 Redistributable Package (x64)</a> installed.
+               with the ability to run Linux containers. If you are using a Linux System for
+               local Titan use, consult the <a href="/docs">Documentation</a> to determine if your distribution
+               is supported. If you are running Titan for Kubernetes, consult the <a href="/docs">Documentation</a>
+               for more information on requirements, limitations, and configuration.
+          </p>
+          <p class="font-big font-light no-margin-top">
+              Windows is not currently supported due to limitations with Titan's
+              current dependencies. The next major version will move to a new
+              language and runtime that will eliminate these limtiations. Stay tuned!
           </p>
           <p class="font-big font-light no-margin-top">
               Once you have downloaded and extracted the distribution, simply run
-              <code>titan install</code>. This will download the titan docker container
+              <code>titan install</code> (for local docker use) or
+              <code>titan context install -t kuberenetes</code> (for kuberenetes).
+              This will download the titan docker container
               that will then run in the background. That's all you need to get started
-              with titan!
+              with Titan!
           </p>
         </div>
       </div>

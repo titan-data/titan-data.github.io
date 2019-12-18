@@ -4,29 +4,26 @@ hero:
     headline: Your code. Your environment. Your data.
 
 why-titan:
-  - "The rise of git, docker, and DevOps has created a new world where developers can easily build, test, and deploy
-  right from their laptop. Despite these advances, developers still struggle to manage structured data with the same
+  - "The rise of git, docker, Kubernetes, and DevOps has created a new world where developers can easily build, test, and
+  deploy right from their laptop. Despite these advances, developers still struggle to manage structured data with the same
   speed and simplicity. Techniques like SQL scripts, database dumps, and plain text exports still leave a lot of work
   for developers."
 
   - "Titan is an open source project for developers to manage their data like code. Titan makes it easy to run your
-  favorite database in a docker container on your laptop, but with the power of versioning the underlying data.
+  favorite database in a docker container on your laptop or in Kubernetes, but with the power of versioning the underlying data.
   Titan's git-like CLI enables developers to clone, commit, checkout, push, and pull data just like code, making
   it easy to rollback to a previous state, build a test data library, or share a structured dataset with
   collaborators."
 
 features:
-  - name: Data versioning
-    description: Version your data like code, committing and checking the data your need to get your work done.
+  - name: Iterative Testing
+    description: Run destructive tests and qukcly reset to known good state to try again.
 
-  - name: Any data
-    description: Titan works with off-the-shelf docker containers, including your favorite SQL and NoSQL data stores.
+  - name: Test Data Preservation
+    description: When tests fail in your CI/CD Kubernetes environment, push data state and clone it later for local debugging.
 
-  - name: Developer CLI
-    description: Use a command line tool with familiar syntax from git and docker.
+  - name: Test Data Library
+    description: Move beyond a collction of dump files and data generation scripts to build a library of complex datasets.
 
-  - name: Easy sharing
-    description: Push data to shared repositories like S3 so others can clone and pull the same dataset.
-
-  - name: Local development
-    description: Titan works with docker on your laptop, fitting right into your current development workflow.
+  - name: Data Sharing
+    description: When you run into an issue, quickly commit and push the state for a team member to examine later.

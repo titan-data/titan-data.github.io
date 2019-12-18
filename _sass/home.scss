@@ -22,20 +22,6 @@
   }
 }
 
-.titan-version-number {
-  padding: 0 2.5rem;
-  display: inline-block;
-  line-height: 68px;
-  text-align: center;
-  min-width: 72px;
-  border-radius: .5rem;
-  background-color: $color-white;
-  color: $color-primary;
-  font-size: 36px;
-  font-weight: 300;
-  margin: 5rem 0 3rem 0;
-}
-
 .home-section {
   padding: 30px 0;
 
@@ -84,4 +70,13 @@
   .btn {
     margin: 10px;
   }
+}
+
+.demo {
+    img {
+        background-color: #000000;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    margin-bottom: 20px;
 }

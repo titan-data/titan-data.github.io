@@ -17,6 +17,12 @@ permalink: /
         </p>
       </div>
       {% endfor %}
+      <div class="row justify-content-center align-items-center demo">
+        <img src="/img/demo.gif" alt="Titan Demo">
+      </div>
+      <div class="headline text-white font-light font-l">
+        <p>Version {{ site.data.download.version }} released, now with Kubernetes support!</p>
+      </div>
       <div class="action-btns text-center">
         <a href="/getting-started" class="btn btn-primary">Get Started</a>
         <a href="/download" class="btn btn-primary">Download</a>
@@ -40,7 +46,7 @@ permalink: /
 
   <section id="features" class="home-section bg-white">
     <div class="container">
-      <h1 class="heading-big text-uppercase text-highlight text-center">Features</h1>
+      <h1 class="heading-big text-uppercase text-highlight text-center">Use Cases</h1>
       <div class="row">
         {% for feature in site.data.home.features %}
           <div class="col-sm-6">
