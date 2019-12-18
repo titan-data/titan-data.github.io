@@ -36,7 +36,7 @@ a custom distribution and may fail outright. Reach out to the
 
 Titan Kubernetes support is currently in beta. For more information on how
 Kubernetes works, its limitations, and cluster requirements, see the
-[Kubernetes Documentation](/docs/version/development/lifecycle/kubernetes.html).
+[Kubernetes Documentation](/docs/version/latest/lifecycle/kubernetes.html).
 To install Titan for Kubernetes, run:
 
 {% include code_block.html code='titan context install -t kubernetes' %}
