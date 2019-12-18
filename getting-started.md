@@ -47,7 +47,7 @@ will not require installing ZFS on the Docker VM or Linux host.
 # Cloning Your First Repo
 We can launch a postgres database simply by cloning this demo repository:
 
-{% include code_block.html code='titan clone s3web://demo.titan-data.io/hello-world/postgres hello-world' %}
+{% include code_block.html code='titan clone -n hello-world s3web://demo.titan-data.io/hello-world/postgres' %}
 
 You should now be able to see a repository running:
 
@@ -74,20 +74,18 @@ $ psql postgres://postgres:postgres@localhost/postgres -t -c 'SELECT * FROM mess
 If you don't have PostgreSQL tools, you can also run the DynamoDB example:
 
 {%- capture display -%}
-$ titan clone s3web://demo.titan-data.io/hello-world/dynamodb hello-world
+$ titan clone -n hello-world s3web://demo.titan-data.io/hello-world/dynamodb
 $ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | grep '"S"'
                 "S": "Hello, World!"
 {%- endcapture -%}
-{% include code_block.html display=display code='titan clone s3web://demo.titan-data.io/hello-world/dynamodb hello-world' %}
+{% include code_block.html display=display code='titan clone -n hello-world s3web://demo.titan-data.io/hello-world/dynamodb' %}
 
 # Creating a New Repository
 
 If you want to start your own database, you can do so with `titan run`, which
-run any stateful docker image with a `VOLUME` declaration, such as MongoDB. The
-arguments after `--` are standard docker arguments, and must include `-d` and
-`--name`.
+run any stateful docker image with a `VOLUME` declaration, such as MongoDB.
 
-{% include code_block.html code='titan run -- --name mongo-test -p 27017:27017 -d mongo:latest' %}
+{% include code_block.html code='titan run -n mongo-test mongo:latest' %}
 
 # Committing and Checking out State
 

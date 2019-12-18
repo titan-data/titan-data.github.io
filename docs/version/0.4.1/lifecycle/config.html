@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Repository Configuration &mdash; titan  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/titan.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Managing Titan Contexts" href="context.html" />
+    <link rel="prev" title="Installation and Configuration" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> titan
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation and Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Repository Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#image-configuration">Image Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-configuration">Additional Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Managing Titan Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Titan with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Titan with Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrading Titan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagnosis.html">Diagnosing Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Titan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Docker Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote/remote.html">Remote Repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/cli.html">Command Line Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">titan</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="lifecycle.html">Software Lifecycle</a> &raquo;</li>
+        
+      <li>Repository Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>:: _lifecycle_config</p>
+<div class="section" id="repository-configuration">
+<h1>Repository Configuration<a class="headerlink" href="#repository-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Whenever a new repository is created, Titan will store metadata about the
+associated container image that is then stored with each commit and used to
+instantiate containers in the appropriate runtime context. The following
+information is taken from the original container image:</p>
+<ul class="simple">
+<li><p>Image Name</p></li>
+<li><p>Image Tag</p></li>
+<li><p>Image Digest</p></li>
+<li><p>Environment Variables</p></li>
+<li><p>Volume Mappings</p></li>
+<li><p>Exposed Ports</p></li>
+</ul>
+<div class="section" id="image-configuration">
+<h2>Image Configuration<a class="headerlink" href="#image-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Whenever Titan creates a new container from a commit, Titan will attempt to use
+the identical image that was used to create the commit. For images that have been
+pushed to a registry, this is accomplished through the image digest, which ensures that
+an exact match is used. There are cases where the digest doesn’t exist, such as
+when using images built locally that have not been pushed to a registry, or
+when the image came from a private registry that is no longer available. In these cases,
+the image name and tag is used instead. For example, if the <code class="docutils literal notranslate"><span class="pre">postgres:11</span></code> image
+is specified, Titan will prefer the digest of that image, as new images (corresponding to
+Postgres minor releases) may be pushed under that tag. But in the event that
+digest can’t be found, Titan will attempt to use whatever image corresponds to
+<code class="docutils literal notranslate"><span class="pre">postgres::11</span></code> at that point in time. Radically changing the image
+configuration (most notably volume mappings) can have unintended consequences
+and cause the repository to fail to be created.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>There is currently no way to override the image attributes to change
+which image to use for a repository. This capability will be added in a
+future release.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Titan does not currently perform rigorous compatibility checks when pushing
+commits to a remote. It is possible to push radically different commits
+(different images, different volume mappings) that can cause significant
+issues when trying to switch between commits in a repository. Be careful
+that you are only pushing and pull compatible commits.</p>
+</div>
+</div>
+<div class="section" id="port-forwarding">
+<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline">¶</a></h2>
+<p>By default, Titan will forward any exposed ports on the container to the local
+system. For example, running a PostgreSQL image will by default make the
+container available at <code class="docutils literal notranslate"><span class="pre">localhost:5432</span></code>. To disable this behavior, use the
+<code class="docutils literal notranslate"><span class="pre">-P</span></code> option when cloning or running a repository. Custom port mappings can
+be created using additional context-specific configuration options, described
+below.</p>
+</div>
+<div class="section" id="additional-configuration">
+<h2>Additional Configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Additional context-specific configuration can be specified when cloning or
+running a repository, but that configuration will not be persisted with the
+commits. For example, you can choose to forward ports differently (or not
+at all) on your workstation, run the containers on alternate docker networks,
+or use a different storage class for volumes in Kubernetes. This configuration
+may not translate across runtime environments (for example, a Docker network
+may not exist on a different system, or may not make sense at all in a
+Kubernetes environment), so you will have to specify it each time a repository
+is run or cloned. Once configured, this configuration will continue to be used
+for subsequent checkouts or commits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="context.html" class="btn btn-neutral float-right" title="Managing Titan Contexts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation and Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Titan Project Contributors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
