@@ -116,36 +116,20 @@ records:
   # titan run mongo
   - delay: 0
     content: "$ "
-  - delay: 2046
-    content: t
-  - delay: 72
-    content: i
+  - delay: 1046
+    content: ti
   - delay: 37
-    content: t
-  - delay: 65
-    content: a
+    content: ta
   - delay: 47
-    content: 'n'
+    content: 'n '
   - delay: 31
-    content: ' '
-  - delay: 31
-    content: r
-  - delay: 21
-    content: u
+    content: ru
   - delay: 41
-    content: 'n'
-  - delay: 49
-    content: ' '
+    content: 'n '
   - delay: 52
-    content: m
-  - delay: 62
-    content: o
+    content: mo
   - delay: 50
-    content: 'n'
-  - delay: 38
-    content: g
-  - delay: 57
-    content: o
+    content: ngo
   - delay: 43
     content: "\r\n"
   - delay: 590
@@ -167,47 +151,25 @@ records:
   - delay: 27
     content: "$ "
   - delay: 1180
-    content: k
-  - delay: 52
-    content: u
+    content: ku
   - delay: 39
-    content: b
-  - delay: 43
-    content: e
+    content: be
   - delay: 61
-    content: c
-  - delay: 42
-    content: t
+    content: ct
   - delay: 24
-    content: l
-  - delay: 37
-    content: ' '
+    content: 'l '
   - delay: 64
-    content: g
-  - delay: 58
-    content: e
+    content: ge
   - delay: 48
-    content: t
-  - delay: 72
-    content: ' '
+    content: 't '
   - delay: 31
-    content: s
-  - delay: 59
-    content: v
+    content: sv
   - delay: 42
-    content: c
-  - delay: 52
-    content: ' '
+    content: 'c '
   - delay: 61
-    content: m
-  - delay: 27
-    content: o
+    content: mo
   - delay: 58
-    content: 'n'
-  - delay: 42
-    content: g
-  - delay: 60
-    content: o
+    content: ngo
   - delay: 26
     content: "\r\n"
   - delay: 213
@@ -217,131 +179,67 @@ records:
   - delay: 5
     content: "$ "
   - delay: 1018
-    content: m
-  - delay: 79
-    content: o
+    content: mo
   - delay: 46
-    content: 'n'
-  - delay: 59
-    content: g
+    content: ng
   - delay: 40
-    content: o
-  - delay: 96
-    content: ' '
+    content: 'o '
   - delay: 61
-    content: '-'
-  - delay: 32
-    content: '-'
+    content: '--'
   - delay: 48
-    content: q
-  - delay: 31
-    content: u
+    content: qu
   - delay: 64
-    content: i
-  - delay: 79
-    content: e
+    content: ie
   - delay: 56
-    content: t
-  - delay: 60
-    content: ' '
+    content: 't '
   - delay: 70
-    content: '-'
-  - delay: 52
-    content: '-'
+    content: '--'
   - delay: 79
-    content: e
-  - delay: 72
-    content: v
+    content: ev
   - delay: 56
-    content: a
-  - delay: 48
-    content: l
+    content: al
   - delay: 28
-    content: ' '
-  - delay: 67
-    content: ''''
+    content: ' '''
   - delay: 53
-    content: d
-  - delay: 42
-    content: b
+    content: db
   - delay: 38
-    content: .
-  - delay: 49
-    content: p
+    content: .p
   - delay: 56
-    content: e
-  - delay: 32
-    content: o
+    content: eo
   - delay: 62
-    content: p
-  - delay: 73
-    content: l
+    content: pl
   - delay: 20
-    content: e
-  - delay: 54
-    content: .
+    content: e.
   - delay: 49
-    content: i
-  - delay: 40
-    content: 'n'
+    content: in
   - delay: 49
-    content: s
-  - delay: 48
-    content: e
+    content: se
   - delay: 47
-    content: r
-  - delay: 79
-    content: t
+    content: rt
   - delay: 31
-    content: (
-  - delay: 58
-    content: '{'
+    content: '({'
   - delay: 62
-    content: 'n'
-  - delay: 65
-    content: a
+    content: na
   - delay: 72
-    content: m
-  - delay: 72
-    content: e
+    content: me
   - delay: 30
-    content: ':'
-  - delay: 71
-    content: ' '
+    content: ': '
   - delay: 62
-    content: '"'
-  - delay: 49
-    content: G
+    content: '"G'
   - delay: 76
-    content: r
-  - delay: 69
-    content: a
+    content: ra
   - delay: 29
-    content: c
+    content: ce
   - delay: 72
-    content: e
-  - delay: 72
-    content: ' '
-  - delay: 48
-    content: H
+    content: ' H'
   - delay: 60
-    content: o
-  - delay: 71
-    content: p
+    content: op
   - delay: 32
-    content: p
-  - delay: 51
-    content: e
+    content: pe
   - delay: 50
-    content: r
-  - delay: 63
-    content: '"'
+    content: 'r"'
   - delay: 56
-    content: '}'
-  - delay: 60
-    content: )
-  - delay: 70
-    content: ''''
+    content: '})'''
   - delay: 32
     content: "\r\n"
   - delay: 417
@@ -351,77 +249,41 @@ records:
   - delay: 36
     content: "$ "
   - delay: 982
-    content: t
-  - delay: 79
-    content: i
+    content: ti
   - delay: 20
-    content: t
-  - delay: 49
-    content: a
+    content: ta
   - delay: 72
-    content: 'n'
-  - delay: 48
-    content: ' '
+    content: 'n '
   - delay: 73
-    content: c
-  - delay: 47
-    content: o
+    content: co
   - delay: 56
-    content: m
-  - delay: 48
-    content: m
+    content: mm
   - delay: 72
-    content: i
-  - delay: 72
-    content: t
+    content: it
   - delay: 31
-    content: ' '
-  - delay: 68
-    content: '-'
-  - delay: 43
-    content: m
+    content: ' -'
   - delay: 70
-    content: ' '
+    content: 'm '
   - delay: 31
-    content: '"'
-  - delay: 27
-    content: f
+    content: '"f'
   - delay: 72
-    content: i
-  - delay: 73
-    content: r
+    content: ir
   - delay: 71
-    content: s
-  - delay: 73
-    content: t
+    content: st
   - delay: 64
-    content: ' '
-  - delay: 30
-    content: c
+    content: ' c'
   - delay: 39
-    content: o
-  - delay: 20
-    content: m
+    content: om
   - delay: 52
-    content: m
-  - delay: 39
-    content: i
-  - delay: 55
-    content: t
+    content: mi
   - delay: 61
-    content: '"'
+    content: 't"'
   - delay: 64
-    content: ' '
-  - delay: 90
-    content: m
+    content: ' m'
   - delay: 29
-    content: o
-  - delay: 40
-    content: 'n'
+    content: on
   - delay: 64
-    content: g
-  - delay: 37
-    content: o
+    content: go
   - delay: 47
     content: "\r\n"
   - delay: 518
@@ -431,131 +293,67 @@ records:
   - delay: 23
     content: "$ "
   - delay: 824
-    content: m
-  - delay: 21
-    content: o
-  - delay: 71
-    content: 'n'
+    content: mo
   - delay: 30
-    content: g
-  - delay: 65
-    content: o
+    content: ng
   - delay: 44
-    content: ' '
+    content: 'o '
   - delay: 31
-    content: '-'
-  - delay: 46
-    content: '-'
+    content: '--'
   - delay: 33
-    content: q
-  - delay: 64
-    content: u
+    content: qu
   - delay: 56
-    content: i
-  - delay: 44
-    content: e
-  - delay: 72
-    content: t
+    content: ie
   - delay: 32
-    content: ' '
+    content: 't '
   - delay: 26
-    content: '-'
-  - delay: 75
-    content: '-'
+    content: '--'
   - delay: 56
-    content: e
-  - delay: 45
-    content: v
+    content: ev
   - delay: 47
-    content: a
-  - delay: 48
-    content: l
-  - delay: 73
-    content: ' '
+    content: al
   - delay: 69
-    content: ''''
+    content: ' '''
   - delay: 49
-    content: d
-  - delay: 52
-    content: b
+    content: db
   - delay: 38
-    content: .
-  - delay: 44
-    content: p
+    content: .p
   - delay: 28
-    content: e
-  - delay: 48
-    content: o
+    content: eo
   - delay: 76
-    content: p
-  - delay: 38
-    content: l
+    content: pl
   - delay: 34
-    content: e
-  - delay: 40
-    content: .
+    content: e.
   - delay: 60
-    content: i
-  - delay: 72
-    content: 'n'
+    content: in
   - delay: 17
-    content: s
-  - delay: 49
-    content: e
+    content: se
   - delay: 63
-    content: r
-  - delay: 37
-    content: t
-  - delay: 28
-    content: (
-  - delay: 92
-    content: '{'
+    content: rt
+  - delay: 42
+    content: '({'
   - delay: 76
-    content: 'n'
-  - delay: 19
-    content: a
+    content: 'na'
   - delay: 72
-    content: m
-  - delay: 34
-    content: e
+    content: me
   - delay: 79
-    content: ':'
-  - delay: 72
-    content: ' '
+    content: ': '
   - delay: 44
-    content: '"'
-  - delay: 52
-    content: A
+    content: '"A'
   - delay: 43
-    content: d
-  - delay: 77
-    content: a
+    content: da
   - delay: 29
-    content: ' '
-  - delay: 52
-    content: L
+    content: ' L'
   - delay: 36
-    content: o
-  - delay: 72
-    content: v
+    content: ov
   - delay: 47
-    content: e
-  - delay: 91
-    content: l
+    content: el
   - delay: 66
-    content: a
-  - delay: 22
-    content: c
-  - delay: 71
-    content: e
+    content: ac
   - delay: 20
-    content: '"'
+    content: 'e"'
   - delay: 96
-    content: '}'
-  - delay: 39
-    content: )
-  - delay: 44
-    content: ''''
+    content: '})'''
   - delay: 43
     content: "\r\n"
   - delay: 346
@@ -565,103 +363,53 @@ records:
   - delay: 34
     content: "$ "
   - delay: 1070
-    content: m
-  - delay: 97
-    content: o
+    content: mo
   - delay: 20
-    content: 'n'
-  - delay: 24
-    content: g
-  - delay: 79
-    content: o
+    content: ng
   - delay: 20
-    content: ' '
+    content: 'o '
   - delay: 54
-    content: '-'
-  - delay: 28
-    content: '-'
+    content: '--'
   - delay: 38
-    content: q
-  - delay: 44
-    content: u
+    content: qu
   - delay: 64
-    content: i
-  - delay: 48
-    content: e
-  - delay: 72
-    content: t
+    content: ie
   - delay: 50
-    content: ' '
+    content: 't '
   - delay: 48
-    content: '-'
-  - delay: 44
-    content: '-'
+    content: '--'
   - delay: 72
-    content: e
-  - delay: 28
-    content: v
+    content: ev
   - delay: 56
-    content: a
-  - delay: 56
-    content: l
-  - delay: 30
-    content: ' '
+    content: al
   - delay: 48
-    content: ''''
+    content: ' '''
   - delay: 41
-    content: d
-  - delay: 38
-    content: b
+    content: db
   - delay: 56
-    content: .
-  - delay: 76
-    content: p
+    content: .p
   - delay: 25
-    content: e
-  - delay: 32
-    content: o
+    content: eo
   - delay: 20
-    content: p
-  - delay: 30
-    content: l
+    content: pl
   - delay: 72
-    content: e
-  - delay: 56
-    content: .
+    content: e.
   - delay: 28
-    content: f
-  - delay: 66
-    content: i
+    content: fi
   - delay: 64
-    content: 'n'
-  - delay: 40
-    content: d
-  - delay: 27
-    content: (
+    content: nd
   - delay: 35
-    content: '{'
+    content: '({'
   - delay: 44
-    content: '}'
-  - delay: 35
-    content: ','
+    content: '},'
   - delay: 69
-    content: '{'
-  - delay: 34
-    content: _
+    content: '{_'
   - delay: 52
-    content: i
-  - delay: 37
-    content: d
+    content: id
   - delay: 45
-    content: ':'
-  - delay: 29
-    content: '0'
+    content: ':0'
   - delay: 47
-    content: '}'
-  - delay: 58
-    content: )
-  - delay: 60
-    content: ''''
+    content: '})'''
   - delay: 67
     content: "\r\n"
   - delay: 334
@@ -671,45 +419,25 @@ records:
   - delay: 34
     content: "$ "
   - delay: 1117
-    content: t
-  - delay: 48
-    content: i
+    content: ti
   - delay: 64
-    content: t
-  - delay: 63
-    content: a
+    content: ta
   - delay: 57
-    content: 'n'
-  - delay: 48
-    content: ' '
+    content: 'n '
   - delay: 72
-    content: c
-  - delay: 91
-    content: h
+    content: ch
   - delay: 54
-    content: e
-  - delay: 55
-    content: c
+    content: ec
   - delay: 65
-    content: k
-  - delay: 55
-    content: o
+    content: ko
   - delay: 56
-    content: u
-  - delay: 43
-    content: t
+    content: ut
   - delay: 65
-    content: ' '
-  - delay: 68
-    content: m
+    content: ' m'
   - delay: 14
-    content: o
-  - delay: 30
-    content: 'n'
+    content: on
   - delay: 26
-    content: g
-  - delay: 38
-    content: o
+    content: go
   - delay: 56
     content: "\r\n"
   - delay: 489
@@ -724,11 +452,57 @@ records:
     content: "Starting port forwarding\r\n"
 
   # mongo --quiet --eval 'db.people.find({},{_id:0})'
-  - delay: 270
+  - delay: 34
     content: "$ "
-  - delay: 1039
-    content: 'mongo --quiet --eval ''db.people.find({},{_id:0})'''
-  - delay: 43
+  - delay: 1070
+    content: mo
+  - delay: 20
+    content: ng
+  - delay: 20
+    content: 'o '
+  - delay: 54
+    content: '--'
+  - delay: 38
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 50
+    content: 't '
+  - delay: 48
+    content: '--'
+  - delay: 72
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 48
+    content: ' '''
+  - delay: 41
+    content: db
+  - delay: 56
+    content: .p
+  - delay: 25
+    content: eo
+  - delay: 20
+    content: pl
+  - delay: 72
+    content: e.
+  - delay: 28
+    content: fi
+  - delay: 64
+    content: nd
+  - delay: 35
+    content: '({'
+  - delay: 44
+    content: '},'
+  - delay: 69
+    content: '{_'
+  - delay: 52
+    content: id
+  - delay: 45
+    content: ':0'
+  - delay: 47
+    content: '})'''
+  - delay: 67
     content: "\r\n"
   - delay: 427
     content: "{ \"name\" : \"Grace Hopper\" }\r\n"
@@ -737,91 +511,47 @@ records:
   - delay: 38
     content: "$ "
   - delay: 1004
-    content: t
-  - delay: 71
-    content: i
+    content: ti
   - delay: 39
-    content: t
-  - delay: 53
-    content: a
+    content: ta
   - delay: 56
-    content: 'n'
-  - delay: 40
-    content: ' '
+    content: 'n '
   - delay: 72
-    content: r
-  - delay: 48
-    content: e
+    content: re
   - delay: 24
-    content: m
-  - delay: 72
-    content: o
+    content: mo
   - delay: 30
-    content: t
-  - delay: 73
-    content: e
+    content: te
   - delay: 39
-    content: ' '
-  - delay: 39
-    content: a
+    content: ' a'
   - delay: 34
-    content: d
-  - delay: 37
-    content: d
+    content: dd
   - delay: 96
-    content: ' '
-  - delay: 44
-    content: s
+    content: ' s'
   - delay: 45
-    content: '3'
-  - delay: 29
-    content: ':'
+    content: '3:'
   - delay: 28
-    content: /
-  - delay: 37
-    content: /
+    content: //
   - delay: 47
-    content: m
-  - delay: 31
-    content: y
+    content: my
   - delay: 64
-    content: '-'
-  - delay: 56
-    content: b
+    content: '-b'
   - delay: 63
-    content: u
-  - delay: 34
-    content: c
+    content: uc
   - delay: 47
-    content: k
-  - delay: 64
-    content: e
+    content: ke
   - delay: 71
-    content: t
-  - delay: 42
-    content: /
+    content: t/
   - delay: 24
-    content: t
-  - delay: 96
-    content: i
+    content: ti
   - delay: 29
-    content: t
-  - delay: 64
-    content: a
+    content: ta
   - delay: 96
-    content: 'n'
-  - delay: 46
-    content: ' '
+    content: 'n '
   - delay: 90
-    content: m
-  - delay: 28
-    content: o
+    content: mo
   - delay: 29
-    content: 'n'
-  - delay: 53
-    content: g
-  - delay: 48
-    content: o
+    content: 'ngo'
   - delay: 71
     content: "\r\n"
 
@@ -829,37 +559,21 @@ records:
   - delay: 229
     content: "$ "
   - delay: 1181
-    content: t
-  - delay: 78
-    content: i
+    content: ti
   - delay: 63
-    content: t
-  - delay: 57
-    content: a
+    content: ta
   - delay: 47
-    content: 'n'
-  - delay: 31
-    content: ' '
+    content: 'n '
   - delay: 55
-    content: p
-  - delay: 72
-    content: u
+    content: pu
   - delay: 48
-    content: s
-  - delay: 36
-    content: h
+    content: sh
   - delay: 57
-    content: ' '
-  - delay: 52
-    content: m
+    content: ' m'
   - delay: 49
-    content: o
-  - delay: 35
-    content: 'n'
+    content: on
   - delay: 40
-    content: g
-  - delay: 34
-    content: o
+    content: go
   - delay: 49
     content: "\r\n"
   - delay: 793
@@ -881,37 +595,21 @@ records:
   - delay: 8
     content: "$ "
   - delay: 955
-    content: t
-  - delay: 38
-    content: i
+    content: ti
   - delay: 73
-    content: t
-  - delay: 63
-    content: a
+    content: ta
   - delay: 48
-    content: 'n'
-  - delay: 71
-    content: ' '
+    content: 'n '
   - delay: 25
-    content: s
-  - delay: 64
-    content: t
+    content: st
   - delay: 31
-    content: o
-  - delay: 48
-    content: p
+    content: op
   - delay: 74
-    content: ' '
-  - delay: 51
-    content: m
+    content: ' m'
   - delay: 14
-    content: o
-  - delay: 34
-    content: 'n'
+    content: on
   - delay: 72
-    content: g
-  - delay: 53
-    content: o
+    content: go
   - delay: 33
     content: "\r\n"
   - delay: 629
@@ -927,37 +625,21 @@ records:
   - delay: 20
     content: "$ "
   - delay: 887
-    content: t
-  - delay: 71
-    content: i
+    content: ti
   - delay: 37
-    content: t
-  - delay: 73
-    content: a
+    content: ta
   - delay: 69
-    content: 'n'
-  - delay: 45
-    content: ' '
+    content: 'n '
   - delay: 71
-    content: c
-  - delay: 49
-    content: o
+    content: co
   - delay: 64
-    content: 'n'
+    content: nt
   - delay: 56
-    content: t
-  - delay: 56
-    content: e
-  - delay: 39
-    content: x
-  - delay: 72
-    content: t
+    content: ex
   - delay: 32
-    content: ' '
+    content: 't '
   - delay: 21
-    content: l
-  - delay: 47
-    content: s
+    content: ls
   - delay: 68
     content: "\r\n"
   - delay: 285
@@ -967,61 +649,33 @@ records:
   - delay: 13
     content: "$ "
   - delay: 917
-    content: t
-  - delay: 34
-    content: i
+    content: ti
   - delay: 64
-    content: t
-  - delay: 56
-    content: a
+    content: ta
   - delay: 49
-    content: 'n'
-  - delay: 53
-    content: ' '
+    content: 'n '
   - delay: 19
-    content: c
-  - delay: 40
-    content: o
+    content: co
   - delay: 56
-    content: 'n'
-  - delay: 65
-    content: t
+    content: nt
   - delay: 48
-    content: e
-  - delay: 36
-    content: x
-  - delay: 23
-    content: t
+    content: ex
   - delay: 41
-    content: ' '
+    content: 't '
   - delay: 28
-    content: d
-  - delay: 37
-    content: e
+    content: de
   - delay: 15
-    content: f
-  - delay: 71
-    content: a
+    content: fa
   - delay: 72
-    content: u
-  - delay: 32
-    content: l
-  - delay: 30
-    content: t
+    content: ul
   - delay: 73
-    content: ' '
+    content: 't '
   - delay: 40
-    content: d
-  - delay: 47
-    content: o
+    content: do
   - delay: 55
-    content: c
-  - delay: 50
-    content: k
+    content: ck
   - delay: 60
-    content: e
-  - delay: 47
-    content: r
+    content: er
   - delay: 46
     content: "\r\n"
 
@@ -1029,99 +683,51 @@ records:
   - delay: 160
     content: "$ "
   - delay: 1049
-    content: t
-  - delay: 32
-    content: i
+    content: ti
   - delay: 42
-    content: t
-  - delay: 48
-    content: a
+    content: ta
   - delay: 69
-    content: 'n'
-  - delay: 59
-    content: ' '
+    content: 'n '
   - delay: 52
-    content: c
-  - delay: 96
-    content: l
+    content: cl
   - delay: 20
-    content: o
+    content: on
   - delay: 56
-    content: 'n'
-  - delay: 48
-    content: e
-  - delay: 56
-    content: ' '
+    content: 'e '
   - delay: 49
-    content: s
-  - delay: 24
-    content: '3'
+    content: s3
   - delay: 43
-    content: ':'
-  - delay: 75
-    content: /
+    content: ':/'
   - delay: 45
-    content: /
-  - delay: 61
-    content: m
-  - delay: 39
-    content: y
+    content: /m
   - delay: 32
-    content: '-'
+    content: 'y-'
   - delay: 72
-    content: b
-  - delay: 40
-    content: u
+    content: bu
   - delay: 52
-    content: c
-  - delay: 50
-    content: k
+    content: ck
   - delay: 72
-    content: e
-  - delay: 72
-    content: t
+    content: et
   - delay: 71
-    content: /
-  - delay: 39
-    content: t
+    content: /t
   - delay: 46
-    content: i
-  - delay: 64
-    content: t
+    content: it
   - delay: 31
-    content: a
-  - delay: 41
-    content: 'n'
+    content: an
   - delay: 64
-    content: ' '
-  - delay: 45
-    content: '-'
+    content: ' -'
   - delay: 26
-    content: 'n'
-  - delay: 96
-    content: ' '
+    content: 'n '
   - delay: 72
-    content: m
-  - delay: 44
-    content: o
+    content: mo
   - delay: 64
-    content: 'n'
-  - delay: 50
-    content: g
-  - delay: 66
-    content: o
+    content: ng
   - delay: 67
-    content: '-'
+    content: 'o-'
   - delay: 76
-    content: l
-  - delay: 52
-    content: o
+    content: lo
   - delay: 63
-    content: c
-  - delay: 56
-    content: a
-  - delay: 65
-    content: l
+    content: cal
   - delay: 31
     content: "\r\n"
   - delay: 383
@@ -1147,104 +753,106 @@ records:
   - delay: 15
     content: "$ "
   - delay: 1084
-    content: d
-  - delay: 63
-    content: o
+    content: do
   - delay: 97
-    content: c
-  - delay: 40
-    content: k
+    content: ck
   - delay: 96
-    content: e
-  - delay: 40
-    content: r
+    content: er
   - delay: 69
-    content: ' '
-  - delay: 59
-    content: p
-  - delay: 30
-    content: s
+    content: ' p'
   - delay: 54
-    content: ' '
+    content: 's '
   - delay: 75
-    content: '-'
-  - delay: 56
-    content: f
+    content: '-f'
   - delay: 72
-    content: ' '
-  - delay: 60
-    content: 'n'
+    content: ' n'
   - delay: 57
-    content: a
-  - delay: 70
-    content: m
+    content: am
   - delay: 45
-    content: e
-  - delay: 37
-    content: =
+    content: e=
   - delay: 28
-    content: m
-  - delay: 47
-    content: o
+    content: mo
   - delay: 34
-    content: 'n'
-  - delay: 65
-    content: g
-  - delay: 64
-    content: o
+    content: ng
   - delay: 75
-    content: ' '
+    content: 'o '
   - delay: 45
-    content: '-'
-  - delay: 37
-    content: '-'
+    content: '--'
   - delay: 62
-    content: f
-  - delay: 51
-    content: o
+    content: fo
   - delay: 35
-    content: r
-  - delay: 45
-    content: m
+    content: rm
   - delay: 72
-    content: a
-  - delay: 45
-    content: t
+    content: at
   - delay: 51
-    content: ' '
-  - delay: 28
-    content: '{'
+    content: ' {'
   - delay: 32
-    content: '{'
-  - delay: 41
-    content: .
+    content: '{.'
   - delay: 29
-    content: N
-  - delay: 52
-    content: a
+    content: Na
   - delay: 61
-    content: m
-  - delay: 49
-    content: e
-  - delay: 56
-    content: s
+    content: me
   - delay: 39
-    content: '}'
-  - delay: 48
-    content: '}'
+    content: 's}}'
   - delay: 78
     content: "\r\n"
   - delay: 63
     content: "mongo-local\r\n$ "
 
   # mongo --quiet --eval 'db.people.find({},{_id:0})'
-  - delay: 807
-    content: 'mongo --quiet --eval ''db.people.find({},{_id:0})'''
-  - delay: 91
+  - delay: 1070
+    content: mo
+  - delay: 20
+    content: ng
+  - delay: 20
+    content: 'o '
+  - delay: 54
+    content: '--'
+  - delay: 38
+    content: qu
+  - delay: 64
+    content: ie
+  - delay: 50
+    content: 't '
+  - delay: 48
+    content: '--'
+  - delay: 72
+    content: ev
+  - delay: 56
+    content: al
+  - delay: 48
+    content: ' '''
+  - delay: 41
+    content: db
+  - delay: 56
+    content: .p
+  - delay: 25
+    content: eo
+  - delay: 20
+    content: pl
+  - delay: 72
+    content: e.
+  - delay: 28
+    content: fi
+  - delay: 64
+    content: nd
+  - delay: 35
+    content: '({'
+  - delay: 44
+    content: '},'
+  - delay: 69
+    content: '{_'
+  - delay: 52
+    content: id
+  - delay: 45
+    content: ':0'
+  - delay: 47
+    content: '})'''
+  - delay: 67
     content: "\r\n"
-  - delay: 298
+  - delay: 427
     content: "{ \"name\" : \"Grace Hopper\" }\r\n"
   - delay: 9
-    content: "$ "
+    content: '$ '
   - delay: 5149
-    content: " "
+    content: ' '
