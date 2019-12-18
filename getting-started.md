@@ -13,12 +13,13 @@ system, consult the [Documentation](/docs) to determine if your distribution is
 supported.
 
 Once you have docker configured and running, you will need to head to the
-[download page](/download) or grab the archive here:
-[MacOS]({{ site.data.download.macos }}),
-[Windows]({{ site.data.download.windows }}),
-[Linux]({{ site.data.download.linux }}). When you extract the archive,
+[download page](/download). When you extract the archive,
 you will have a single `titan` binary that you should place in your path
-(such as `/usr/local/bin`). From there, you can run:
+(such as `/usr/local/bin`).
+
+## Titan for Docker
+
+To use Titan with containers running on your local workstation, run:
 
 {% include code_block.html code='titan install' %}
 
@@ -30,6 +31,18 @@ Docker VM or Linux host. If you are using an unsupported Linux distribution,
 or a bleeding edge Docker Desktop build, you may find that it has to build
 a custom distribution and may fail outright. Reach out to the
 [community](/community) for assistance.
+
+## Titan for Kubernetes
+
+Titan Kubernetes support is currently in beta. For more information on how
+Kubernetes works, its limitations, and cluster requirements, see the
+[Kubernetes Documentation](/docs/version/development/lifecycle/kubernetes.html).
+To install Titan for Kubernetes, run:
+
+{% include code_block.html code='titan context install -t kubernetes' %}
+
+This will still require downloading and installing a titan container, but it
+will not require installing ZFS on the Docker VM or Linux host.
 
 # Cloning Your First Repo
 We can launch a postgres database simply by cloning this demo repository:
