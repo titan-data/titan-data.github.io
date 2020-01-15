@@ -196,7 +196,7 @@
             
   <div class="section" id="titan-ls">
 <span id="cli-cmd-ls"></span><h1>titan ls<a class="headerlink" href="#titan-ls" title="Permalink to this headline">¶</a></h1>
-<p>List all repositories on the system. This displays the repository name and
+<p>List all repositories. This displays the repository name, context and
 status for each. The status can be one of:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">running</span></code> - The associated docker container is currently running. It can
@@ -209,18 +209,16 @@ to launch. It can be started again by running <a class="reference internal" href
 </ul>
 <div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">ls</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">ls</span>
 </pre></div>
 </div>
-</div></blockquote>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan ls
-REPOSITORY            STATUS
-myrepo                running
-myrepo2               exited
+CONTEXT            REPOSITORY            STATUS
+docker             myrepo                running
+docker             myrepo2               exited
 </pre></div>
 </div>
 </div>

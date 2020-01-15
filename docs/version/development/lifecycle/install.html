@@ -180,7 +180,8 @@ means installing <a class="reference external" href="https://www.docker.com/prod
 For Linux, this means <a class="reference external" href="https://docs.docker.com/v17.12/install">installing docker</a>
 via your distribution-specific mechanism.</p>
 <p>If you can run a basic Linux docker container you’re ready for the next step:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">busybox</span><span class="p">:</span><span class="n">latest</span> <span class="n">echo</span> <span class="n">ready</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run --rm busybox:latest echo ready
+ready
 </pre></div>
 </div>
 </div>
@@ -192,7 +193,7 @@ specific to your platform. Extract the archive and place it in a location that
 is part of your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> such as <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>.</p>
 <p>If you can get the current Titan version you’re ready for the next step:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan --version
-titan version 0.3.0
+titan version 0.4.1
 </pre></div>
 </div>
 </div>
@@ -202,7 +203,19 @@ titan version 0.3.0
 containerized service to do a lot of the heavy lifting. The <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">install</span></code>
 command will download and run these containers. It may take some time
 to download the titan image, but once complete you should be able to see
-two containers running named <code class="docutils literal notranslate"><span class="pre">titan-docker-launch</span></code> and <code class="docutils literal notranslate"><span class="pre">titan-docker-server</span></code>:</p>
+two containers running named <code class="docutils literal notranslate"><span class="pre">titan-docker-launch</span></code> and
+<code class="docutils literal notranslate"><span class="pre">titan-docker-server</span></code>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>For MacOS users:</strong> By default, MacOS will block unverified binaries (which
+this is). You may receive an error similar to “‘titan’ cannot be opened
+because the developer cannot be verified.”</p>
+<p>To resolve this, click “cancel,” then navigate to “System Preferences”-&gt;
+“Security and Privacy”&gt;”General” where you will see something like:
+“‘Titan’ was blocked from use because it’s not from an identified developer.”</p>
+<p>Click “Open Anyway,”
+return to the terminal and re-run <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">install</span></code></p>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan install
 Initializing titan infrastructure ...
     √ Checking docker installation
@@ -221,13 +234,13 @@ for use with Kubernetes, see the <a class="reference internal" href="context.htm
 environment without access to the main docker registry, you can manually load
 the <code class="docutils literal notranslate"><span class="pre">`titandata/titan</span></code> image into a private registry and use the <code class="docutils literal notranslate"><span class="pre">-r</span>
 <span class="pre">registry</span></code> option to <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">install</span></code> to pull from there instead.</p>
-<p>When using the local docker context, the <code class="docutils literal notranslate"><span class="pre">titan-&lt;context&gt;-launch</span></code> container is
-responsible for installing ZFS on the Docker or host VM. For more information
-on how this works and supported configurations, see the <a class="reference internal" href="docker.html#lifecycle-docker"><span class="std std-ref">Titan with Docker</span></a>
-section.</p>
+<p>When using the local docker context, the <code class="docutils literal notranslate"><span class="pre">titan-&lt;context&gt;-launch</span></code> container
+is responsible for installing ZFS on the Docker or host VM. For more
+information on how this works and supported configurations, see the
+<a class="reference internal" href="docker.html#lifecycle-docker"><span class="std std-ref">Titan with Docker</span></a> section.</p>
 <p>If you can successfully run <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">ls</span></code>, then you should be all set:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan ls
-CONTAINER             STATUS
+CONTEXT             REPOSITORY             STATUS
 </pre></div>
 </div>
 </div>
