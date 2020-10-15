@@ -200,16 +200,19 @@ community to see if new pre-built binaries need to be created.</p>
 <p>MacOS and Windows operate in a similar fashion, with an embedded
 <a class="reference external" href="https://github.com/moby/hyperkit">HyperKit</a> VM running Linux behind the
 scenes. This VM runs <a class="reference external" href="https://github.com/linuxkit/linuxkit">LinuxKit</a>.
-Titan supports the latest Docker Desktop releases. If you are running a very
-old distribution (for example, using the old <code class="docutils literal notranslate"><span class="pre">boot2docker</span></code> framework on
-Windows), you mileage may vary. You should update to the latest version of
+Titan supports Docker Desktop releases after Docker Community Edition 17.12.0-ce
+for both <a class="reference external" href="https://docs.docker.com/docker-for-mac/release-notes/">Mac</a> and
+<a class="reference external" href="https://docs.docker.com/docker-for-windows/release-notes/">Windows</a>.
+This version, released on 2018-01-09, is the first one completely built with the LinuxKit VM.
+If you are running a very old distribution (for example, using the old <code class="docutils literal notranslate"><span class="pre">boot2docker</span></code>
+framework on Windows), you mileage may vary. You should update to the latest version of
 Docker Desktop prior to using Titan.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If a brand new Docker Desktop release comes out that ships with a new
 LinuxKit kernel, it may take some time for the community to update the
 pre-built packages for the newest versions. If you encounter titan
-trying to build packags for a new ZFS kernel, head over to the
+trying to build packages for a new ZFS kernel, head over to the
 <a class="reference external" href="https://github.com/titan-data/zfs-releases">zfs-releases</a> repository
 and open an issue (or PR) with the new version and <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code> output.</p>
 </div>
@@ -241,7 +244,7 @@ provide pre-built binaries for:</p>
 available, it’s likely just a matter of updating the
 <a class="reference external" href="https://github.com/titan-data/zfs-releases">zfs-releases</a> repository with
 the latest build information. If you are trying to use a different distribution
-alltogether, or are trying a new major version for the first time in the
+all together, or are trying a new major version for the first time in the
 community, you may need to update the
 <a class="reference external" href="https://github.com/titan-data/zfs-builder">zfs-builder</a> repository such that
 it knows how to build the new variant.</p>
