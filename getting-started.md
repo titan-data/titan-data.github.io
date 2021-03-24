@@ -121,7 +121,7 @@ $ mongo --quiet --eval 'db.employees.find()'
 {%- endcapture -%}
 {% include code_block.html display=display code='mongo --quiet --eval \'db.employees.find()\'' %}
 
-We can checkout or previous state:
+We can checkout our previous state:
 
 {% include code_block.html code='titan checkout --commit b040cfe3-aae5-42b2-a41c-6fe2e2baad1c mongo-test' %}
 {%- capture display -%}
