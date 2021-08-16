@@ -85,7 +85,7 @@ $ aws dynamodb scan --endpoint http://localhost:8000 --table-name messages | gre
 If you want to start your own database, you can do so with `titan run`, which
 run any stateful docker image with a `VOLUME` declaration, such as MongoDB.
 
-{% include code_block.html code='titan run -n mongo-test mongo:latest' %}
+{% include code_block.html code='titan run -n mongo-test mongo:4' %}
 
 # Committing and Checking out State
 
