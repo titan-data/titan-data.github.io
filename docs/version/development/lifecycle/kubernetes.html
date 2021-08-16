@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Titan with Kubernetes &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
@@ -170,7 +171,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-with-kubernetes">
+  <section id="titan-with-kubernetes">
 <span id="lifecycle-kubernetes"></span><h1>Titan with Kubernetes<a class="headerlink" href="#titan-with-kubernetes" title="Permalink to this headline">¶</a></h1>
 <p>Titan provides a way to run repositories in different container environments,
 known as “contexts” (see <a class="reference internal" href="context.html#lifecycle-context"><span class="std std-ref">Managing Titan Contexts</span></a> for more information). A
@@ -180,7 +181,7 @@ hosted centrally, or delivered as a cloud service. Through Titan, not only can
 these repositories be run in a simple fashion with powerful data controls, data
 can be shared between them (such as pushing a dataset from a CI/CD Kubernetes
 cluster and later cloning for local debugging).</p>
-<div class="section" id="kubernetes-requirements">
+<section id="kubernetes-requirements">
 <h2>Kubernetes Requirements<a class="headerlink" href="#kubernetes-requirements" title="Permalink to this headline">¶</a></h2>
 <p>Titan requires a Kubernetes cluster with the following configuration options:</p>
 <ul class="simple">
@@ -206,8 +207,8 @@ cluster. The pods themselves will be accessible to any kubernetes user, but
 there is no way to manage them as Titan repositories on a different system.</p>
 <p>Each push or pull operation is run as a separate Job, requiring that the
 <cite>titandata/titan</cite> image be avaialble to the cluster.</p>
-</div>
-<div class="section" id="kubernetes-architecture">
+</section>
+<section id="kubernetes-architecture">
 <h2>Kubernetes Architecture<a class="headerlink" href="#kubernetes-architecture" title="Permalink to this headline">¶</a></h2>
 <p>A Kubernetes repository consists of:</p>
 <ul class="simple">
@@ -227,8 +228,8 @@ is accomplished by running <cite>kubectl port-forward</cite> for each known port
 is a fairly fragile process, since that process can die or the system
 restarted at any time. This will be replaced with a more reliable mechanism
 in the future.</p>
-</div>
-<div class="section" id="limitations">
+</section>
+<section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -257,8 +258,8 @@ the system is restarted, or that process dies, it will need to be manually
 restarted, either by running the <cite>kubectl</cite> directly, or stopping and
 starting the repository.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -280,7 +281,7 @@ starting the repository.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

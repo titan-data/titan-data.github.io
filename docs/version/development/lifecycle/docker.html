@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Titan with Docker &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
@@ -92,7 +93,10 @@
 <li class="toctree-l2"><a class="reference internal" href="config.html">Repository Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="context.html">Managing Titan Contexts</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Titan with Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#macos-and-windows">MacOS and Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos-and-windows">MacOS and Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-specific-setup">System Specific Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
 </ul>
 </li>
@@ -169,7 +173,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-with-docker">
+  <section id="titan-with-docker">
 <span id="lifecycle-docker"></span><h1>Titan with Docker<a class="headerlink" href="#titan-with-docker" title="Permalink to this headline">¶</a></h1>
 <p>Titan for docker is designed to run on any system that supports docker, but
 there are some dependencies that limit the set of supported operation systems,
@@ -190,12 +194,12 @@ build them on the fly. For Linux, we are still limited to the set of supported
 distributions, but we can build for slightly different variations or versions
 if needed. If you are running a Linux system other than a supported
 distribution, you can also compile and install ZFS yourself, provided it’s
-version <cite>0.8.1</cite>, and Titan will use that instead of trying to install its own.</p>
+version <cite>0.8.1</cite>, <cite>0.8.2</cite>, or <cite>2.0.*</cite>, and Titan will use that instead of trying to install its own.</p>
 <p>If the installation is taking a while, and you see a <code class="docutils literal notranslate"><span class="pre">zfs-builder</span></code>
 container in <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> output, then it’s off building a custom version
 of ZFS. If you are running a supported operating system, then reach out to the
 community to see if new pre-built binaries need to be created.</p>
-<div class="section" id="macos-and-windows">
+<section id="macos-and-windows">
 <h2>MacOS and Windows<a class="headerlink" href="#macos-and-windows" title="Permalink to this headline">¶</a></h2>
 <p>MacOS and Windows operate in a similar fashion, with an embedded
 <a class="reference external" href="https://github.com/moby/hyperkit">HyperKit</a> VM running Linux behind the
@@ -223,8 +227,25 @@ and open an issue (or PR) with the new version and <code class="docutils literal
 due to limitations in Docker that prevent local volumes from working
 properly.</p>
 </div>
-</div>
-<div class="section" id="linux">
+<section id="system-specific-setup">
+<h3>System Specific Setup<a class="headerlink" href="#system-specific-setup" title="Permalink to this headline">¶</a></h3>
+<p>On Windows, disable “Use the WSL2 Based Engine” in your Docker settings on Windows. We currently do not support Docker running via WSL2. You can always change this setting back later.</p>
+<figure class="align-center" id="id2">
+<img alt="../_images/docker_wsl2_settings.png" src="../_images/docker_wsl2_settings.png" />
+<figcaption>
+<p><span class="caption-text"><em>Disable WSL2</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>On Mac, disable “Use gRPC FUSE for file sharing”.</p>
+<figure class="align-center" id="id3">
+<img alt="../_images/docker_mac_settings.jpg" src="../_images/docker_mac_settings.jpg" />
+<figcaption>
+<p><span class="caption-text"><em>Disable gRPC Fuse</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="linux">
 <h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
 <p>The situation with Linux is quite different. With Linux, there’s no standard
 Docker VM being provided by Docker Desktop. Instead, we’re running on whatever
@@ -255,8 +276,8 @@ it knows how to build the new variant.</p>
 yourself. Titan will use any installed ZFS, version 0.8.1 or later, and
 won’t attempt to install its own modules.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -278,7 +299,7 @@ won’t attempt to install its own modules.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

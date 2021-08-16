@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>titan pull &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -196,24 +197,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-pull">
+  <section id="titan-pull">
 <span id="cli-cmd-pull"></span><h1>titan pull<a class="headerlink" href="#titan-pull" title="Permalink to this headline">¶</a></h1>
 <p>Pull a commit from a remote repository. For more information on pushing
 commits, see the <a class="reference internal" href="../../remote/pushpull.html#remote-pushpull"><span class="std std-ref">Pushing and Pulling</span></a> section.</p>
-<div class="section" id="syntax">
+<section id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">pull</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">commit</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">remote</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="p">[</span><span class="o">=</span><span class="n">value</span><span class="p">]</span> <span class="o">...</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="arguments">
+</section>
+<section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>repository</dt><dd><p><em>Required</em>. The name of the target repository.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="options">
+</section>
+<section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">-c</span>, <span class="option">--commit <var>commit</var></span></kbd></dt>
@@ -234,8 +235,8 @@ Tags are matched according to the filtering rules
 described in the <a class="reference internal" href="../../local/tags.html#local-tags"><span class="std std-ref">Tagging Commits</span></a> section.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan pull hello-world
 PULL 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from origin RUNNING
@@ -243,8 +244,8 @@ Pulling 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from &#39;origin&#39;
 PULL 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from origin COMPLETE
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -266,7 +267,7 @@ PULL 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f from origin COMPLETE
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>SSH Provider &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -166,7 +167,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ssh-provider">
+  <section id="ssh-provider">
 <span id="remote-provider-ssh"></span><h1>SSH Provider<a class="headerlink" href="#ssh-provider" title="Permalink to this headline">¶</a></h1>
 <p>The SSH provider enables commits to be stored on any server where the user
 has remote access over SSH. The URI syntax is:</p>
@@ -194,7 +195,7 @@ reading the metadata file for each, and comparing the result.  It should only be
 used for storing relatively small numbers of commits. Improving this will
 require a new provider that includes a robust metadata layer on top of the base
 SSH functionality.</p>
-<div class="section" id="ssh-specific-parameters">
+<section id="ssh-specific-parameters">
 <h2>SSH Specific Parameters<a class="headerlink" href="#ssh-specific-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keyFile</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">keyFile</span>    <span class="n">Location</span> <span class="n">of</span> <span class="n">private</span> <span class="n">SSH</span> <span class="n">key</span> <span class="n">file</span>
 </pre></div>
@@ -210,8 +211,8 @@ the host system but not within titan, you can run
 <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">titan-server</span> <span class="pre">/bin/bash</span></code> and run standard Linux commands
 (such as ssh and ping) to debug the issue.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -233,7 +234,7 @@ the host system but not within titan, you can run
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

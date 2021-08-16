@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Managing Docker &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -170,14 +171,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-docker">
+  <section id="managing-docker">
 <span id="local-docker"></span><h1>Managing Docker<a class="headerlink" href="#managing-docker" title="Permalink to this headline">¶</a></h1>
 <p>Titan relies heavily on docker to provide database capabilities. Titan will
 inspect docker images to determine what data needs to be persisted, and
 uses docker to run the resulting containers. There are several important
 implications of this approach, and current limitations that users should
 be aware of.</p>
-<div class="section" id="docker-images">
+<section id="docker-images">
 <h2>Docker Images<a class="headerlink" href="#docker-images" title="Permalink to this headline">¶</a></h2>
 <p>Docker images form the basis of the repository configuration. They provide
 the software used to serve up the data, along with the configuration around
@@ -211,8 +212,8 @@ If you have a use case for this, head over to the
 <cite>community &lt;https://titan-data.io/community&gt;</cite> and file a feature request
 for us to better understand the need.</p>
 </div>
-</div>
-<div class="section" id="docker-containers">
+</section>
+<section id="docker-containers">
 <h2>Docker Containers<a class="headerlink" href="#docker-containers" title="Permalink to this headline">¶</a></h2>
 <p>Every titan repository corresponds to exactly one docker container. The
 configuration of this container is defined when the <a class="reference internal" href="../cli/cmd/run.html#cli-cmd-run"><span class="std std-ref">titan run</span></a>
@@ -247,8 +248,8 @@ into building your own custom image instead.</p>
 starting and stopping the container. If you <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span></code> the container,
 it will show up as <code class="docutils literal notranslate"><span class="pre">detached</span></code> in titan, though it can be restarted by
 running <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">start</span></code> even in the detached state.</p>
-</div>
-<div class="section" id="docker-configuration">
+</section>
+<section id="docker-configuration">
 <h2>Docker Configuration<a class="headerlink" href="#docker-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Each time a commit is created, we store both the docker configuration and
 the image digest of the image used at the time the commit was created. So
@@ -270,8 +271,8 @@ configuration as part of future work.</p>
 repository, so all consumers of a particular commit must use the exact
 same configuration. This will be relaxed in a future release.</p>
 </div>
-</div>
-<div class="section" id="other-container-technology">
+</section>
+<section id="other-container-technology">
 <h2>Other Container Technology<a class="headerlink" href="#other-container-technology" title="Permalink to this headline">¶</a></h2>
 <p>Titan began its life focused on the tool most commonly used by individual
 developers on their laptops: Docker. But containers can be used in many
@@ -283,8 +284,8 @@ approach may look very different than the mechanism today.</p>
 <p>Keep up to date with our <a class="reference external" href="https://titan-data.io/future">future roadmap</a>, and
 join the <a class="reference external" href="https://titan-data.io/community">community</a> to help us evolve
 in the future.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -306,7 +307,7 @@ in the future.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

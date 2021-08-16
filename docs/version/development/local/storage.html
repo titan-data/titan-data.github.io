@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Managing Local Storage &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -167,7 +168,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-local-storage">
+  <section id="managing-local-storage">
 <span id="local-storage"></span><h1>Managing Local Storage<a class="headerlink" href="#managing-local-storage" title="Permalink to this headline">¶</a></h1>
 <p>All of the local titan storage, including the data stored on repositories,
 is kept in a single docker volume <code class="docutils literal notranslate"><span class="pre">titan-data</span></code>. This volume will persist
@@ -191,7 +192,7 @@ automatically destroyed when <code class="docutils literal notranslate"><span cl
 currently a way to uninstall titan while preserving the underlying
 volume.</p>
 </div>
-<div class="section" id="managing-storage-usage">
+<section id="managing-storage-usage">
 <h2>Managing Storage Usage<a class="headerlink" href="#managing-storage-usage" title="Permalink to this headline">¶</a></h2>
 <p>To view the amount of space consumed by a repository, run the
 <a class="reference internal" href="../cli/cmd/status.html#cli-cmd-status"><span class="std std-ref">titan status</span></a> command. This will display output similar to:</p>
@@ -213,8 +214,8 @@ it may or may not reduce overall data consumption as that data may be
 referenced by previous commits.</p>
 <p>There is not currently a way to view the amount of storage used by individual
 commits.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -236,7 +237,7 @@ commits.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

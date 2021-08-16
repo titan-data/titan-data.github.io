@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>S3 Provider &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -166,7 +167,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="s3-provider">
+  <section id="s3-provider">
 <span id="remote-provider-s3"></span><h1>S3 Provider<a class="headerlink" href="#s3-provider" title="Permalink to this headline">¶</a></h1>
 <p>The S3 provider uses S3 to store commits remotely in a S3 bucket. Each commit
 is stored as an tar archive, with the commit metadata attached as object
@@ -198,15 +199,15 @@ metadata file, and there are no provisions for keeping that metadata consistent
 in the face of simultaneous pushes. It should only be used for storing
 relatively small numbers of commits. Improving this will require a new provider
 that includes a robust metadata layer on top of the base S3 functionality.</p>
-<div class="section" id="ssh-specific-parameters">
+<section id="ssh-specific-parameters">
 <h2>SSH Specific Parameters<a class="headerlink" href="#ssh-specific-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accessKey</span><span class="o">=</span><span class="n">aws_access_key_id</span>         <span class="n">AWS</span> <span class="n">Access</span> <span class="n">Key</span> <span class="n">ID</span>
 <span class="n">secretKey</span><span class="o">=</span><span class="n">aws_secret_access_key</span>     <span class="n">AWS</span> <span class="n">Secret</span> <span class="n">Access</span> <span class="n">Key</span>
 <span class="n">region</span><span class="o">=</span><span class="n">region</span>                       <span class="n">AWS</span> <span class="n">Region</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -228,7 +229,7 @@ that includes a robust metadata layer on top of the base S3 functionality.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

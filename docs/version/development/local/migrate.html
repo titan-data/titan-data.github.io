@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Migrating Existing Containers &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -168,7 +169,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="migrating-existing-containers">
+  <section id="migrating-existing-containers">
 <span id="local-migrate"></span><h1>Migrating Existing Containers<a class="headerlink" href="#migrating-existing-containers" title="Permalink to this headline">¶</a></h1>
 <p>Titan provides lots of freedom for how you might populate data into a new
 repository. You might run some scripts to generate data, load data from
@@ -177,7 +178,7 @@ encode these database-specific mechanisms into the tool, but does provide some
 platform-agnostic capabilities for loading data. In this section, we show
 how you can migrate data from a container you already have running on your
 laptop.</p>
-<div class="section" id="source-container">
+<section id="source-container">
 <h2>Source Container<a class="headerlink" href="#source-container" title="Permalink to this headline">¶</a></h2>
 <p>The source container must be from an image available in a docker registry,
 and the data corresponding to volume directives (see the <a class="reference internal" href="copy.html#local-copy"><span class="std std-ref">Copying Existing Data</span></a>
@@ -192,8 +193,8 @@ host system, thn <code class="docutils literal notranslate"><span class="pre">mi
 data is not changing, and because the new repository will use the same
 configuration, potentially creating conflicts with ports and other global
 resources.</p>
-</div>
-<div class="section" id="migrating-a-container">
+</section>
+<section id="migrating-a-container">
 <h2>Migrating a Container<a class="headerlink" href="#migrating-a-container" title="Permalink to this headline">¶</a></h2>
 <p>Assuming the container meets the above criteria, you can create a repository
 from it by running:</p>
@@ -210,8 +211,8 @@ one by one.</p>
 it is migrated, you must use the identical configuration as the source
 container.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -233,7 +234,7 @@ container.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

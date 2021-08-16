@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Managing Titan Contexts &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
@@ -169,7 +170,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="managing-titan-contexts">
+  <section id="managing-titan-contexts">
 <span id="lifecycle-context"></span><h1>Managing Titan Contexts<a class="headerlink" href="#managing-titan-contexts" title="Permalink to this headline">¶</a></h1>
 <p>All titan repositories are associated with a single context. Each context
 has a type, either Docker or Kubernetes, that defines how it manages
@@ -182,7 +183,7 @@ repositories within it.</p>
 with the repositories and orchestrates their lifecycle. These containers are
 named <code class="docutils literal notranslate"><span class="pre">titan-(context)-server</span></code> and, for local docker contexts,
 <code class="docutils literal notranslate"><span class="pre">titan-(context)-launch</span></code>.</p>
-<div class="section" id="context-configuration">
+<section id="context-configuration">
 <h2>Context Configuration<a class="headerlink" href="#context-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Contexts are installed through the <a class="reference internal" href="../cli/cmd/context_install.html#cli-cmd-context-install"><span class="std std-ref">titan context install</span></a> command.
 Each context has:</p>
@@ -207,8 +208,8 @@ random when the context is installed.</p></li>
 <p>While this file can be edited by hand, it is recommend to use the Titan context
 commands. To list available contexts, use the <a class="reference internal" href="../cli/cmd/context_ls.html#cli-cmd-context-ls"><span class="std std-ref">titan context ls</span></a>
 command. To uninstall a context, use the <a class="reference internal" href="../cli/cmd/context_uninstall.html#cli-cmd-context-uninstall"><span class="std std-ref">titan context uninstall</span></a></p>
-</div>
-<div class="section" id="selecting-contexts">
+</section>
+<section id="selecting-contexts">
 <h2>Selecting Contexts<a class="headerlink" href="#selecting-contexts" title="Permalink to this headline">¶</a></h2>
 <p>In most situations, a single Titan context is sufficient. When a single
 context is in place, repositories can simply be referenced by their name,
@@ -232,8 +233,8 @@ context configuration file) is used.</p></li>
 ” (*)” indicator. You can also get the default context with the
 <a class="reference internal" href="../cli/cmd/context_default.html#cli-cmd-context-default"><span class="std std-ref">titan context default</span></a> command. To set the default context, run
 <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">context</span> <span class="pre">default</span> <span class="pre">&lt;name&gt;</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -255,7 +256,7 @@ context configuration file) is used.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

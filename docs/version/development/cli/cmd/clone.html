@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>titan clone &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -196,7 +197,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="titan-clone">
+  <section id="titan-clone">
 <span id="cli-cmd-clone"></span><h1>titan clone<a class="headerlink" href="#titan-clone" title="Permalink to this headline">¶</a></h1>
 <p>Clones a new repository based on a commit from a remote repository.
 The docker image and data is all derived from that commit, to specify a different
@@ -204,13 +205,13 @@ docker configuration than what was used when creating the commit pass arguments 
 <code class="docutils literal notranslate"><span class="pre">--`</span></code> for context specific runtime arguments. For more information about using the
 <code class="docutils literal notranslate"><span class="pre">--`</span></code> arguments, see the <a class="reference internal" href="run.html#cli-cmd-run"><span class="std std-ref">titan run</span></a> section. For more information on managing
 the docker configuration, see the <a class="reference internal" href="../../local/docker.html#local-docker"><span class="std std-ref">Managing Docker</span></a> section.</p>
-<div class="section" id="syntax">
+<section id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titan</span> <span class="n">clone</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="nb">id</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">key</span><span class="o">=</span><span class="n">value</span> <span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">repository</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">uri</span><span class="o">&gt;</span> <span class="o">--</span> <span class="p">[</span><span class="n">additional</span> <span class="n">context</span> <span class="n">specific</span> <span class="n">arguments</span><span class="p">]</span><span class="o">...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="arguments">
+</section>
+<section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>uri</dt><dd><p><em>Required</em>. The URI of the remote to clone from. For more information on
@@ -220,8 +221,8 @@ with query parameters (for tags), it must be passed after the “–” delimete
 otherwise you will get an error of “no such option”.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="options">
+</section>
+<section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="option-list">
 <dt><kbd><span class="option">-c</span>, <span class="option">--commit</span></kbd></dt>
@@ -248,8 +249,8 @@ repository is used (which may or may not match
 the name used in the remote URI).</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ titan clone -n myrepo s3web://demo.titan-data.io/hello-world/postgres
 Creating repository myrepo
@@ -265,8 +266,8 @@ Starting container myrepo
 0f53a6a4-90ff-4f8c-843a-a6cce36f4f4f checked out
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -288,7 +289,7 @@ Starting container myrepo
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Repository Configuration &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
@@ -170,7 +171,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="repository-configuration">
+  <section id="repository-configuration">
 <span id="lifecycle-config"></span><h1>Repository Configuration<a class="headerlink" href="#repository-configuration" title="Permalink to this headline">¶</a></h1>
 <p>Whenever a new repository is created, Titan will store metadata about the
 associated container image that is then stored with each commit and used to
@@ -184,7 +185,7 @@ information is taken from the original container image:</p>
 <li><p>Volume Mappings</p></li>
 <li><p>Exposed Ports</p></li>
 </ul>
-<div class="section" id="image-configuration">
+<section id="image-configuration">
 <h2>Image Configuration<a class="headerlink" href="#image-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Whenever Titan creates a new container from a commit, Titan will attempt to use
 the identical image that was used to create the commit. For images that have
@@ -214,8 +215,8 @@ commits to a remote. It is possible to push radically different commits
 issues when trying to switch between commits in a repository. Be careful
 that you are only pushing and pull compatible commits.</p>
 </div>
-</div>
-<div class="section" id="port-forwarding">
+</section>
+<section id="port-forwarding">
 <h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline">¶</a></h2>
 <p>By default, Titan will forward any exposed ports on the container to the local
 system. For example, running a PostgreSQL image will by default make the
@@ -223,8 +224,8 @@ container available at <code class="docutils literal notranslate"><span class="p
 <code class="docutils literal notranslate"><span class="pre">-P</span></code> option when cloning or running a repository. Custom port mappings can
 be created using additional context-specific configuration options, described
 below.</p>
-</div>
-<div class="section" id="additional-configuration">
+</section>
+<section id="additional-configuration">
 <h2>Additional Configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Additional context-specific configuration can be specified when cloning or
 running a repository, but that configuration will not be persisted with the
@@ -236,8 +237,8 @@ may not exist on a different system, or may not make sense at all in a
 Kubernetes environment), so you will have to specify it each time a repository
 is run or cloned. Once configured, this configuration will continue to be used
 for subsequent checkouts or commits.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -259,7 +260,7 @@ for subsequent checkouts or commits.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

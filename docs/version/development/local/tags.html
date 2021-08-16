@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Tagging Commits &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lifecycle/lifecycle.html">Software Lifecycle</a></li>
@@ -169,7 +170,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tagging-commits">
+  <section id="tagging-commits">
 <span id="local-tags"></span><h1>Tagging Commits<a class="headerlink" href="#tagging-commits" title="Permalink to this headline">¶</a></h1>
 <p>Commits can be tagged with arbitrary user-controlled. These tags can then
 be used to filter logs, control push and pull operations, and augment
@@ -179,7 +180,7 @@ For example, creating a commit with <code class="docutils literal notranslate"><
 to be <code class="docutils literal notranslate"><span class="pre">build=archive</span></code> will overwrite the previous value. As a convenience,
 the value can be omitted, in which case the empty string will be used. This
 lets tags be used as labels, such as <code class="docutils literal notranslate"><span class="pre">titan</span> <span class="pre">commit</span> <span class="pre">-t</span> <span class="pre">nightly</span> <span class="pre">...</span></code>.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h2>Local Tags<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>A commit can be created with any number of tags set through
 <a class="reference internal" href="../cli/cmd/commit.html#cli-cmd-commit"><span class="std std-ref">titan commit</span></a>. Tags can be added or modified by <a class="reference internal" href="../cli/cmd/tag.html#cli-cmd-tag"><span class="std std-ref">titan tag</span></a>,
@@ -195,8 +196,8 @@ Tags: foo=bar baz
 Commit message
 </pre></div>
 </div>
-</div>
-<div class="section" id="remote-tags">
+</section>
+<section id="remote-tags">
 <h2>Remote Tags<a class="headerlink" href="#remote-tags" title="Permalink to this headline">¶</a></h2>
 <p>Tags are automatically propagated as part of push and pull operations. In
 addition, these operations can take a <code class="docutils literal notranslate"><span class="pre">-u</span></code> flag, which indicates that
@@ -206,8 +207,8 @@ changes to remote repositories (as well as pulling down the latest tags for
 a given commit).</p>
 <p>Pushing tags only requires that the commit must already exist in the remote.
 Otherwise a normal push should be use, which will include both data and tags.</p>
-</div>
-<div class="section" id="filtering-by-tag">
+</section>
+<section id="filtering-by-tag">
 <h2>Filtering by Tag<a class="headerlink" href="#filtering-by-tag" title="Permalink to this headline">¶</a></h2>
 <p>A number of commands can be augmented by specifying one or more <code class="docutils literal notranslate"><span class="pre">-t</span></code> options
 to filter commits by tag. These commands include:</p>
@@ -242,8 +243,8 @@ Commit message
 <p>All tags must match for a commit to be included. There is no way to specify
 that one or more tags match (logical OR).</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -265,7 +266,7 @@ that one or more tags match (logical OR).</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>

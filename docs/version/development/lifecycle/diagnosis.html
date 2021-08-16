@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Diagnosing Issues &mdash; titan  documentation</title>
@@ -84,7 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lifecycle.html">Software Lifecycle</a><ul class="current">
@@ -171,7 +172,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="diagnosing-issues">
+  <section id="diagnosing-issues">
 <span id="lifecycle-diagnosis"></span><h1>Diagnosing Issues<a class="headerlink" href="#diagnosing-issues" title="Permalink to this headline">¶</a></h1>
 <p>Titan strives to present error messages in an easy-to-consume, readable
 fashion. But the reality is that we can’t anticipate everything, and as a
@@ -179,7 +180,7 @@ relatively new community there are plenty of rough edges. If something
 goes wrong and the error message doesn’t help you, this section provides
 some additional tools for you to try and self-diagnose the issue prior to
 engaging with the <a class="reference external" href="https://titan-data.io/community">Community</a>.</p>
-<div class="section" id="docker-logs">
+<section id="docker-logs">
 <h2>Docker Logs<a class="headerlink" href="#docker-logs" title="Permalink to this headline">¶</a></h2>
 <p>The most important tool in the diagnosis tool belt is to look at the
 docker logs, specifically <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-&lt;context&gt;-server</span></code>. This will show the
@@ -200,8 +201,8 @@ thing to note is that any unexpected error should result in a stack trace that
 is quite visible in the log. If you start at the end of the log and work your
 way backwards, if you find an exception that matches the behavior you’re seeing,
 then it may contain more information that helps diagnose the problem.</p>
-</div>
-<div class="section" id="docker-state">
+</section>
+<section id="docker-state">
 <h2>Docker State<a class="headerlink" href="#docker-state" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes the issue is not with titan, but with docker itself. For example,
 if you try to start a container that has a port mapping conflict with another
@@ -209,23 +210,23 @@ container, it will fail to start. The CLI should display both the command
 and the output from docker, but if you’re still not sure what is going
 on, you can try to run the command yourself and tweak some of the options
 to see if you can get it to work.</p>
-</div>
-<div class="section" id="installation-issues">
+</section>
+<section id="installation-issues">
 <h2>Installation Issues<a class="headerlink" href="#installation-issues" title="Permalink to this headline">¶</a></h2>
 <p>When you’re running <a class="reference internal" href="../cli/cmd/install.html#cli-cmd-install"><span class="std std-ref">titan install</span></a>, the server container may or may not
 be running successfully. In these cases, you can use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">titan-launch</span></code>
 to see what may be going on within the process. The lines denoted <code class="docutils literal notranslate"><span class="pre">TITAN</span></code> are
 designed to be more user-readable, while the other error messages may be
 internal.</p>
-</div>
-<div class="section" id="local-client-errors">
+</section>
+<section id="local-client-errors">
 <h2>Local Client Errors<a class="headerlink" href="#local-client-errors" title="Permalink to this headline">¶</a></h2>
 <p>It’s possible that there are errors in the client that don’t manifest as calls
 to the container server. If this happens, and the problem is cannot be
 discerned from the error message, try running with <code class="docutils literal notranslate"><span class="pre">TITAN_DEBUG=true</span> <span class="pre">titan</span> <span class="pre">&lt;cmd&gt;</span></code>
 to get more detailed debugging output.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -247,7 +248,7 @@ to get more detailed debugging output.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Titan Project Contributors
+        &copy; Copyright 2021, Titan Project Contributors
 
     </p>
   </div>
