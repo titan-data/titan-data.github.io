@@ -1,5 +1,6 @@
-version: 0.5.3
+version: 0.5.4
 releases: https://github.com/titan-data/titan/releases/download
-macos: darwin_amd64.zip
+macos-amd: darwin_amd64.zip
+macos-arm: darwin_arm64.zip
 windows: windows_amd64.zip
 linux: linux_amd64.tar
